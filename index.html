@@ -1,0 +1,2839 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>PT. Vier Virya Ventures | System Integrator & Enterprise IT Infrastructure</title>
+  <meta name="description" content="PT. Vier Virya Ventures is a premier system integrator based in Jakarta, delivering enterprise network infrastructure, data centers, wireless connectivity, and integrated security across Indonesia.">
+  <meta property="og:title" content="PT. Vier Virya Ventures | Enterprise IT Infrastructure">
+  <meta property="og:description" content="Premier system integrator delivering network infrastructure, data center, and integrated security solutions for enterprises in Indonesia.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="/assets/aistudio/cropped-logovier2_0297489c.webp">
+  <link rel="icon" type="image/webp" href="/assets/aistudio/cropped-logovier2_0297489c.webp">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=block" rel="stylesheet">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "PT. Vier Virya Ventures",
+    "telephone": "+622154397460",
+    "email": "info@vierventures.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Arcade Business Center 6th Floor Unit 6-03, Jl. Pantai Indah Utara 2 Kav. C1",
+      "addressLocality": "Jakarta",
+      "addressCountry": "ID"
+    }
+  }
+  </script>
+
+  <style>
+    :root {
+      --bg: #07070a;
+      --panel: #111218;
+      --card-bg: rgba(18, 19, 26, 0.72);
+      --card-border: rgba(255, 255, 255, 0.09);
+      --ink: #ffffff;
+      --ink-muted: #a6adbb;
+      --ink-faint: #656d7d;
+      --white-btn: #fdfdfd;
+      --btn-ink: #050505;
+      --accent: #a78bfa;
+      --accent-glow: rgba(167, 139, 250, 0.25);
+      --brand-blue: #3b82f6;
+      --emerald: #10b981;
+      --u: min(calc(100vw / 1280), calc(100dvh / 760));
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--bg);
+      color: var(--ink);
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: geometricPrecision;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* Container */
+    .w {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+
+    /* BUTTONS */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      font-family: inherit;
+      font-size: 14.5px;
+      font-weight: 600;
+      border-radius: 999px;
+      padding: 11px 24px;
+      transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: pointer;
+      border: 1px solid transparent;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: var(--white-btn);
+      color: var(--btn-ink);
+      box-shadow: 0 0 24px rgba(255, 255, 255, 0.18);
+    }
+    .btn-primary:hover {
+      background: #ffffff;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 30px rgba(255, 255, 255, 0.35);
+    }
+
+    .btn-ghost {
+      background: rgba(14, 15, 22, 0.75);
+      color: #e2e8f0;
+      border-color: rgba(255, 255, 255, 0.12);
+      -webkit-backdrop-filter: blur(12px);
+      backdrop-filter: blur(12px);
+    }
+    .btn-ghost:hover {
+      background: rgba(25, 27, 38, 0.9);
+      border-color: rgba(255, 255, 255, 0.28);
+      color: #ffffff;
+      transform: translateY(-2px);
+    }
+
+    .btn-sm {
+      padding: 7px 18px;
+      font-size: 13px;
+    }
+
+    .arw {
+      flex: 0 0 auto;
+      width: 12px;
+      height: 10px;
+      display: block;
+      transition: transform 0.2s ease;
+    }
+    .btn:hover .arw {
+      transform: translateX(3px);
+    }
+
+    /* NAVIGATION */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 72px;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      background: rgba(7, 7, 10, 0.75);
+      -webkit-backdrop-filter: blur(20px);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+      transition: background 0.3s ease;
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+    .brand-img {
+      height: 42px;
+      width: auto;
+      max-width: 220px;
+      object-fit: contain;
+      display: block;
+      filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.45));
+      transition: transform 0.22s ease, opacity 0.22s ease;
+    }
+    .brand-logo:hover .brand-img {
+      transform: scale(1.02);
+      opacity: 0.94;
+    }
+    .brand-symbol {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #7c3aed, #3b82f6);
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      font-size: 19px;
+      color: #fff;
+      box-shadow: 0 0 20px rgba(124, 58, 237, 0.45);
+    }
+    .brand-title {
+      font-weight: 800;
+      font-size: 18px;
+      letter-spacing: -0.02em;
+      color: #fff;
+    }
+    .brand-title span {
+      color: var(--accent);
+      font-weight: 600;
+      font-size: 13px;
+      display: block;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-top: -2px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+    .nav-links a {
+      color: var(--ink-muted);
+      font-size: 13.5px;
+      font-weight: 500;
+      transition: color 0.2s ease;
+      letter-spacing: -0.01em;
+    }
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: #fff;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .burger {
+      display: none;
+      width: 42px;
+      height: 36px;
+      background: var(--panel);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+    .burger span {
+      display: block;
+      width: 18px;
+      height: 2px;
+      background: #ededed;
+      border-radius: 2px;
+      position: relative;
+    }
+    .burger span::before,
+    .burger span::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      width: 18px;
+      height: 2px;
+      background: #ededed;
+      border-radius: 2px;
+    }
+    .burger span::before { top: -6px; }
+    .burger span::after  { top: 6px; }
+
+    /* MOBILE MENU DRAWER */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 76px;
+      left: 16px;
+      right: 16px;
+      background: rgba(12, 13, 19, 0.94);
+      -webkit-backdrop-filter: blur(28px);
+      backdrop-filter: blur(28px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 22px;
+      padding: 18px 16px;
+      flex-direction: column;
+      gap: 6px;
+      box-shadow: 0 28px 70px rgba(0, 0, 0, 0.8);
+      z-index: 99;
+      transform-origin: top;
+      animation: menuIn 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    @keyframes menuIn {
+      from { opacity: 0; transform: translateY(-10px) scale(0.97); }
+      to   { opacity: 1; transform: none; }
+    }
+    .mobile-menu.open {
+      display: flex;
+    }
+    .mobile-menu a {
+      color: var(--ink-muted);
+      font-size: 15px;
+      font-weight: 500;
+      padding: 12px 14px;
+      border-radius: 12px;
+      transition: all 0.18s ease;
+    }
+    .mobile-menu a:hover {
+      background: rgba(255, 255, 255, 0.06);
+      color: #fff;
+    }
+    .mobile-menu .divider {
+      height: 1px;
+      background: rgba(255, 255, 255, 0.08);
+      margin: 6px 0;
+    }
+
+    /* HERO SECTION (SELLIX STYLE WITH CONTINUOUS EARTH GLOBE) */
+    .hero {
+      position: relative;
+      width: 100vw;
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      padding-top: 80px;
+      padding-bottom: 50px;
+    }
+
+    .hero-bg {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: max(100vw, calc(100dvh * 1.6));
+      height: max(62.5vw, 100dvh);
+      background-color: #000;
+      z-index: 1;
+      pointer-events: none;
+    }
+    .hero-canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+      pointer-events: none;
+      z-index: 2;
+      opacity: 0;
+      transition: opacity 0.8s ease;
+    }
+    .hero-canvas.is-ready {
+      opacity: 1;
+    }
+    .bg-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 51% 8%;
+      display: block;
+      background-color: #000;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.9s linear;
+    }
+    .bg-video.is-active {
+      opacity: 1;
+    }
+
+    /* Ambient Hero Vignette */
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% 50%, rgba(7, 7, 10, 0.2) 0%, rgba(7, 7, 10, 0.85) 75%, var(--bg) 100%),
+                  linear-gradient(180deg, rgba(7,7,10,0.4) 0%, transparent 20%, transparent 70%, var(--bg) 100%);
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 5;
+      max-width: 890px;
+      text-align: center;
+      padding: 0 20px;
+      margin: auto 0;
+    }
+
+    .pill-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(167, 139, 250, 0.12);
+      color: #c4b5fd;
+      border: 1px solid rgba(167, 139, 250, 0.28);
+      font-size: 12.5px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      padding: 6px 16px;
+      border-radius: 999px;
+      margin-bottom: 24px;
+      text-transform: uppercase;
+    }
+    .pill-tag span.dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #a78bfa;
+      box-shadow: 0 0 10px #a78bfa;
+    }
+
+    h1.hero-title {
+      font-size: clamp(2.8rem, 6.4vw, 5.2rem);
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      margin: 0 auto 20px;
+      color: #ffffff;
+    }
+    h1.hero-title .ln {
+      display: block;
+    }
+    h1.hero-title .gradient-text {
+      background: linear-gradient(135deg, #ffffff 40%, #c4b5fd 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-sub {
+      font-size: clamp(16px, 2.1vw, 19px);
+      font-weight: 300;
+      color: #e2e8f0;
+      line-height: 1.65;
+      max-width: 680px;
+      margin: 0 auto 34px;
+      letter-spacing: -0.01em;
+    }
+
+    .hero-ctas {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    /* STATS COUNTER STRIP */
+    .stats-strip {
+      position: relative;
+      z-index: 10;
+      margin-top: -30px;
+      margin-bottom: 80px;
+    }
+    .stats-card {
+      background: rgba(18, 19, 26, 0.85);
+      border: 1px solid var(--card-border);
+      -webkit-backdrop-filter: blur(24px);
+      backdrop-filter: blur(24px);
+      border-radius: 24px;
+      padding: 34px 40px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+    }
+    .stat-item {
+      text-align: center;
+      padding: 0 20px;
+      border-left: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .stat-item:first-child {
+      border-left: none;
+      padding-left: 0;
+    }
+    .stat-num {
+      font-size: clamp(2.2rem, 3.8vw, 3.2rem);
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -0.02em;
+      font-variant-numeric: tabular-nums;
+      background: linear-gradient(135deg, #ffffff, #a78bfa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 8px;
+    }
+    .stat-lbl {
+      color: var(--ink-muted);
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 90px 0;
+      position: relative;
+    }
+
+    .sec-head {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 60px;
+    }
+    .sec-tag {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: rgba(167, 139, 250, 0.1);
+      border: 1px solid rgba(167, 139, 250, 0.22);
+      padding: 5px 14px;
+      border-radius: 999px;
+      margin-bottom: 14px;
+    }
+    .sec-title {
+      font-size: clamp(2rem, 3.6vw, 2.9rem);
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.025em;
+      margin-bottom: 16px;
+      color: #fff;
+    }
+    .sec-desc {
+      color: var(--ink-muted);
+      font-size: 16.5px;
+      line-height: 1.6;
+    }
+
+    /* PILLARS GRID */
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin-bottom: 40px;
+    }
+    .pillar-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      -webkit-backdrop-filter: blur(16px);
+      backdrop-filter: blur(16px);
+      border-radius: 20px;
+      padding: 34px 28px;
+      transition: all 0.25s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .pillar-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #7c3aed, #3b82f6);
+      opacity: 0.6;
+      transition: opacity 0.2s ease;
+    }
+    .pillar-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(167, 139, 250, 0.35);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+    }
+    .pillar-card:hover::before {
+      opacity: 1;
+    }
+    .pillar-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      background: rgba(167, 139, 250, 0.12);
+      display: grid;
+      place-items: center;
+      margin-bottom: 20px;
+      color: var(--accent);
+    }
+    .pillar-card h3 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+    .pillar-card p {
+      color: var(--ink-muted);
+      font-size: 14.5px;
+      line-height: 1.6;
+    }
+
+    /* SOLUTIONS GRID */
+    .solutions-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+    .solution-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      -webkit-backdrop-filter: blur(16px);
+      backdrop-filter: blur(16px);
+      border-radius: 22px;
+      padding: 34px 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      transition: all 0.25s ease;
+    }
+    .solution-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(167, 139, 250, 0.35);
+      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.5);
+    }
+    .sol-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 22px;
+    }
+    .sol-num {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--accent);
+      background: rgba(167, 139, 250, 0.12);
+      padding: 4px 10px;
+      border-radius: 8px;
+      letter-spacing: 0.05em;
+    }
+    .sol-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.05);
+      display: grid;
+      place-items: center;
+      color: #fff;
+    }
+    .solution-card h3 {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 12px;
+      letter-spacing: -0.015em;
+    }
+    .solution-card p {
+      color: var(--ink-muted);
+      font-size: 14.5px;
+      line-height: 1.65;
+      margin-bottom: 20px;
+    }
+    .sol-badge-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      list-style: none;
+    }
+    .sol-badge-list li {
+      font-size: 11.5px;
+      font-weight: 600;
+      color: #cbd5e1;
+      background: rgba(255, 255, 255, 0.06);
+      padding: 4px 10px;
+      border-radius: 6px;
+    }
+
+    /* WHY US SECTION */
+    .why-blocks {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 50px;
+    }
+    .why-block {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 22px;
+      padding: 34px 32px;
+      -webkit-backdrop-filter: blur(16px);
+      backdrop-filter: blur(16px);
+    }
+    .why-block h3 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 18px;
+      color: #fff;
+    }
+    .why-list {
+      list-style: none;
+      display: grid;
+      gap: 14px;
+    }
+    .why-list li {
+      position: relative;
+      padding-left: 28px;
+      color: var(--ink-muted);
+      font-size: 15px;
+    }
+    .why-list li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--accent);
+      font-weight: 800;
+      font-size: 16px;
+    }
+
+    /* ACHIEVEMENTS GRID */
+    .achieve-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-bottom: 60px;
+    }
+    .achieve-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 18px;
+      padding: 26px;
+      -webkit-backdrop-filter: blur(14px);
+      backdrop-filter: blur(14px);
+      transition: all 0.2s ease;
+    }
+    .achieve-card:hover {
+      border-color: rgba(255, 255, 255, 0.2);
+      transform: translateY(-3px);
+    }
+    .achieve-card h4 {
+      font-size: 1.12rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+    .achieve-card p {
+      color: var(--ink-muted);
+      font-size: 13.5px;
+      line-height: 1.6;
+    }
+
+    /* PERFORMANCE METRICS CHART SECTION */
+    .metrics-section-container {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 24px;
+      padding: 34px 30px;
+      -webkit-backdrop-filter: blur(16px);
+      backdrop-filter: blur(16px);
+      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 40px;
+    }
+    .metrics-section-container::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #7c3aed, #38bdf8, #10b981);
+      opacity: 0.85;
+    }
+    .metrics-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-bottom: 28px;
+    }
+    .metrics-title {
+      font-size: 1.65rem;
+      font-weight: 700;
+      color: #fff;
+      margin: 8px 0 8px;
+      letter-spacing: -0.01em;
+    }
+    .metrics-desc {
+      color: var(--ink-muted);
+      font-size: 14.5px;
+      max-width: 680px;
+      line-height: 1.55;
+    }
+    .metrics-tabs {
+      display: inline-flex;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 4px;
+      gap: 4px;
+    }
+    .metric-tab-btn {
+      background: transparent;
+      border: none;
+      color: var(--ink-muted);
+      padding: 8px 16px;
+      font-size: 13px;
+      font-weight: 600;
+      border-radius: 9px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+    }
+    .metric-tab-btn:hover {
+      color: #fff;
+    }
+    .metric-tab-btn.active {
+      background: rgba(167, 139, 250, 0.2);
+      color: #fff;
+      border: 1px solid rgba(167, 139, 250, 0.4);
+      box-shadow: 0 2px 10px rgba(124, 58, 237, 0.25);
+    }
+    .metrics-kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .metric-kpi-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: 16px;
+      padding: 18px 16px;
+      transition: all 0.22s ease;
+    }
+    .metric-kpi-card:hover {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(167, 139, 250, 0.3);
+      transform: translateY(-2px);
+    }
+    .kpi-value-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+    .kpi-num {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: -0.02em;
+    }
+    .kpi-badge {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 6px;
+      letter-spacing: 0.02em;
+    }
+    .kpi-success {
+      background: rgba(16, 185, 129, 0.15);
+      color: #34d399;
+      border: 1px solid rgba(16, 185, 129, 0.3);
+    }
+    .kpi-accent {
+      background: rgba(56, 189, 248, 0.15);
+      color: #38bdf8;
+      border: 1px solid rgba(56, 189, 248, 0.3);
+    }
+    .kpi-label {
+      color: #e2e8f0;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+    .kpi-sub {
+      color: var(--ink-faint);
+      font-size: 11.5px;
+    }
+    .chart-card-wrapper {
+      background: rgba(10, 11, 16, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: 18px;
+      padding: 22px 20px 14px;
+    }
+    .chart-card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .chart-legend-row {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      font-size: 12.5px;
+      color: var(--ink-muted);
+    }
+    .chart-legend-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .legend-indicator {
+      width: 12px;
+      height: 12px;
+      border-radius: 3px;
+      display: inline-block;
+    }
+    .legend-indicator.dashed {
+      border: 1.5px dashed;
+      background: transparent !important;
+    }
+    .live-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: rgba(16, 185, 129, 0.12);
+      color: #34d399;
+      border: 1px solid rgba(16, 185, 129, 0.28);
+      border-radius: 999px;
+      padding: 4px 12px;
+      font-size: 11.5px;
+      font-weight: 600;
+    }
+    .live-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #10b981;
+    }
+
+    /* WORKFLOW STEPS - REDESIGNED PREMIUM PIPELINE */
+    .steps-container {
+      background: radial-gradient(120% 80% at 50% 0%, rgba(124, 58, 237, 0.14) 0%, rgba(15, 15, 22, 0.88) 55%), #0c0c12;
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      border-top: 1px solid rgba(168, 85, 247, 0.45);
+      border-radius: 28px;
+      padding: 44px 36px 40px;
+      -webkit-backdrop-filter: blur(20px);
+      backdrop-filter: blur(20px);
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 24px 64px -20px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    }
+    .steps-container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 10%;
+      right: 10%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, rgba(168, 85, 247, 0.8), rgba(59, 130, 246, 0.8), transparent);
+      pointer-events: none;
+    }
+    .wf-header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-bottom: 32px;
+    }
+    .wf-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      background: rgba(124, 58, 237, 0.12);
+      border: 1px solid rgba(124, 58, 237, 0.28);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #c084fc;
+      margin-bottom: 12px;
+    }
+    .wf-badge-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #a855f7;
+      box-shadow: 0 0 10px #a855f7;
+      animation: wfPulse 2s infinite ease-in-out;
+    }
+    @keyframes wfPulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.85); }
+    }
+    .wf-title {
+      font-size: 1.85rem;
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+    .wf-desc {
+      color: var(--ink-muted);
+      font-size: 15px;
+      max-width: 620px;
+      line-height: 1.55;
+    }
+    .wf-assurances {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .wf-pill-check {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      color: #e2e8f0;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 6px 12px;
+      border-radius: 8px;
+    }
+    .wf-pill-check svg {
+      color: #34d399;
+    }
+    /* Animated pipeline conduit beam */
+    .wf-pipeline-rail {
+      position: relative;
+      height: 3px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 3px;
+      margin: 0 16px 28px;
+    }
+    .wf-rail-glow {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, #7c3aed, #3b82f6, #06b6d4, #10b981);
+      opacity: 0.7;
+      border-radius: 3px;
+    }
+    .wf-rail-pulse {
+      position: absolute;
+      top: -2.5px;
+      left: 0;
+      width: 80px;
+      height: 8px;
+      background: linear-gradient(90deg, transparent, #ffffff, #60a5fa, transparent);
+      border-radius: 4px;
+      filter: drop-shadow(0 0 8px #60a5fa);
+      animation: wfRailPulse 4.5s infinite linear;
+    }
+    @keyframes wfRailPulse {
+      0% { left: 0%; opacity: 0; }
+      10% { opacity: 1; }
+      90% { opacity: 1; }
+      100% { left: calc(100% - 80px); opacity: 0; }
+    }
+    /* Step Cards Grid */
+    .wf-grid {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+      margin: 0;
+      padding: 0;
+    }
+    .wf-card {
+      background: rgba(255, 255, 255, 0.025);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: 20px;
+      padding: 22px 18px 20px;
+      position: relative;
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .wf-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 20%;
+      right: 20%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(168, 85, 247, 0.6), transparent);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .wf-card:hover {
+      transform: translateY(-8px);
+      background: rgba(255, 255, 255, 0.055);
+      border-color: rgba(168, 85, 247, 0.38);
+      box-shadow: 0 20px 40px -12px rgba(124, 58, 237, 0.3), inset 0 0 24px rgba(124, 58, 237, 0.08);
+    }
+    .wf-card:hover::before {
+      opacity: 1;
+    }
+    .wf-card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+    }
+    .wf-num-badge {
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #7c3aed, #3b82f6);
+      color: #fff;
+      font-weight: 800;
+      font-size: 14px;
+      display: grid;
+      place-items: center;
+      box-shadow: 0 4px 14px rgba(124, 58, 237, 0.45);
+      flex-shrink: 0;
+    }
+    .wf-phase-tag {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #a78bfa;
+      background: rgba(139, 92, 246, 0.12);
+      padding: 3px 8px;
+      border-radius: 6px;
+      border: 1px solid rgba(139, 92, 246, 0.2);
+    }
+    .wf-icon-box {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      display: grid;
+      place-items: center;
+      margin-bottom: 14px;
+      color: #c084fc;
+      transition: all 0.3s ease;
+    }
+    .wf-card:hover .wf-icon-box {
+      transform: scale(1.08);
+      color: #38bdf8;
+      border-color: rgba(56, 189, 248, 0.3);
+      background: rgba(56, 189, 248, 0.1);
+    }
+    .wf-card h4 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+    .wf-card p {
+      color: var(--ink-muted);
+      font-size: 13px;
+      line-height: 1.55;
+      margin-bottom: 16px;
+      flex-grow: 1;
+    }
+    .wf-deliverables {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .wf-tag {
+      font-size: 11px;
+      color: #cbd5e1;
+      background: rgba(255, 255, 255, 0.04);
+      padding: 3px 8px;
+      border-radius: 5px;
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      font-weight: 500;
+    }
+    @media (max-width: 1080px) {
+      .wf-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .wf-pipeline-rail {
+        display: none;
+      }
+    }
+    @media (max-width: 720px) {
+      .wf-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+      .steps-container {
+        padding: 30px 20px;
+      }
+    }
+
+    /* INDUSTRIES GRID */
+    .industries-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+    .ind-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 26px 22px;
+      -webkit-backdrop-filter: blur(16px);
+      backdrop-filter: blur(16px);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.25s ease;
+      min-height: 240px;
+    }
+    .ind-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(167, 139, 250, 0.35);
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.5);
+    }
+    .ind-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: rgba(167, 139, 250, 0.12);
+      color: var(--accent);
+      display: grid;
+      place-items: center;
+      margin-bottom: 16px;
+    }
+    .ind-card h4 {
+      font-size: 1.22rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+    .ind-list {
+      list-style: none;
+      display: grid;
+      gap: 5px;
+      font-size: 12.5px;
+      color: #cbd5e1;
+    }
+    .ind-list li {
+      position: relative;
+      padding-left: 14px;
+    }
+    .ind-list li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+    }
+
+    .ind-card-cta {
+      background: linear-gradient(135deg, rgba(124, 58, 237, 0.35), rgba(59, 130, 246, 0.35));
+      border-color: rgba(167, 139, 250, 0.45);
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    .ind-card-cta h4 {
+      font-size: 1.45rem;
+      line-height: 1.3;
+      margin-bottom: 14px;
+    }
+
+    /* PROJECTS & CASE STUDIES */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin-bottom: 40px;
+    }
+    .project-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 22px;
+      padding: 30px 26px;
+      -webkit-backdrop-filter: blur(16px);
+      backdrop-filter: blur(16px);
+      transition: all 0.22s ease;
+    }
+    .project-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(255, 255, 255, 0.25);
+    }
+    .project-badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--emerald);
+      background: rgba(16, 185, 129, 0.12);
+      padding: 3px 10px;
+      border-radius: 6px;
+      margin-bottom: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .project-card h4 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+    .project-card p {
+      color: var(--ink-muted);
+      font-size: 14px;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+    .project-meta {
+      border-top: 1px solid rgba(255, 255, 255, 0.07);
+      padding-top: 14px;
+      display: grid;
+      gap: 6px;
+      font-size: 13px;
+    }
+    .meta-row {
+      display: flex;
+      justify-content: space-between;
+    }
+    .meta-lbl {
+      color: var(--ink-faint);
+    }
+    .meta-val {
+      color: #fff;
+      font-weight: 600;
+    }
+
+    /* PARTNERS GRID */
+    .partners-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .partner-tile {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 20px 18px 22px;
+      -webkit-backdrop-filter: blur(14px);
+      backdrop-filter: blur(14px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      text-align: center;
+      transition: all 0.25s ease;
+      position: relative;
+      overflow: hidden;
+      min-height: 195px;
+    }
+    .partner-tile::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--p-color, #7c3aed);
+      opacity: 0.85;
+      transition: opacity 0.2s ease, height 0.2s ease;
+    }
+    .partner-tile:hover {
+      transform: translateY(-4px);
+      border-color: rgba(167, 139, 250, 0.4);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5);
+    }
+    .partner-tile:hover::before {
+      opacity: 1;
+      height: 4px;
+    }
+    .partner-logo-box {
+      width: 100%;
+      height: 74px;
+      background: #ffffff;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 16px;
+      margin-bottom: 14px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+      transition: transform 0.22s ease, box-shadow 0.22s ease;
+    }
+    .partner-tile:hover .partner-logo-box {
+      transform: scale(1.03);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+    }
+    .partner-logo-img {
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      display: block;
+    }
+    .partner-name {
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .partner-sub {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--ink-muted);
+      line-height: 1.4;
+    }
+
+    /* CONTACT SECTION */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+    .contact-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 22px;
+      padding: 34px 28px;
+      -webkit-backdrop-filter: blur(16px);
+      backdrop-filter: blur(16px);
+    }
+    .contact-card h4 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+    .contact-card p {
+      color: var(--ink-muted);
+      font-size: 14.5px;
+      line-height: 1.6;
+      margin-bottom: 8px;
+    }
+    .contact-card a.link {
+      display: inline-block;
+      color: var(--accent);
+      font-weight: 600;
+      font-size: 14px;
+      margin-top: 10px;
+      transition: color 0.15s ease;
+    }
+    .contact-card a.link:hover {
+      color: #c4b5fd;
+      text-decoration: underline;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #040407;
+      border-top: 1px solid rgba(255, 255, 255, 0.07);
+      padding: 60px 0 30px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+    .footer-col h5 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 16px;
+    }
+    .footer-col a {
+      display: block;
+      color: var(--ink-muted);
+      font-size: 14px;
+      margin-bottom: 8px;
+      transition: color 0.18s ease;
+    }
+    .footer-col a:hover {
+      color: #fff;
+    }
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 14px;
+      color: var(--ink-faint);
+      font-size: 13px;
+    }
+
+    /* FLOATING WHATSAPP BUTTON */
+    .wa-float {
+      position: fixed;
+      right: 24px;
+      bottom: 24px;
+      z-index: 90;
+      background: #25d366;
+      color: #fff;
+      border-radius: 999px;
+      padding: 12px 20px;
+      font-weight: 700;
+      font-size: 14.5px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 8px 30px rgba(37, 211, 102, 0.45);
+      transition: all 0.22s ease;
+    }
+    .wa-float:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 12px 40px rgba(37, 211, 102, 0.6);
+      color: #fff;
+    }
+
+    /* COOKIE TOAST */
+    #cookie-toast {
+      position: fixed;
+      left: 24px;
+      bottom: 24px;
+      z-index: 90;
+      max-width: 360px;
+      background: rgba(18, 19, 26, 0.95);
+      border: 1px solid var(--card-border);
+      -webkit-backdrop-filter: blur(20px);
+      backdrop-filter: blur(20px);
+      border-radius: 18px;
+      padding: 18px 20px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+      animation: menuIn 0.3s ease;
+    }
+    #cookie-toast p {
+      font-size: 13.5px;
+      color: var(--ink-muted);
+      margin-bottom: 12px;
+      line-height: 1.5;
+    }
+
+    /* SCROLL REVEAL CARDS */
+    .pillar-card,
+    .solution-card,
+    .ind-card,
+    .project-card,
+    .achieve-card,
+    .partner-tile {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                  border-color 0.25s ease,
+                  box-shadow 0.25s ease,
+                  background 0.25s ease;
+      will-change: opacity, transform;
+    }
+
+    .pillar-card.is-revealed,
+    .solution-card.is-revealed,
+    .ind-card.is-revealed,
+    .project-card.is-revealed,
+    .achieve-card.is-revealed,
+    .partner-tile.is-revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .pillar-card.is-revealed:hover,
+    .solution-card.is-revealed:hover,
+    .ind-card.is-revealed:hover,
+    .project-card.is-revealed:hover,
+    .achieve-card.is-revealed:hover,
+    .partner-tile.is-revealed:hover {
+      transform: translateY(-4px);
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .pillar-card,
+      .solution-card,
+      .ind-card,
+      .project-card,
+      .achieve-card,
+      .partner-tile {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+      }
+    }
+
+    /* RESPONSIVE BREAKPOINTS */
+    @media (max-width: 1080px) {
+      .nav-links, .nav-actions .btn {
+        display: none;
+      }
+      .burger {
+        display: flex;
+      }
+      .stats-card {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 28px;
+      }
+      .stat-item:nth-child(3) {
+        border-left: none;
+        padding-left: 0;
+      }
+      .pillars-grid, .solutions-grid, .achieve-grid, .projects-grid, .partners-grid, .contact-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .industries-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .steps-list {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .stats-card {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        padding: 24px;
+      }
+      .stat-item {
+        border-left: none;
+        padding: 0;
+      }
+      .why-blocks,
+      .pillars-grid,
+      .solutions-grid,
+      .achieve-grid,
+      .industries-grid,
+      .projects-grid,
+      .contact-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      .partners-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
+      .partner-logo-box {
+        height: 64px;
+        padding: 8px 12px;
+      }
+      .hero {
+        padding-top: 100px;
+        min-height: 90vh;
+      }
+      .brand-img {
+        height: 35px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .partner-tile {
+        padding: 16px 12px 18px;
+        min-height: 165px;
+      }
+      .partner-name {
+        font-size: 0.95rem;
+      }
+      .partner-sub {
+        font-size: 11px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER NAVIGATION -->
+  <header>
+    <div class="w nav-inner">
+      <a href="#home" class="brand-logo" aria-label="PT. Vier Virya Ventures">
+        <img src="/assets/aistudio/cropped-logovier2_0297489c.webp" alt="PT. Vier Virya Ventures Logo" class="brand-img" width="162" height="42">
+      </a>
+
+      <nav class="nav-links" aria-label="Main menu">
+        <a href="#solutions">Solutions</a>
+        <a href="#why">Why Us</a>
+        <a href="#industries">Industries</a>
+        <a href="#projects">Projects</a>
+        <a href="#partners">Partners</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="https://wa.me/6285157988002" target="_blank" rel="noopener" class="btn btn-ghost btn-sm">WhatsApp Direct</a>
+        <a href="#contact" class="btn btn-primary btn-sm">
+          Get Started
+          <svg class="arw" viewBox="0 0 12 10" fill="none" aria-hidden="true">
+            <path d="M0.8 5h10M7.1 1.4 10.9 5l-3.8 3.6" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <button class="burger" id="burgerBtn" aria-label="Toggle navigation">
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#solutions">Solutions</a>
+    <a href="#why">Why Us</a>
+    <a href="#industries">Industries</a>
+    <a href="#projects">Projects</a>
+    <a href="#partners">Partners</a>
+    <a href="#contact">Contact</a>
+    <div class="divider"></div>
+    <a href="https://wa.me/6285157988002" target="_blank" rel="noopener">WhatsApp Direct (+62 851 5798 8002)</a>
+    <a href="#contact" class="btn btn-primary" style="margin-top: 8px;">Consult an Engineer</a>
+  </div>
+
+  <!-- HERO SECTION WITH CONTINUOUS ROTATING DOT-MATRIX EARTH -->
+  <section class="hero" id="home">
+    <div class="hero-bg" role="img" aria-label="Rotating violet dot-matrix Earth globe">
+      <canvas id="globe-canvas" class="hero-canvas"></canvas>
+      <video class="bg-video is-active" id="bgVideoA" autoplay muted loop playsinline preload="auto" disablepictureinpicture aria-hidden="true" poster="https://d2ol7oe51mr4n9.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/82e7eb75-c65f-490a-99b5-f3d1cad54200.webp">
+        <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260912_104036_bd6924f6-3c8e-417e-8465-6d03c8c2e9e6.mp4" type="video/mp4">
+      </video>
+      <video class="bg-video" id="bgVideoB" muted loop playsinline preload="auto" disablepictureinpicture aria-hidden="true" poster="https://d2ol7oe51mr4n9.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/82e7eb75-c65f-490a-99b5-f3d1cad54200.webp">
+        <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260912_104036_bd6924f6-3c8e-417e-8465-6d03c8c2e9e6.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <div class="hero-content">
+      <div class="pill-tag">
+        <span class="dot"></span>
+        System Integrator &bull; Jakarta, Indonesia
+      </div>
+
+      <h1 class="hero-title">
+        <span class="ln">Enterprise IT</span>
+        <span class="ln gradient-text">Infrastructure</span>
+      </h1>
+
+      <p class="hero-sub">
+        PT. Vier Virya Ventures delivers high performance network infrastructure, data centers, and integrated security across Indonesia, engineered and supported 24/7 by our in house certified specialists.
+      </p>
+
+      <div class="hero-ctas">
+        <a href="#solutions" class="btn btn-primary">
+          Explore Solutions
+          <svg class="arw" viewBox="0 0 12 10" fill="none" aria-hidden="true">
+            <path d="M0.8 5h10M7.1 1.4 10.9 5l-3.8 3.6" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <a href="#contact" class="btn btn-ghost">
+          Speak With Our Team
+          <svg class="arw" viewBox="0 0 12 10" fill="none" aria-hidden="true">
+            <path d="M0.8 5h10M7.1 1.4 10.9 5l-3.8 3.6" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- KEY STATS BAR -->
+  <div class="w stats-strip">
+    <div class="stats-card">
+      <div class="stat-item">
+        <div class="stat-num" data-target="150" data-suffix="+">150+</div>
+        <div class="stat-lbl">Enterprise Projects</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num" data-target="130" data-suffix="+">130+</div>
+        <div class="stat-lbl">Satisfied Clients</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num" data-target="25" data-suffix="+">25+</div>
+        <div class="stat-lbl">Industry Awards</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num" data-target="40" data-suffix="+">40+</div>
+        <div class="stat-lbl">Certified Engineers</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PILLARS OF EXCELLENCE -->
+  <div class="w">
+    <div class="pillars-grid">
+      <div class="pillar-card">
+        <div class="pillar-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <h3>Dedicated Quality Services</h3>
+        <p>Every architecture blueprint and cable certification is reviewed by senior engineers prior to deployment.</p>
+      </div>
+
+      <div class="pillar-card">
+        <div class="pillar-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <h3>Support Available 24/7</h3>
+        <p>Real time continuous monitoring, proactive incident alerting, and guaranteed onsite dispatch under enterprise SLA.</p>
+      </div>
+
+      <div class="pillar-card">
+        <div class="pillar-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <h3>IT Managed Services</h3>
+        <p>End to end operational governance post launch under one single accountable engineering organization.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SOLUTIONS SECTION -->
+  <section id="solutions">
+    <div class="w">
+      <div class="sec-head">
+        <span class="sec-tag">Core Capabilities</span>
+        <h2 class="sec-title">Enterprise Infrastructure Solutions</h2>
+        <p class="sec-desc">Comprehensive technology stacks delivered from initial site survey and architectural design through procurement, installation, and 24/7 operation.</p>
+      </div>
+
+      <div class="solutions-grid">
+        <!-- 01 -->
+        <div class="solution-card">
+          <div>
+            <div class="sol-top">
+              <span class="sol-num">SOLUTION 01</span>
+              <div class="sol-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="4" r="2"/><circle cx="5" cy="18" r="2"/><circle cx="19" cy="18" r="2"/><path d="M12 6v4M12 10L6 16M12 10l6 6"/></svg>
+              </div>
+            </div>
+            <h3>Network Infrastructure</h3>
+            <p>Comprehensive high throughput LAN, WAN, and disaster recovery networks, structured cabling, IP telephony, and software defined architectures.</p>
+          </div>
+          <ul class="sol-badge-list">
+            <li>Structured Cabling</li>
+            <li>SD WAN & Routing</li>
+            <li>Fiber Backbone</li>
+            <li>VoIP Telephony</li>
+          </ul>
+        </div>
+
+        <!-- 02 -->
+        <div class="solution-card">
+          <div>
+            <div class="sol-top">
+              <span class="sol-num">SOLUTION 02</span>
+              <div class="sol-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg>
+              </div>
+            </div>
+            <h3>Data Center Facilities</h3>
+            <p>Mission critical hosting environments engineered to minimize downtime and prevent physical and cyber breaches, upholding zero loss uptime.</p>
+          </div>
+          <ul class="sol-badge-list">
+            <li>Precision Cooling</li>
+            <li>UPS & Generators</li>
+            <li>Server Racks</li>
+            <li>Fire Suppression</li>
+          </ul>
+        </div>
+
+        <!-- 03 -->
+        <div class="solution-card">
+          <div>
+            <div class="sol-top">
+              <span class="sol-num">SOLUTION 03</span>
+              <div class="sol-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/></svg>
+              </div>
+            </div>
+            <h3>Integrated Security</h3>
+            <p>Unified enterprise access control, biometric authentication, perimeter intrusion detection, automated fire alarms, and centralized CCTV surveillance.</p>
+          </div>
+          <ul class="sol-badge-list">
+            <li>AI Surveillance</li>
+            <li>Access Control</li>
+            <li>Intrusion Alarms</li>
+            <li>Time Attendance</li>
+          </ul>
+        </div>
+
+        <!-- 04 -->
+        <div class="solution-card">
+          <div>
+            <div class="sol-top">
+              <span class="sol-num">SOLUTION 04</span>
+              <div class="sol-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 8.5a15 15 0 0120 0M5.5 12a10 10 0 0113 0M9 15.5a5 5 0 016 0"/><circle cx="12" cy="19" r="1.2" fill="#fff"/></svg>
+              </div>
+            </div>
+            <h3>Wireless Connectivity</h3>
+            <p>Predictive wireless propagation, active site surveys, and seamless campus roaming tailored to high density enterprise & hospitality requirements.</p>
+          </div>
+          <ul class="sol-badge-list">
+            <li>WiFi 6/6E & 7</li>
+            <li>Heatmap Surveys</li>
+            <li>Guest Captive Portal</li>
+            <li>Outdoor Mesh</li>
+          </ul>
+        </div>
+
+        <!-- 05 -->
+        <div class="solution-card">
+          <div>
+            <div class="sol-top">
+              <span class="sol-num">SOLUTION 05</span>
+              <div class="sol-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg>
+              </div>
+            </div>
+            <h3>Smart Building & Alarm</h3>
+            <p>Smart security sensor arrays operable via redundant WiFi, GSM, and fiber telemetry with automated instant alert dispatch to monitoring stations.</p>
+          </div>
+          <ul class="sol-badge-list">
+            <li>IoT Sensors</li>
+            <li>Environmental Telemetry</li>
+            <li>Water/Leak Detect</li>
+            <li>Multi Channel Alert</li>
+          </ul>
+        </div>
+
+        <!-- 06 -->
+        <div class="solution-card">
+          <div>
+            <div class="sol-top">
+              <span class="sol-num">SOLUTION 06</span>
+              <div class="sol-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14.7 6.3a4 4 0 00-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 005.4-5.4l-2.4 2.4-2.6-.6-.6-2.6z"/></svg>
+              </div>
+            </div>
+            <h3>Maintenance & 24/7 SLA</h3>
+            <p>Scheduled preventative audits, firmware hardening, spare parts replacement, and expedited on site response guarantees to protect operational continuity.</p>
+          </div>
+          <ul class="sol-badge-list">
+            <li>SLA Guarantee</li>
+            <li>Preventive Audit</li>
+            <li>Spare Parts Pool</li>
+            <li>Firmware Patching</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY US SECTION -->
+  <section id="why">
+    <div class="w">
+      <div class="sec-head">
+        <span class="sec-tag">Why Vier Ventures</span>
+        <h2 class="sec-title">Engineered For Predictability & Performance</h2>
+        <p class="sec-desc">A disciplined project management lifecycle and documented results from initial blueprinting to post launch maintenance.</p>
+      </div>
+
+      <div class="why-blocks">
+        <div class="why-block">
+          <h3>Strategic Objectives</h3>
+          <ul class="why-list">
+            <li>Reduce operating costs while enabling agile enterprise revenue growth</li>
+            <li>Maximize workforce efficiency across multi branch and distributed facilities</li>
+            <li>Align enterprise digital infrastructure with strategic corporate expansion</li>
+            <li>Maintain institutional compliance with Indonesian data and privacy standards</li>
+          </ul>
+        </div>
+
+        <div class="why-block">
+          <h3>Proven Benefits</h3>
+          <ul class="why-list">
+            <li>Lower total capital expenditure through accurately sized engineering design</li>
+            <li>Hardened security posture allowing leadership to focus on core business</li>
+            <li>Elastic scalability that expands seamlessly with growing transactions</li>
+            <li>Single accountable partner eliminating multi vendor finger pointing</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="sec-head" style="margin-bottom: 30px;">
+        <span class="sec-tag">Track Record</span>
+        <h3 style="font-size: 1.8rem; font-weight: 700; color: #fff;">Institutional Milestones</h3>
+      </div>
+
+      <div class="achieve-grid">
+        <div class="achieve-card">
+          <h4>Pioneering Technological Solutions</h4>
+          <p>Developed and deployed next gen network and security frameworks that revolutionize productivity in demanding sectors.</p>
+        </div>
+        <div class="achieve-card">
+          <h4>Strategic Global Partnerships</h4>
+          <p>Certified alliances with top tier international infrastructure vendors, bringing world class hardware directly to Indonesia.</p>
+        </div>
+        <div class="achieve-card">
+          <h4>Energy & Sustainability Focus</h4>
+          <p>Implemented power efficient hardware and cooling designs that significantly curb power consumption and carbon footprints.</p>
+        </div>
+        <div class="achieve-card">
+          <h4>Recognized Industry Excellence</h4>
+          <p>Multiple industry awards for technical innovation, zero defect installation rates, and customer satisfaction leadership.</p>
+        </div>
+        <div class="achieve-card">
+          <h4>Expanding Market Reach</h4>
+          <p>Expanded enterprise presence across Greater Jakarta, Sumatra, Java, Bali, and remote industrial plantation sites.</p>
+        </div>
+        <div class="achieve-card">
+          <h4>Commitment to Quality</h4>
+          <p>Rigorous multi stage pre commissioning testing ensuring zero surprise go lives and flawless documented handovers.</p>
+        </div>
+      </div>
+
+      <!-- PERFORMANCE METRICS CHART SECTION (RECHARTS) -->
+      <div id="metrics-chart-root"></div>
+
+      <!-- WORKFLOW TIMELINE - REDESIGNED EXECUTIVE PIPELINE -->
+      <div class="steps-container">
+        <div class="wf-header-row">
+          <div>
+            <div class="wf-badge">
+              <span class="wf-badge-dot"></span>
+              <span>ENGINEERING LIFECYCLE • STAGE GATED PROTOCOL</span>
+            </div>
+            <h3 class="wf-title">How Every Project Executes</h3>
+            <p class="wf-desc">A structured 5 stage engineering workflow guaranteeing predictable delivery on time and within budget.</p>
+          </div>
+          <div class="wf-assurances">
+            <span class="wf-pill-check">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Zero Unplanned Downtime
+            </span>
+            <span class="wf-pill-check">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Documented Handover
+            </span>
+            <span class="wf-pill-check">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Enterprise SLA Guarantee
+            </span>
+          </div>
+        </div>
+
+        <!-- Glowing progressive conduit rail -->
+        <div class="wf-pipeline-rail">
+          <div class="wf-rail-glow"></div>
+          <div class="wf-rail-pulse"></div>
+        </div>
+
+        <ol class="wf-grid">
+          <!-- Step 01 -->
+          <li class="wf-card">
+            <div>
+              <div class="wf-card-top">
+                <div class="wf-num-badge">01</div>
+                <span class="wf-phase-tag">DISCOVERY</span>
+              </div>
+              <div class="wf-icon-box">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <circle cx="12" cy="12" r="9"/>
+                  <path d="M12 3v18M3 12h18"/>
+                  <circle cx="12" cy="12" r="4"/>
+                </svg>
+              </div>
+              <h4>Assess</h4>
+              <p>Physical site survey, RF analysis, bandwidth auditing, and business goals alignment.</p>
+            </div>
+            <div class="wf-deliverables">
+              <span class="wf-tag">Site RF Survey</span>
+              <span class="wf-tag">Bandwidth Audit</span>
+              <span class="wf-tag">Scope Mapping</span>
+            </div>
+          </li>
+
+          <!-- Step 02 -->
+          <li class="wf-card">
+            <div>
+              <div class="wf-card-top">
+                <div class="wf-num-badge">02</div>
+                <span class="wf-phase-tag">BLUEPRINT</span>
+              </div>
+              <div class="wf-icon-box">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+                  <polyline points="2 17 12 22 22 17"/>
+                  <polyline points="2 12 12 17 22 12"/>
+                </svg>
+              </div>
+              <h4>Design</h4>
+              <p>Detailed architecture blueprints, bill of materials, topology schemas, and schedules.</p>
+            </div>
+            <div class="wf-deliverables">
+              <span class="wf-tag">CAD Blueprints</span>
+              <span class="wf-tag">BOM Spec</span>
+              <span class="wf-tag">Topology Schema</span>
+            </div>
+          </li>
+
+          <!-- Step 03 -->
+          <li class="wf-card">
+            <div>
+              <div class="wf-card-top">
+                <div class="wf-num-badge">03</div>
+                <span class="wf-phase-tag">ROLLOUT</span>
+              </div>
+              <div class="wf-icon-box">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <rect x="2" y="3" width="20" height="5" rx="1"/>
+                  <rect x="2" y="11" width="20" height="5" rx="1"/>
+                  <rect x="2" y="19" width="20" height="5" rx="1"/>
+                  <circle cx="6" cy="5.5" r="1" fill="currentColor"/>
+                  <circle cx="6" cy="13.5" r="1" fill="currentColor"/>
+                  <circle cx="6" cy="21.5" r="1" fill="currentColor"/>
+                </svg>
+              </div>
+              <h4>Deploy</h4>
+              <p>Precision installation, cabling labeling, rack mounting with minimal operational disruption.</p>
+            </div>
+            <div class="wf-deliverables">
+              <span class="wf-tag">Structured Cabling</span>
+              <span class="wf-tag">Rack Mounting</span>
+              <span class="wf-tag">Zero Disruption</span>
+            </div>
+          </li>
+
+          <!-- Step 04 -->
+          <li class="wf-card">
+            <div>
+              <div class="wf-card-top">
+                <div class="wf-num-badge">04</div>
+                <span class="wf-phase-tag">QA AUDIT</span>
+              </div>
+              <div class="wf-icon-box">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                  <polyline points="9 12 11 14 15 10"/>
+                </svg>
+              </div>
+              <h4>Validate</h4>
+              <p>End to end load testing, OTDR fiber certification, and comprehensive documented handover.</p>
+            </div>
+            <div class="wf-deliverables">
+              <span class="wf-tag">Load Stress Test</span>
+              <span class="wf-tag">OTDR Certification</span>
+              <span class="wf-tag">Handover Docs</span>
+            </div>
+          </li>
+
+          <!-- Step 05 -->
+          <li class="wf-card">
+            <div>
+              <div class="wf-card-top">
+                <div class="wf-num-badge">05</div>
+                <span class="wf-phase-tag">24/7 SLA</span>
+              </div>
+              <div class="wf-icon-box">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <path d="M3 18v-6a9 9 0 0 1 18 0v6"/>
+                  <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/>
+                </svg>
+              </div>
+              <h4>Support</h4>
+              <p>24/7 telemetry monitoring, scheduled preventative audits, and rapid SLA dispatch.</p>
+            </div>
+            <div class="wf-deliverables">
+              <span class="wf-tag">24/7 Live NOC</span>
+              <span class="wf-tag">Preventative Audits</span>
+              <span class="wf-tag">Rapid Dispatch</span>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- INDUSTRIES SERVED -->
+  <section id="industries">
+    <div class="w">
+      <div class="sec-head">
+        <span class="sec-tag">Sectors & Track Record</span>
+        <h2 class="sec-title">Built For Indonesian Enterprise Verticals</h2>
+        <p class="sec-desc">Proven deployments across government ministries, hospitality chains, education campuses, and mission critical manufacturing plants.</p>
+      </div>
+
+      <div class="industries-grid">
+        <div class="ind-card">
+          <div>
+            <div class="ind-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 9h2m2 0h2M9 13h2m2 0h2M9 17h2m2 0h2"/></svg>
+            </div>
+            <h4>Offices & Government</h4>
+          </div>
+          <ul class="ind-list">
+            <li>Kantor Pos Regional 2 Padang</li>
+            <li>Dispenda Kota Pekanbaru</li>
+            <li>Pemkot Pekanbaru</li>
+            <li>Direktorat Jenderal AHU</li>
+            <li>Perusahaan Gas Negara (PGN)</li>
+          </ul>
+        </div>
+
+        <div class="ind-card">
+          <div>
+            <div class="ind-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V3h14v18M9 7h2m2 0h2M9 11h2m2 0h2M9 15h2m2 0h2"/></svg>
+            </div>
+            <h4>Hotels & Hospitality</h4>
+          </div>
+          <ul class="ind-list">
+            <li>Hotel Maxley Kebon Jeruk & Pluit</li>
+            <li>Hotel Maxley Serpong & Karawaci</li>
+            <li>Hotel Travel Mangga Besar</li>
+            <li>Hotel Classic Sawah Besar</li>
+            <li>Hotel Labersa Samosir & FM3</li>
+          </ul>
+        </div>
+
+        <div class="ind-card">
+          <div>
+            <div class="ind-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3L2 8l10 5 10-5-10-5zM2 8v8M22 8v8M6 11v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/></svg>
+            </div>
+            <h4>Education & Schools</h4>
+          </div>
+          <ul class="ind-list">
+            <li>Pusat Sarana Belajar</li>
+            <li>Lab Komputer Tzu Chi Cengkareng</li>
+            <li>Sekolah Cinta Kasih Singkawang</li>
+            <li>Sekolah Negeri Semarang</li>
+            <li>Ren Wen Preschool & Clinic</li>
+          </ul>
+        </div>
+
+        <div class="ind-card">
+          <div>
+            <div class="ind-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21V10l5-3v3l5-3v3l5-3v14H3z"/></svg>
+            </div>
+            <h4>Industrial & Factory</h4>
+          </div>
+          <ul class="ind-list">
+            <li>PT. Sudut Kahyangan Abadi</li>
+            <li>PT. Bukit Makmur Widya</li>
+            <li>PT. Pulau Intan Bajaperkasa</li>
+            <li>PT. Bentan Energy Sakti</li>
+            <li>PT. JPI Jasa Paket Surabaya</li>
+          </ul>
+        </div>
+
+        <div class="ind-card">
+          <div>
+            <div class="ind-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2c3 4 5 7 5 10a5 5 0 01-10 0c0-3 2-6 5-10z"/></svg>
+            </div>
+            <h4>Plantation & Mining</h4>
+          </div>
+          <ul class="ind-list">
+            <li>CV. Mitra Phocphan Pakan Blitar</li>
+            <li>Remote Telemetry & CCTV</li>
+            <li>Camp WiFi & Long Range Link</li>
+          </ul>
+        </div>
+
+        <div class="ind-card">
+          <div>
+            <div class="ind-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 5h18v14H3zM3 9h18M8 5v4"/></svg>
+            </div>
+            <h4>Entertainment & Media</h4>
+          </div>
+          <ul class="ind-list">
+            <li>Media Networking Production</li>
+            <li>PT. Ming Media Promotion</li>
+            <li>Broadcast Streaming Core</li>
+          </ul>
+        </div>
+
+        <div class="ind-card">
+          <div>
+            <div class="ind-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-4.5-9.5-9A5.5 5.5 0 0112 5.5 5.5 5.5 0 0121.5 12c-2.5 4.5-9.5 9-9.5 9z"/></svg>
+            </div>
+            <h4>Healthcare Facilities</h4>
+          </div>
+          <ul class="ind-list">
+            <li>Clinic Infrastructure Integration</li>
+            <li>Medical Record Network Security</li>
+            <li>Patient Monitoring Telemetry</li>
+          </ul>
+        </div>
+
+        <div class="ind-card ind-card-cta">
+          <div>
+            <h4>Your Next Project Belongs Here</h4>
+            <p style="color: #e2e8f0; font-size: 13.5px; margin-bottom: 16px;">Let our senior engineering team audit your facility and provide a clear recommendation.</p>
+            <a href="#contact" class="btn btn-primary btn-sm">Get Free Consultation</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS & CASE STUDIES -->
+  <section id="projects">
+    <div class="w">
+      <div class="sec-head">
+        <span class="sec-tag">Case Studies</span>
+        <h2 class="sec-title">Recent Work & Measured Results</h2>
+        <p class="sec-desc">A snapshot of mission critical deployments and verified client outcomes.</p>
+      </div>
+
+      <div class="projects-grid">
+        <div class="project-card">
+          <span class="project-badge">Hospitality &bull; Wireless</span>
+          <h4>Hotel WiFi Modernization</h4>
+          <p>Complete overhaul of multi story guest WiFi infrastructure, eliminating dead zones and providing seamless high speed roaming across all rooms and public lobbies.</p>
+          <div class="project-meta">
+            <div class="meta-row">
+              <span class="meta-lbl">Client:</span>
+              <span class="meta-val">Maxley Hotel Group</span>
+            </div>
+            <div class="meta-row">
+              <span class="meta-lbl">Result:</span>
+              <span class="meta-val">100% Coverage, 0 Guest Complaints</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <span class="project-badge">Enterprise &bull; Datacenter</span>
+          <h4>Office Network & DR Site</h4>
+          <p>Built a redundant high availability core network with automated failover to an offsite disaster recovery facility, guaranteeing data integrity.</p>
+          <div class="project-meta">
+            <div class="meta-row">
+              <span class="meta-lbl">Client:</span>
+              <span class="meta-val">Regional Enterprise</span>
+            </div>
+            <div class="meta-row">
+              <span class="meta-lbl">Result:</span>
+              <span class="meta-val">99.99% Uptime Achieved</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <span class="project-badge">Industrial &bull; Security</span>
+          <h4>Plant Security Integration</h4>
+          <p>Integrated unified IP surveillance, smart turnstile access control, and time attendance across a 4 hectare manufacturing plant.</p>
+          <div class="project-meta">
+            <div class="meta-row">
+              <span class="meta-lbl">Client:</span>
+              <span class="meta-val">Industrial Manufacturing Client</span>
+            </div>
+            <div class="meta-row">
+              <span class="meta-lbl">Result:</span>
+              <span class="meta-val">Single Unified Dashboard</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TECHNOLOGY PARTNERS -->
+  <section id="partners">
+    <div class="w">
+      <div class="sec-head">
+        <span class="sec-tag">Ecosystem</span>
+        <h2 class="sec-title">Backed By Leading Global Vendors</h2>
+        <p class="sec-desc">Certified engineering partnerships with the world's most trusted networking, data center, and security hardware manufacturers.</p>
+      </div>
+
+      <div class="partners-grid">
+        <div class="partner-tile" style="--p-color: #0559c9;">
+          <div class="partner-logo-box">
+            <img src="/assets/partners/cisco.png" alt="Cisco Systems" class="partner-logo-img" loading="lazy" width="160" height="60">
+          </div>
+          <div class="partner-name">CISCO</div>
+          <div class="partner-sub">Routing, Switching & Security</div>
+        </div>
+
+        <div class="partner-tile" style="--p-color: #3dae4e;">
+          <div class="partner-logo-box">
+            <img src="/assets/partners/schneider-electric.png" alt="Schneider Electric" class="partner-logo-img" loading="lazy" width="160" height="60">
+          </div>
+          <div class="partner-name">SCHNEIDER ELECTRIC</div>
+          <div class="partner-sub">UPS & Power Management</div>
+        </div>
+
+        <div class="partner-tile" style="--p-color: #ff8300;">
+          <div class="partner-logo-box">
+            <img src="/assets/partners/aruba.png" alt="Aruba Networks" class="partner-logo-img" loading="lazy" width="160" height="60">
+          </div>
+          <div class="partner-name">ARUBA NETWORKS</div>
+          <div class="partner-sub">Enterprise WiFi & Switching</div>
+        </div>
+
+        <div class="partner-tile" style="--p-color: #01a982;">
+          <div class="partner-logo-box">
+            <img src="/assets/partners/hpe.png" alt="Hewlett Packard Enterprise" class="partner-logo-img" loading="lazy" width="160" height="60">
+          </div>
+          <div class="partner-name">HPE</div>
+          <div class="partner-sub">Enterprise Compute & Storage</div>
+        </div>
+
+        <div class="partner-tile" style="--p-color: #3b82f6;">
+          <div class="partner-logo-box">
+            <img src="/assets/partners/commscope.png" alt="CommScope" class="partner-logo-img" loading="lazy" width="160" height="60">
+          </div>
+          <div class="partner-name">COMMSCOPE</div>
+          <div class="partner-sub">Structured Fiber & Copper</div>
+        </div>
+
+        <div class="partner-tile" style="--p-color: #00a99d;">
+          <div class="partner-logo-box">
+            <img src="/assets/partners/panduit.png" alt="Panduit" class="partner-logo-img" loading="lazy" width="160" height="60">
+          </div>
+          <div class="partner-name">PANDUIT</div>
+          <div class="partner-sub">Data Center & Wire Management</div>
+        </div>
+
+        <div class="partner-tile" style="--p-color: #0033a0;">
+          <div class="partner-logo-box">
+            <img src="/assets/partners/belden.png" alt="Belden" class="partner-logo-img" loading="lazy" width="160" height="60">
+          </div>
+          <div class="partner-name">BELDEN</div>
+          <div class="partner-sub">Cabling & Industrial Networking</div>
+        </div>
+
+        <div class="partner-tile" style="--p-color: #5a6472;">
+          <div class="partner-logo-box">
+            <img src="/assets/partners/juniper-networks.png" alt="Juniper Networks" class="partner-logo-img" loading="lazy" width="160" height="60">
+          </div>
+          <div class="partner-name">JUNIPER NETWORKS</div>
+          <div class="partner-sub">AI-Driven Core Networking</div>
+        </div>
+
+        <div class="partner-tile" style="--p-color: #c92437;">
+          <div class="partner-logo-box">
+            <img src="/assets/partners/mikrotik.png" alt="MikroTik" class="partner-logo-img" loading="lazy" width="160" height="60">
+          </div>
+          <div class="partner-name">MIKROTIK</div>
+          <div class="partner-sub">Carrier Routing & Bandwidth Control</div>
+        </div>
+
+        <div class="partner-tile" style="--p-color: #f58220;">
+          <div class="partner-logo-box">
+            <img src="/assets/partners/ruckus.png" alt="Ruckus Networks" class="partner-logo-img" loading="lazy" width="160" height="60">
+          </div>
+          <div class="partner-name">RUCKUS</div>
+          <div class="partner-sub">Smart Wi-Fi & Density Access Points</div>
+        </div>
+
+        <div class="partner-tile" style="--p-color: #006fff;">
+          <div class="partner-logo-box">
+            <img src="/assets/partners/ubiquiti.png" alt="Ubiquiti" class="partner-logo-img" loading="lazy" width="160" height="60">
+          </div>
+          <div class="partner-name">UBIQUITI</div>
+          <div class="partner-sub">UniFi SDN Switching & Gateways</div>
+        </div>
+
+        <div class="partner-tile" style="--p-color: #cf0a2c;">
+          <div class="partner-logo-box">
+            <img src="/assets/partners/huawei.png" alt="Huawei Enterprise" class="partner-logo-img" loading="lazy" width="160" height="60">
+          </div>
+          <div class="partner-name">HUAWEI</div>
+          <div class="partner-sub">Enterprise Optical & ICT Systems</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT & CONSULTATION -->
+  <section id="contact">
+    <div class="w">
+      <div class="sec-head">
+        <span class="sec-tag">Get In Touch</span>
+        <h2 class="sec-title">Start Your Infrastructure Consultation</h2>
+        <p class="sec-desc">Reach our technical desk directly. We respond within one business day with clear, transparent architectural recommendations.</p>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-card">
+          <h4>Call or WhatsApp</h4>
+          <p>Direct technical desk & emergency SLA hotline:</p>
+          <p><a href="tel:+622154397460" class="link">+62 21 5439 7460</a></p>
+          <p><a href="https://wa.me/6285157988002" target="_blank" rel="noopener" class="link">+62 851 5798 8002 (WhatsApp)</a></p>
+        </div>
+
+        <div class="contact-card">
+          <h4>Email Inquiries</h4>
+          <p>For tender requests, project RFP, and partner inquiries:</p>
+          <p><a href="mailto:info@vierventures.com" class="link">info@vierventures.com</a></p>
+          <p style="font-size: 13px; color: var(--ink-faint); margin-top: 10px;">Mon - Fri: 08:30 - 17:30 WIB</p>
+        </div>
+
+        <div class="contact-card">
+          <h4>Head Office</h4>
+          <p>Arcade Business Center, 6th Floor Unit 6-03<br>Jl. Pantai Indah Utara 2 Kav. C1, Jakarta, Indonesia</p>
+          <a href="https://www.google.com/maps/search/?api=1&query=Arcade+Business+Center+Pantai+Indah+Utara+2+Jakarta" target="_blank" rel="noopener" class="link">Open in Google Maps &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="w">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="brand-logo" style="margin-bottom: 14px;">
+            <img src="/assets/aistudio/cropped-logovier2_0297489c.webp" alt="PT. Vier Virya Ventures Logo" class="brand-img" style="height: 38px;" width="146" height="38">
+          </div>
+          <p style="color: var(--ink-muted); font-size: 14px; max-width: 420px; line-height: 1.6;">
+            System integrator and enterprise IT infrastructure specialist based in Jakarta, delivering networks, data centers, wireless connectivity, and integrated security.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h5>Core Solutions</h5>
+          <a href="#solutions">Network Infrastructure</a>
+          <a href="#solutions">Data Center Facilities</a>
+          <a href="#solutions">Integrated Security</a>
+          <a href="#solutions">Enterprise Wireless</a>
+          <a href="#solutions">Maintenance & SLA</a>
+        </div>
+
+        <div class="footer-col">
+          <h5>Navigation</h5>
+          <a href="#why">Why Choose Us</a>
+          <a href="#industries">Industries</a>
+          <a href="#projects">Recent Projects</a>
+          <a href="#partners">Technology Partners</a>
+          <a href="#contact">Contact Us</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>&copy; 2026 PT. Vier Virya Ventures. All rights reserved.</span>
+        <span>Arcade Business Center, Pantai Indah Kapuk (PIK), Jakarta</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FLOATING WHATSAPP -->
+  <a href="https://wa.me/6285157988002" target="_blank" rel="noopener" class="wa-float" aria-label="Chat with our engineering team on WhatsApp">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.698.077-2.18-.538-1.782-.736-2.91-2.555-2.999-2.673-.088-.117-.723-.961-.723-1.832 0-.871.458-1.3.621-1.476.163-.176.356-.221.474-.221.118 0 .237.001.341.006.11.005.258-.041.403.308.149.356.505 1.232.549 1.32.044.088.073.191.015.308-.058.118-.088.192-.176.295-.088.103-.186.23-.265.309-.088.088-.18.185-.077.362.103.177.458.756.984 1.224.678.604 1.25.79 1.427.878.177.088.281.073.384-.044.103-.117.444-.515.562-.692.118-.176.236-.147.399-.088.163.059 1.034.488 1.211.576.177.088.295.132.339.206.045.074.045.426-.099.831z"/></svg>
+    WhatsApp Us
+  </a>
+
+  <!-- COOKIE CONSENT BANNER -->
+  <div id="cookie-toast">
+    <p>We use essential cookies to maintain security and deliver optimal browsing performance.</p>
+    <div style="display: flex; gap: 8px;">
+      <button class="btn btn-primary btn-sm" id="acceptCookies" style="flex: 1;">I Agree</button>
+      <button class="btn btn-ghost btn-sm" id="dismissCookies">Dismiss</button>
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT LOGIC -->
+  <script>
+    // 1. Mobile Menu Toggle
+    (function() {
+      var burger = document.getElementById('burgerBtn');
+      var menu = document.getElementById('mobileMenu');
+      if (burger && menu) {
+        burger.addEventListener('click', function(e) {
+          e.stopPropagation();
+          menu.classList.toggle('open');
+        });
+        menu.addEventListener('click', function(e) {
+          if (e.target && e.target.closest('a')) {
+            menu.classList.remove('open');
+          }
+        });
+        document.addEventListener('click', function(e) {
+          if (!menu.contains(e.target) && !burger.contains(e.target)) {
+            menu.classList.remove('open');
+          }
+        });
+      }
+    })();
+
+    // 2. Continuous Video Looping with Seamless Crossfade & Fallback
+    (function() {
+      var vA = document.getElementById('bgVideoA');
+      var vB = document.getElementById('bgVideoB');
+      if (!vA || !vB) return;
+
+      // Ensure muted properties for strict iframe & mobile autoplay policies
+      vA.muted = true;
+      vA.defaultMuted = true;
+      vB.muted = true;
+      vB.defaultMuted = true;
+
+      if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        vA.removeAttribute('autoplay');
+        vA.pause();
+        vB.pause();
+        try { vA.currentTime = 0; } catch (e) {}
+        return;
+      }
+
+      var FADE = 0.9;
+      var cur = vA;
+      var nxt = vB;
+      var swapping = false;
+
+      function play(v) {
+        var p = v.play();
+        if (p && typeof p.catch === 'function') {
+          p.catch(function() {});
+        }
+      }
+
+      play(vA);
+
+      // Auto-unlock play on first user interaction if initially throttled
+      function tryUnlockAutoplay() {
+        if (vA.paused) play(vA);
+      }
+      window.addEventListener('pointerdown', tryUnlockAutoplay, { once: true, passive: true });
+      window.addEventListener('scroll', tryUnlockAutoplay, { once: true, passive: true });
+      window.addEventListener('touchstart', tryUnlockAutoplay, { once: true, passive: true });
+
+      function tick() {
+        if (swapping || !cur.duration) return;
+        if (cur.duration - cur.currentTime > FADE) return;
+
+        swapping = true;
+        var out = cur;
+        nxt.currentTime = 0;
+        play(nxt);
+        nxt.classList.add('is-active');
+        out.classList.remove('is-active');
+
+        var temp = cur;
+        cur = nxt;
+        nxt = temp;
+
+        setTimeout(function() {
+          out.pause();
+          out.currentTime = 0;
+          swapping = false;
+        }, FADE * 1000 + 100);
+      }
+
+      vA.addEventListener('timeupdate', tick);
+      vB.addEventListener('timeupdate', tick);
+    })();
+
+    // 3. Cookie Toast
+    (function() {
+      var toast = document.getElementById('cookie-toast');
+      var acceptBtn = document.getElementById('acceptCookies');
+      var dismissBtn = document.getElementById('dismissCookies');
+      if (!toast) return;
+
+      try {
+        if (localStorage.getItem('vv_cookies_agreed') === '1') {
+          toast.style.display = 'none';
+        }
+      } catch (e) {}
+
+      function closeToast() {
+        toast.style.display = 'none';
+        try {
+          localStorage.setItem('vv_cookies_agreed', '1');
+        } catch (e) {}
+      }
+
+      if (acceptBtn) acceptBtn.addEventListener('click', closeToast);
+      if (dismissBtn) dismissBtn.addEventListener('click', closeToast);
+    })();
+
+    // 4. Smooth scroll active link updates
+    (function() {
+      var sections = document.querySelectorAll('section[id], div[id]');
+      var navLinks = document.querySelectorAll('.nav-links a');
+
+      window.addEventListener('scroll', function() {
+        var scrollY = window.pageYOffset;
+        sections.forEach(function(current) {
+          var sectionHeight = current.offsetHeight;
+          var sectionTop = current.offsetTop - 120;
+          var sectionId = current.getAttribute('id');
+
+          if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+            navLinks.forEach(function(link) {
+              if (link.getAttribute('href') === '#' + sectionId) {
+                link.classList.add('active');
+              } else {
+                link.classList.remove('active');
+              }
+            });
+          }
+        });
+      });
+    })();
+
+    // 5. Stats Number Counter Animation with IntersectionObserver
+    (function() {
+      var statsStrip = document.querySelector('.stats-strip');
+      var statElements = document.querySelectorAll('.stat-num');
+      if (!statsStrip || !statElements.length) return;
+
+      var animated = false;
+
+      // Cubic ease-out for smooth decelerating count
+      function easeOutCubic(t) {
+        return 1 - Math.pow(1 - t, 3);
+      }
+
+      function startCountAnimation() {
+        if (animated) return;
+        animated = true;
+
+        // Respect user's reduced motion preference
+        if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          statElements.forEach(function(el) {
+            var target = parseInt(el.getAttribute('data-target'), 10) || parseInt(el.textContent, 10);
+            var suffix = el.getAttribute('data-suffix') || '+';
+            el.textContent = target + suffix;
+          });
+          return;
+        }
+
+        var duration = 1800; // ms
+        var startTime = null;
+
+        var statsData = [];
+        statElements.forEach(function(el) {
+          var target = parseInt(el.getAttribute('data-target'), 10);
+          if (isNaN(target)) {
+            var match = el.textContent.match(/\d+/);
+            target = match ? parseInt(match[0], 10) : 0;
+          }
+          var suffix = el.getAttribute('data-suffix') || (el.textContent.indexOf('+') !== -1 ? '+' : '');
+          statsData.push({
+            element: el,
+            target: target,
+            suffix: suffix
+          });
+          el.textContent = '0' + suffix;
+        });
+
+        function step(timestamp) {
+          if (!startTime) startTime = timestamp;
+          var elapsed = timestamp - startTime;
+          var progress = Math.min(elapsed / duration, 1);
+          var eased = easeOutCubic(progress);
+
+          statsData.forEach(function(item) {
+            var currentVal = Math.round(eased * item.target);
+            item.element.textContent = currentVal + item.suffix;
+          });
+
+          if (progress < 1) {
+            requestAnimationFrame(step);
+          } else {
+            statsData.forEach(function(item) {
+              item.element.textContent = item.target + item.suffix;
+            });
+          }
+        }
+
+        requestAnimationFrame(step);
+      }
+
+      if ('IntersectionObserver' in window) {
+        var observer = new IntersectionObserver(function(entries, obs) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              startCountAnimation();
+              obs.unobserve(entry.target);
+            }
+          });
+        }, {
+          threshold: 0.15,
+          rootMargin: '0px 0px -40px 0px'
+        });
+
+        observer.observe(statsStrip);
+      } else {
+        startCountAnimation();
+      }
+    })();
+
+    // 6. SCROLL REVEAL CARDS INTERSECTION OBSERVER
+    (function initCardScrollReveal() {
+      var cardSelectors = '.pillar-card, .solution-card, .ind-card, .project-card, .achieve-card, .partner-tile';
+      var cards = document.querySelectorAll(cardSelectors);
+      if (!cards.length) return;
+
+      // Respect user's reduced motion preference
+      if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        cards.forEach(function(card) {
+          card.classList.add('is-revealed');
+        });
+        return;
+      }
+
+      // Fallback for browsers without IntersectionObserver
+      if (!('IntersectionObserver' in window)) {
+        cards.forEach(function(card) {
+          card.classList.add('is-revealed');
+        });
+        return;
+      }
+
+      // Assign subtle stagger delay based on position among visible grid siblings
+      cards.forEach(function(card) {
+        var parent = card.parentElement;
+        if (parent) {
+          var siblings = Array.prototype.slice.call(parent.children).filter(function(child) {
+            return child.matches && child.matches(cardSelectors);
+          });
+          var idx = siblings.indexOf(card);
+          if (idx !== -1) {
+            // Stagger cards in the same row/group by 90ms (0ms, 90ms, 180ms, 270ms)
+            var delay = (idx % 4) * 90;
+            card.style.transitionDelay = delay + 'ms';
+          }
+        }
+      });
+
+      var cardObserver = new IntersectionObserver(function(entries, observer) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            var target = entry.target;
+            target.classList.add('is-revealed');
+            observer.unobserve(target);
+
+            // Clear transitionDelay after reveal animation finishes so hover interactions respond instantly
+            var currentDelay = parseFloat(target.style.transitionDelay) || 0;
+            setTimeout(function() {
+              target.style.transitionDelay = '0s';
+            }, currentDelay + 850);
+          }
+        });
+      }, {
+        threshold: 0.12,
+        rootMargin: '0px 0px -40px 0px'
+      });
+
+      cards.forEach(function(card) {
+        cardObserver.observe(card);
+      });
+    })();
+  </script>
+  <!-- Three.js 3D Interactive Rotating Dot-Matrix Earth Scene -->
+  <script type="module" src="/src/globe.ts"></script>
+  <!-- Recharts Historical Uptime & SLA Metrics Component -->
+  <script type="module" src="/src/metrics-chart.tsx"></script>
+</body>
+</html>
