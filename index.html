@@ -53,12 +53,37 @@
       box-sizing: border-box;
       margin: 0;
       padding: 0;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      -webkit-touch-callout: none;
+    }
+
+    ::selection {
+      background: transparent;
+      color: inherit;
+    }
+    ::-moz-selection {
+      background: transparent;
+      color: inherit;
+    }
+
+    input, textarea {
+      -webkit-user-select: text;
+      -moz-user-select: text;
+      -ms-user-select: text;
+      user-select: text;
     }
 
     html {
       scroll-behavior: smooth;
       background: var(--bg);
       color: var(--ink);
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
     }
 
     body {
@@ -70,6 +95,11 @@
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       text-rendering: geometricPrecision;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      -webkit-touch-callout: none;
     }
 
     a {
@@ -2441,6 +2471,76 @@
 
       cards.forEach(function(card) {
         cardObserver.observe(card);
+      });
+    })();
+
+    // 7. ANTI-COPY & ANTI-SELECTION PROTECTION
+    (function initCopyProtection() {
+      // Prevent clipboard copy
+      document.addEventListener('copy', function(e) {
+        e.preventDefault();
+        return false;
+      });
+
+      // Prevent clipboard cut
+      document.addEventListener('cut', function(e) {
+        e.preventDefault();
+        return false;
+      });
+
+      // Prevent text selection by mouse drag
+      document.addEventListener('selectstart', function(e) {
+        var tag = (e.target && e.target.tagName) ? e.target.tagName.toLowerCase() : '';
+        if (tag !== 'input' && tag !== 'textarea') {
+          e.preventDefault();
+          return false;
+        }
+      });
+
+      // Prevent text / asset dragging
+      document.addEventListener('dragstart', function(e) {
+        var tag = (e.target && e.target.tagName) ? e.target.tagName.toLowerCase() : '';
+        if (tag !== 'input' && tag !== 'textarea') {
+          e.preventDefault();
+          return false;
+        }
+      });
+
+      // Disable right-click context menu
+      document.addEventListener('contextmenu', function(e) {
+        var tag = (e.target && e.target.tagName) ? e.target.tagName.toLowerCase() : '';
+        if (tag !== 'input' && tag !== 'textarea') {
+          e.preventDefault();
+          return false;
+        }
+      });
+
+      // Prevent copy/select keyboard shortcuts (Ctrl+C, Ctrl+A, Ctrl+X, Ctrl+U, Cmd+C, Cmd+A, Cmd+X)
+      document.addEventListener('keydown', function(e) {
+        var tag = (e.target && e.target.tagName) ? e.target.tagName.toLowerCase() : '';
+        if (tag === 'input' || tag === 'textarea') return;
+
+        var isCtrlOrCmd = e.ctrlKey || e.metaKey;
+        if (isCtrlOrCmd) {
+          var key = (e.key || '').toLowerCase();
+          if (key === 'c' || key === 'a' || key === 'x' || key === 'u' || key === 's') {
+            e.preventDefault();
+            e.stopPropagation();
+            return false;
+          }
+        }
+      });
+
+      // Continuously clear any selection highlight
+      document.addEventListener('selectionchange', function() {
+        var activeEl = document.activeElement;
+        var tag = (activeEl && activeEl.tagName) ? activeEl.tagName.toLowerCase() : '';
+        if (tag !== 'input' && tag !== 'textarea') {
+          var sel = window.getSelection();
+          if (sel && sel.removeAllRanges) {
+            sel.removeAllRanges();
+          }
+        }
       });
     })();
   </script>
