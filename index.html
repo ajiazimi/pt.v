@@ -1364,6 +1364,552 @@
       }
     }
 
+    /* 1. CERTIFICATIONS & TRUST BADGES */
+    .cert-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 24px;
+    }
+    .cert-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 18px;
+      padding: 22px 20px;
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+    }
+    .cert-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(168, 85, 247, 0.4);
+      box-shadow: 0 14px 34px -10px rgba(124, 58, 237, 0.25);
+      background: rgba(255, 255, 255, 0.05);
+    }
+    .cert-card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+    .cert-badge-tag {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #38bdf8;
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      padding: 3px 8px;
+      border-radius: 6px;
+    }
+    .cert-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, rgba(124, 58, 237, 0.2), rgba(59, 130, 246, 0.2));
+      border: 1px solid rgba(124, 58, 237, 0.35);
+      display: grid;
+      place-items: center;
+      color: #c084fc;
+      margin-bottom: 12px;
+    }
+    .cert-card h4 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 6px;
+    }
+    .cert-card p {
+      font-size: 13px;
+      color: var(--ink-muted);
+      line-height: 1.5;
+    }
+
+    /* 2. SOLUTIONS ARCHITECTURE BUTTON & MODAL */
+    .sol-detail-btn {
+      width: 100%;
+      margin-top: 18px;
+      border-radius: 12px;
+      padding: 9px 16px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #c084fc;
+      border: 1px solid rgba(168, 85, 247, 0.3);
+      background: rgba(124, 58, 237, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .sol-detail-btn:hover {
+      background: rgba(124, 58, 237, 0.2);
+      border-color: #a855f7;
+      color: #ffffff;
+      transform: translateY(-2px);
+    }
+    .sol-modal-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 999;
+      background: rgba(0, 0, 0, 0.75);
+      -webkit-backdrop-filter: blur(16px);
+      backdrop-filter: blur(16px);
+      display: none;
+      place-items: center;
+      padding: 20px;
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+    .sol-modal-backdrop.is-open {
+      display: grid;
+      opacity: 1;
+    }
+    .sol-modal-window {
+      background: #0f1016;
+      border: 1px solid rgba(168, 85, 247, 0.35);
+      border-radius: 24px;
+      width: 100%;
+      max-width: 720px;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: 0 25px 70px -15px rgba(0, 0, 0, 0.9), 0 0 40px rgba(124, 58, 237, 0.2);
+      padding: 32px 28px 28px;
+      position: relative;
+    }
+    .sol-modal-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #cbd5e1;
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .sol-modal-close:hover {
+      background: rgba(239, 68, 68, 0.2);
+      color: #ef4444;
+      border-color: rgba(239, 68, 68, 0.4);
+    }
+    .sol-modal-tag {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #a855f7;
+      margin-bottom: 6px;
+    }
+    .sol-modal-title {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 8px;
+    }
+    .sol-modal-desc {
+      color: var(--ink-muted);
+      font-size: 14.5px;
+      line-height: 1.6;
+      margin-bottom: 22px;
+    }
+    .sol-modal-tabs {
+      display: flex;
+      gap: 8px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 12px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+    .sol-tab-btn {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: var(--ink-muted);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 7px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .sol-tab-btn.active {
+      background: #7c3aed;
+      color: #ffffff;
+      border-color: #8b5cf6;
+    }
+    .sol-spec-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-bottom: 22px;
+    }
+    .sol-spec-item {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 12px;
+      padding: 14px;
+    }
+    .sol-spec-lbl {
+      font-size: 11px;
+      font-weight: 700;
+      color: #94a3b8;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 4px;
+    }
+    .sol-spec-val {
+      font-size: 13.5px;
+      color: #ffffff;
+      font-weight: 600;
+    }
+    .sol-modal-footer {
+      display: flex;
+      justify-content: flex-end;
+      gap: 12px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    /* 3. PROJECTS FILTER BAR */
+    .projects-filter-bar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 32px;
+    }
+    .p-filter-btn {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      color: var(--ink-muted);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 8px 18px;
+      border-radius: 9999px;
+      cursor: pointer;
+      transition: all 0.22s ease;
+    }
+    .p-filter-btn:hover {
+      background: rgba(255, 255, 255, 0.08);
+      color: #ffffff;
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+    .p-filter-btn.active {
+      background: linear-gradient(135deg, #7c3aed, #2563eb);
+      color: #ffffff;
+      border-color: rgba(168, 85, 247, 0.5);
+      box-shadow: 0 4px 16px rgba(124, 58, 237, 0.4);
+    }
+    .project-card.is-hidden {
+      display: none !important;
+    }
+
+    /* 4. ENTERPRISE FAQ ACCORDION */
+    .faq-accordion {
+      max-width: 860px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .faq-item {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 18px;
+      overflow: hidden;
+      transition: all 0.25s ease;
+    }
+    .faq-item:hover, .faq-item.is-open {
+      border-color: rgba(168, 85, 247, 0.4);
+      background: rgba(255, 255, 255, 0.05);
+      box-shadow: 0 8px 24px -6px rgba(124, 58, 237, 0.2);
+    }
+    .faq-question {
+      width: 100%;
+      text-align: left;
+      background: transparent;
+      border: none;
+      padding: 22px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      cursor: pointer;
+      color: #ffffff;
+      font-size: 1.05rem;
+      font-weight: 700;
+      font-family: inherit;
+    }
+    .faq-chevron {
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.06);
+      display: grid;
+      place-items: center;
+      color: #c084fc;
+      transition: transform 0.3s ease;
+      flex-shrink: 0;
+    }
+    .faq-item.is-open .faq-chevron {
+      transform: rotate(180deg);
+      background: #7c3aed;
+      color: #ffffff;
+    }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1), padding 0.3s ease;
+      color: var(--ink-muted);
+      font-size: 14px;
+      line-height: 1.65;
+      padding: 0 24px;
+    }
+    .faq-item.is-open .faq-answer {
+      max-height: 280px;
+      padding-bottom: 22px;
+    }
+
+    /* 5. INTERACTIVE RFP & SITE AUDIT FORM */
+    .contact-wrap-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.35fr;
+      gap: 32px;
+      align-items: start;
+    }
+    .rfp-form-card {
+      background: radial-gradient(120% 100% at 50% 0%, rgba(124, 58, 237, 0.12) 0%, rgba(17, 18, 26, 0.85) 60%), #0d0e14;
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      border-top: 1px solid rgba(168, 85, 247, 0.45);
+      border-radius: 24px;
+      padding: 36px 32px;
+      box-shadow: 0 20px 50px -15px rgba(0, 0, 0, 0.8);
+      -webkit-backdrop-filter: blur(20px);
+      backdrop-filter: blur(20px);
+    }
+    .rfp-head {
+      margin-bottom: 24px;
+    }
+    .rfp-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 12px;
+      border-radius: 9999px;
+      background: rgba(124, 58, 237, 0.15);
+      border: 1px solid rgba(124, 58, 237, 0.3);
+      color: #c084fc;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .rfp-title {
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 6px;
+    }
+    .rfp-sub {
+      color: var(--ink-muted);
+      font-size: 13.5px;
+    }
+    .form-row-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    .form-group {
+      margin-bottom: 16px;
+    }
+    .form-label {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      color: #e2e8f0;
+      margin-bottom: 6px;
+    }
+    .form-input, .form-select, .form-textarea {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      padding: 10px 14px;
+      color: #ffffff;
+      font-size: 13.5px;
+      font-family: inherit;
+      outline: none;
+      transition: all 0.2s ease;
+      -webkit-user-select: text;
+      user-select: text;
+    }
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      border-color: #a855f7;
+      background: rgba(255, 255, 255, 0.07);
+      box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.2);
+    }
+    .form-select option {
+      background: #0f1016;
+      color: #ffffff;
+    }
+    .form-textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+    .form-submit-btn {
+      width: 100%;
+      padding: 13px 24px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #7c3aed, #2563eb);
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 14.5px;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 4px 20px rgba(124, 58, 237, 0.4);
+      transition: all 0.22s ease;
+    }
+    .form-submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(124, 58, 237, 0.55);
+    }
+    .rfp-success-banner {
+      display: none;
+      background: rgba(16, 185, 129, 0.12);
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      border-radius: 14px;
+      padding: 18px;
+      margin-top: 16px;
+      text-align: center;
+    }
+    .rfp-success-banner.is-active {
+      display: block;
+    }
+    .rfp-wa-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #25d366;
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 13.5px;
+      padding: 10px 20px;
+      border-radius: 9999px;
+      margin-top: 12px;
+      text-decoration: none;
+      box-shadow: 0 4px 14px rgba(37, 211, 102, 0.4);
+      transition: all 0.2s ease;
+    }
+    .rfp-wa-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
+    }
+
+    /* 6. FLOATING QUICK ACTION BAR */
+    .floating-bar {
+      position: fixed;
+      bottom: 26px;
+      right: 26px;
+      z-index: 99;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 12px;
+    }
+    .btn-float-wa {
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      background: #25d366;
+      color: #ffffff;
+      display: grid;
+      place-items: center;
+      box-shadow: 0 6px 24px rgba(37, 211, 102, 0.5);
+      cursor: pointer;
+      position: relative;
+      transition: transform 0.22s ease, box-shadow 0.22s ease;
+      text-decoration: none;
+    }
+    .btn-float-wa:hover {
+      transform: scale(1.08);
+      box-shadow: 0 8px 30px rgba(37, 211, 102, 0.65);
+    }
+    .btn-float-wa::before {
+      content: '';
+      position: absolute;
+      inset: -4px;
+      border-radius: 50%;
+      border: 2px solid rgba(37, 211, 102, 0.6);
+      animation: floatPulse 2.2s infinite ease-out;
+    }
+    @keyframes floatPulse {
+      0% { transform: scale(0.95); opacity: 1; }
+      100% { transform: scale(1.35); opacity: 0; }
+    }
+    .wa-tooltip {
+      position: absolute;
+      right: 66px;
+      background: rgba(15, 17, 23, 0.92);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #ffffff;
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      white-space: nowrap;
+      pointer-events: none;
+      opacity: 0;
+      transform: translateX(10px);
+      transition: all 0.22s ease;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.4);
+    }
+    .btn-float-wa:hover .wa-tooltip {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .btn-back-to-top {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(18, 19, 26, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      color: #ffffff;
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(14px);
+      transition: all 0.25s ease;
+      -webkit-backdrop-filter: blur(12px);
+      backdrop-filter: blur(12px);
+    }
+    .btn-back-to-top.is-visible {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    .btn-back-to-top:hover {
+      background: #7c3aed;
+      border-color: #8b5cf6;
+      transform: translateY(-3px);
+    }
+
     /* RESPONSIVE BREAKPOINTS */
     @media (max-width: 1080px) {
       .nav-links, .nav-actions .btn {
@@ -1382,6 +1928,12 @@
       }
       .pillars-grid, .solutions-grid, .achieve-grid, .projects-grid, .partners-grid, .contact-grid {
         grid-template-columns: repeat(2, 1fr);
+      }
+      .cert-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .contact-wrap-grid {
+        grid-template-columns: 1fr;
       }
       .industries-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -1409,8 +1961,14 @@
       .industries-grid,
       .projects-grid,
       .contact-grid,
+      .cert-grid,
+      .form-row-2,
+      .sol-spec-grid,
       .footer-grid {
         grid-template-columns: 1fr;
+      }
+      .rfp-form-card {
+        padding: 24px 18px;
       }
       .partners-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -1458,6 +2016,7 @@
         <a href="#industries">Industries</a>
         <a href="#projects">Projects</a>
         <a href="#partners">Partners</a>
+        <a href="#faq">FAQ</a>
         <a href="#contact">Contact</a>
       </nav>
 
@@ -1483,6 +2042,7 @@
     <a href="#industries">Industries</a>
     <a href="#projects">Projects</a>
     <a href="#partners">Partners</a>
+    <a href="#faq">FAQ</a>
     <a href="#contact">Contact</a>
     <div class="divider"></div>
     <a href="https://wa.me/6285157988002" target="_blank" rel="noopener">WhatsApp Direct (+62 851 5798 8002)</a>
@@ -1584,6 +2144,85 @@
     </div>
   </div>
 
+  <!-- ENGINEERING TRUST & CERTIFICATIONS SECTION -->
+  <section id="certifications" style="padding-top: 10px;">
+    <div class="w">
+      <div class="sec-head">
+        <span class="sec-tag">Engineering Credentials</span>
+        <h2 class="sec-title">Certified In House Engineering Specialists</h2>
+        <p class="sec-desc">Our implementation team holds premier technical credentials directly from global hardware vendors, ensuring every deployment meets rigorous international engineering standards.</p>
+      </div>
+
+      <div class="cert-grid">
+        <div class="cert-card">
+          <div class="cert-header">
+            <div class="cert-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="10" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+            </div>
+            <span class="cert-badge-tag">Network Architecture</span>
+          </div>
+          <h4>Cisco Certified Specialists</h4>
+          <p>Enterprise core routing, switching, automated SD WAN failover, and zero trust network security implementations.</p>
+        </div>
+
+        <div class="cert-card">
+          <div class="cert-header">
+            <div class="cert-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+            </div>
+            <span class="cert-badge-tag">Data Center Infrastructure</span>
+          </div>
+          <h4>Schneider Electric EcoStruxure</h4>
+          <p>Certified data center cooling precision, redundant three phase UPS power topologies, and environmental telemetry.</p>
+        </div>
+
+        <div class="cert-card">
+          <div class="cert-header">
+            <div class="cert-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3v12"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 0 1-9 9"/></svg>
+            </div>
+            <span class="cert-badge-tag">Structured Cabling</span>
+          </div>
+          <h4>CommScope & Panduit Certified</h4>
+          <p>High speed Cat6A, Cat7, and singlemode fiber optic backbone installation certified to Tier 3 enterprise standards.</p>
+        </div>
+
+        <div class="cert-card">
+          <div class="cert-header">
+            <div class="cert-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
+            </div>
+            <span class="cert-badge-tag">Wireless & Density</span>
+          </div>
+          <h4>Ruckus & Aruba WiFi Engineers</h4>
+          <p>Predictive RF simulation, high density stadium and hotel WiFi deployments with zero handover packet loss.</p>
+        </div>
+
+        <div class="cert-card">
+          <div class="cert-header">
+            <div class="cert-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+            </div>
+            <span class="cert-badge-tag">Carrier Grade Routing</span>
+          </div>
+          <h4>MikroTik MTCINE Certified</h4>
+          <p>Advanced BGP multi homing, MPLS traffic engineering, and carrier level QoS bandwidth prioritization.</p>
+        </div>
+
+        <div class="cert-card">
+          <div class="cert-header">
+            <div class="cert-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+            </div>
+            <span class="cert-badge-tag">Testing & Certification</span>
+          </div>
+          <h4>Certified Optical Fiber Technicians</h4>
+          <p>OTDR reflective loss testing, optical power loss budgets, and documented Fluke certs for every terminated drop.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- SOLUTIONS SECTION -->
   <section id="solutions">
     <div class="w">
@@ -1612,6 +2251,10 @@
             <li>Fiber Backbone</li>
             <li>VoIP Telephony</li>
           </ul>
+          <button type="button" class="sol-detail-btn" data-sol="network">
+            Explore Architecture Specs
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
         </div>
 
         <!-- 02 -->
@@ -1632,6 +2275,10 @@
             <li>Server Racks</li>
             <li>Fire Suppression</li>
           </ul>
+          <button type="button" class="sol-detail-btn" data-sol="datacenter">
+            Explore Architecture Specs
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
         </div>
 
         <!-- 03 -->
@@ -1652,6 +2299,10 @@
             <li>Intrusion Alarms</li>
             <li>Time Attendance</li>
           </ul>
+          <button type="button" class="sol-detail-btn" data-sol="security">
+            Explore Architecture Specs
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
         </div>
 
         <!-- 04 -->
@@ -1672,6 +2323,10 @@
             <li>Guest Captive Portal</li>
             <li>Outdoor Mesh</li>
           </ul>
+          <button type="button" class="sol-detail-btn" data-sol="wireless">
+            Explore Architecture Specs
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
         </div>
 
         <!-- 05 -->
@@ -1692,6 +2347,10 @@
             <li>Water/Leak Detect</li>
             <li>Multi Channel Alert</li>
           </ul>
+          <button type="button" class="sol-detail-btn" data-sol="smartbuilding">
+            Explore Architecture Specs
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
         </div>
 
         <!-- 06 -->
@@ -1712,6 +2371,10 @@
             <li>Spare Parts Pool</li>
             <li>Firmware Patching</li>
           </ul>
+          <button type="button" class="sol-detail-btn" data-sol="maintenance">
+            Explore Architecture Specs
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
         </div>
       </div>
     </div>
@@ -1920,11 +2583,21 @@
       <div class="sec-head">
         <span class="sec-tag">Case Studies</span>
         <h2 class="sec-title">Recent Work & Measured Results</h2>
-        <p class="sec-desc">A snapshot of mission critical deployments and verified client outcomes.</p>
+        <p class="sec-desc">A snapshot of mission critical deployments and verified client outcomes across Indonesian commercial and industrial facilities.</p>
+      </div>
+
+      <!-- FILTER BAR -->
+      <div class="projects-filter-bar">
+        <button type="button" class="p-filter-btn is-active" data-filter="all">All Case Studies</button>
+        <button type="button" class="p-filter-btn" data-filter="hospitality">Hospitality</button>
+        <button type="button" class="p-filter-btn" data-filter="enterprise">Enterprise & DR</button>
+        <button type="button" class="p-filter-btn" data-filter="industrial">Industrial & IoT</button>
+        <button type="button" class="p-filter-btn" data-filter="optical">Optical Fiber</button>
       </div>
 
       <div class="projects-grid">
-        <div class="project-card">
+        <!-- 01 Hospitality -->
+        <div class="project-card" data-category="hospitality">
           <span class="project-badge">Hospitality &bull; Wireless</span>
           <h4>Hotel WiFi Modernization</h4>
           <p>Complete overhaul of multi story guest WiFi infrastructure, eliminating dead zones and providing seamless high speed roaming across all rooms and public lobbies.</p>
@@ -1940,7 +2613,8 @@
           </div>
         </div>
 
-        <div class="project-card">
+        <!-- 02 Enterprise -->
+        <div class="project-card" data-category="enterprise">
           <span class="project-badge">Enterprise &bull; Datacenter</span>
           <h4>Office Network & DR Site</h4>
           <p>Built a redundant high availability core network with automated failover to an offsite disaster recovery facility, guaranteeing data integrity.</p>
@@ -1956,7 +2630,8 @@
           </div>
         </div>
 
-        <div class="project-card">
+        <!-- 03 Industrial -->
+        <div class="project-card" data-category="industrial">
           <span class="project-badge">Industrial &bull; Security</span>
           <h4>Plant Security Integration</h4>
           <p>Integrated unified IP surveillance, smart turnstile access control, and time attendance across a 4 hectare manufacturing plant.</p>
@@ -1968,6 +2643,57 @@
             <div class="meta-row">
               <span class="meta-lbl">Result:</span>
               <span class="meta-val">Single Unified Dashboard</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 04 Optical -->
+        <div class="project-card" data-category="optical">
+          <span class="project-badge">Education &bull; Optical Fiber</span>
+          <h4>Campus Optical Ring Backbone</h4>
+          <p>Engineered redundant singlemode optical fiber ring connecting 5 campus building clusters with automated sub second link failover.</p>
+          <div class="project-meta">
+            <div class="meta-row">
+              <span class="meta-lbl">Client:</span>
+              <span class="meta-val">Tzu Chi Educational Complex</span>
+            </div>
+            <div class="meta-row">
+              <span class="meta-lbl">Result:</span>
+              <span class="meta-val">10 Gbps Backbone & Zero Loss</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 05 Enterprise SD WAN -->
+        <div class="project-card" data-category="enterprise">
+          <span class="project-badge">Logistics &bull; SD WAN</span>
+          <h4>Multi Branch SD WAN Interconnect</h4>
+          <p>Deployed centralized software defined WAN interconnecting Surabaya and regional distribution hubs with automated traffic shaping and IPsec security.</p>
+          <div class="project-meta">
+            <div class="meta-row">
+              <span class="meta-lbl">Client:</span>
+              <span class="meta-val">PT. JPI Jasa Paket Surabaya</span>
+            </div>
+            <div class="meta-row">
+              <span class="meta-lbl">Result:</span>
+              <span class="meta-val">45% Latency Cut & Dual ISP Failover</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 06 Industrial IoT -->
+        <div class="project-card" data-category="industrial">
+          <span class="project-badge">Industrial &bull; Smart IoT</span>
+          <h4>Cold Storage Telemetry & Alarm</h4>
+          <p>Installed industrial grade temperature, humidity, and generator power sensors with instant cellular SMS and Telegram emergency notifications.</p>
+          <div class="project-meta">
+            <div class="meta-row">
+              <span class="meta-lbl">Client:</span>
+              <span class="meta-val">CV. Mitra Phocphan Blitar</span>
+            </div>
+            <div class="meta-row">
+              <span class="meta-lbl">Result:</span>
+              <span class="meta-val">Zero Inventory Thermal Loss</span>
             </div>
           </div>
         </div>
@@ -2096,34 +2822,187 @@
     </div>
   </section>
 
-  <!-- CONTACT & CONSULTATION -->
+  <!-- ENTERPRISE FAQ ACCORDION SECTION -->
+  <section id="faq" style="background: rgba(13, 14, 20, 0.45);">
+    <div class="w">
+      <div class="sec-head">
+        <span class="sec-tag">Knowledge & Assurances</span>
+        <h2 class="sec-title">Frequently Asked Questions</h2>
+        <p class="sec-desc">Clear answers regarding our engineering methodology, procurement partnerships, service level guarantees, and deployment safety protocols.</p>
+      </div>
+
+      <div class="faq-accordion">
+        <div class="faq-item">
+          <button type="button" class="faq-question">
+            <span>How does Vier Ventures guarantee zero disruption during active enterprise operations?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>We execute rigorous lab pre configuration, scheduled off peak cutover windows, and dual link rollback protocols so your daily corporate transactions never stall.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button type="button" class="faq-question">
+            <span>What response times are guaranteed in your 24/7 SLA agreements?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>Our premier enterprise SLA provides critical incident onsite response in under 2 hours across Greater Jakarta, accompanied by 24/7 continuous telemetry monitoring.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button type="button" class="faq-question">
+            <span>Can Vier Ventures supply multi vendor hardware under one procurement tender?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>Yes. As an authorized multi brand partner, we supply certified Cisco, Schneider Electric, Aruba, Panduit, and Huawei hardware with official vendor warranties under a single accountable contract.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button type="button" class="faq-question">
+            <span>How do your technicians certify structured optical fiber and copper drops?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>Every link is tested with industry standard Fluke OTDR optical meters and copper certification units. Clients receive comprehensive digital test dossiers before final handover.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button type="button" class="faq-question">
+            <span>Do you offer pre tender architectural consultation and custom bill of materials?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>Yes. Our senior infrastructure engineers conduct complimentary physical site audits and provide vendor neutral bill of materials and topology schematics.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button type="button" class="faq-question">
+            <span>Are your engineers certified directly by the equipment manufacturers?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>All our lead engineers hold verified manufacturer credentials including Cisco, MikroTik MTCINE, Schneider Electric EcoStruxure, and certified fiber optic accreditations.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT & CONSULTATION WITH INTERACTIVE RFP FORM -->
   <section id="contact">
     <div class="w">
       <div class="sec-head">
         <span class="sec-tag">Get In Touch</span>
         <h2 class="sec-title">Start Your Infrastructure Consultation</h2>
-        <p class="sec-desc">Reach our technical desk directly. We respond within one business day with clear, transparent architectural recommendations.</p>
+        <p class="sec-desc">Reach our technical desk directly or submit an RFP specification. We respond within one business day with clear, transparent architectural recommendations.</p>
       </div>
 
-      <div class="contact-grid">
-        <div class="contact-card">
-          <h4>Call or WhatsApp</h4>
-          <p>Direct technical desk & emergency SLA hotline:</p>
-          <p><a href="tel:+622154397460" class="link">+62 21 5439 7460</a></p>
-          <p><a href="https://wa.me/6285157988002" target="_blank" rel="noopener" class="link">+62 851 5798 8002 (WhatsApp)</a></p>
+      <div class="contact-wrap-grid">
+        <!-- Direct Contact Cards Column -->
+        <div class="contact-grid" style="grid-template-columns: 1fr; gap: 20px;">
+          <div class="contact-card">
+            <h4>Call or WhatsApp</h4>
+            <p>Direct technical desk & emergency SLA hotline:</p>
+            <p><a href="tel:+622154397460" class="link">+62 21 5439 7460</a></p>
+            <p><a href="https://wa.me/6285157988002" target="_blank" rel="noopener" class="link">+62 851 5798 8002 (WhatsApp)</a></p>
+          </div>
+
+          <div class="contact-card">
+            <h4>Email Inquiries</h4>
+            <p>For tender requests, project RFP, and partner inquiries:</p>
+            <p><a href="mailto:info@vierventures.com" class="link">info@vierventures.com</a></p>
+            <p style="font-size: 13px; color: var(--ink-faint); margin-top: 10px;">Mon to Fri: 08:30 to 17:30 WIB</p>
+          </div>
+
+          <div class="contact-card">
+            <h4>Head Office</h4>
+            <p>Arcade Business Center, 6th Floor Unit 603<br>Jl. Pantai Indah Utara 2 Kav. C1, Jakarta, Indonesia</p>
+            <a href="https://www.google.com/maps/search/?api=1&query=Arcade+Business+Center+Pantai+Indah+Utara+2+Jakarta" target="_blank" rel="noopener" class="link">Open in Google Maps &rarr;</a>
+          </div>
         </div>
 
-        <div class="contact-card">
-          <h4>Email Inquiries</h4>
-          <p>For tender requests, project RFP, and partner inquiries:</p>
-          <p><a href="mailto:info@vierventures.com" class="link">info@vierventures.com</a></p>
-          <p style="font-size: 13px; color: var(--ink-faint); margin-top: 10px;">Mon to Fri: 08:30 to 17:30 WIB</p>
-        </div>
+        <!-- Interactive RFP Consultation Form Column -->
+        <div class="rfp-form-card">
+          <div class="rfp-form-header">
+            <h3>Request Technical RFP & Pricing</h3>
+            <p>Fill out your requirements for a comprehensive architectural proposal, bill of materials estimate, and vendor matching.</p>
+          </div>
 
-        <div class="contact-card">
-          <h4>Head Office</h4>
-          <p>Arcade Business Center, 6th Floor Unit 603<br>Jl. Pantai Indah Utara 2 Kav. C1, Jakarta, Indonesia</p>
-          <a href="https://www.google.com/maps/search/?api=1&query=Arcade+Business+Center+Pantai+Indah+Utara+2+Jakarta" target="_blank" rel="noopener" class="link">Open in Google Maps &rarr;</a>
+          <form id="rfpForm">
+            <div class="form-row-2">
+              <div class="form-group">
+                <label class="form-label" for="rfpName">Full Name *</label>
+                <input type="text" id="rfpName" class="form-input" placeholder="e.g. Hendra Wijaya" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="rfpCompany">Company or Institution *</label>
+                <input type="text" id="rfpCompany" class="form-input" placeholder="e.g. PT. Nusantara Digital" required>
+              </div>
+            </div>
+
+            <div class="form-row-2">
+              <div class="form-group">
+                <label class="form-label" for="rfpEmail">Business Email *</label>
+                <input type="email" id="rfpEmail" class="form-input" placeholder="hendra@company.co.id" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="rfpPhone">Phone or WhatsApp *</label>
+                <input type="tel" id="rfpPhone" class="form-input" placeholder="+62 812 3456 7890" required>
+              </div>
+            </div>
+
+            <div class="form-row-2">
+              <div class="form-group">
+                <label class="form-label" for="rfpScope">Infrastructure Scope *</label>
+                <select id="rfpScope" class="form-select" required>
+                  <option value="" disabled selected>Select Primary Scope</option>
+                  <option value="Enterprise Network Infrastructure">Enterprise Network & Cabling</option>
+                  <option value="Data Center Facilities & Power">Data Center Facilities & Power</option>
+                  <option value="Integrated Security & Surveillance">Integrated Security & Surveillance</option>
+                  <option value="High Density Wireless Connectivity">High Density Wireless Connectivity</option>
+                  <option value="Smart Building & Alarm Telemetry">Smart Building & Alarm Telemetry</option>
+                  <option value="Maintenance & 24/7 SLA Service">Maintenance & 24/7 SLA Service</option>
+                  <option value="Multi Site Turnkey Overhaul">Multi Site Turnkey Overhaul</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="rfpTimeline">Target Timeline *</label>
+                <select id="rfpTimeline" class="form-select" required>
+                  <option value="" disabled selected>Select Target Window</option>
+                  <option value="Immediate within 30 days">Immediate (Within 30 Days)</option>
+                  <option value="1 to 3 Months">1 to 3 Months</option>
+                  <option value="3 to 6 Months">3 to 6 Months</option>
+                  <option value="Fiscal Budget Planning">Fiscal Budget Planning</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="rfpDetails">Project Specifics & Site Details</label>
+              <textarea id="rfpDetails" class="form-textarea" placeholder="Detail your site locations, rack counts, current pain points, or specific vendor preferences..."></textarea>
+            </div>
+
+            <button type="submit" class="form-submit-btn">
+              Generate Proposal & Open WhatsApp
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+          </form>
+
+          <div class="rfp-success-banner" id="rfpSuccess">
+            <h4>RFP Specification Ready</h4>
+            <p>Your technical inquiry has been formatted. Click below to submit directly to our senior engineering desk via WhatsApp for prompt response.</p>
+            <a href="#" target="_blank" rel="noopener" class="rfp-wa-btn" id="rfpWhatsAppLink">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.698.077-2.18-.538-1.782-.736-2.91-2.555-2.999-2.673-.088-.117-.723-.961-.723-1.832 0-.871.458-1.3.621-1.476.163-.176.356-.221.474-.221.118 0 .237.001.341.006.11.005.258-.041.403.308.149.356.505 1.232.549 1.32.044.088.073.191.015.308-.058.118-.088.192-.176.295-.088.103-.186.23-.265.309-.088.088-.18.185-.077.362.103.177.458.756.984 1.224.678.604 1.25.79 1.427.878.177.088.281.073.384-.044.103-.117.444-.515.562-.692.118-.176.236-.147.399-.088.163.059 1.034.488 1.211.576.177.088.295.132.339.206.045.074.045.426-.099.831z"/></svg>
+              Send RFP Directly to WhatsApp
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -2168,11 +3047,49 @@
     </div>
   </footer>
 
-  <!-- FLOATING WHATSAPP -->
-  <a href="https://wa.me/6285157988002" target="_blank" rel="noopener" class="wa-float" aria-label="Chat with our engineering team on WhatsApp">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.698.077-2.18-.538-1.782-.736-2.91-2.555-2.999-2.673-.088-.117-.723-.961-.723-1.832 0-.871.458-1.3.621-1.476.163-.176.356-.221.474-.221.118 0 .237.001.341.006.11.005.258-.041.403.308.149.356.505 1.232.549 1.32.044.088.073.191.015.308-.058.118-.088.192-.176.295-.088.103-.186.23-.265.309-.088.088-.18.185-.077.362.103.177.458.756.984 1.224.678.604 1.25.79 1.427.878.177.088.281.073.384-.044.103-.117.444-.515.562-.692.118-.176.236-.147.399-.088.163.059 1.034.488 1.211.576.177.088.295.132.339.206.045.074.045.426-.099.831z"/></svg>
-    WhatsApp Us
-  </a>
+  <!-- SOLUTIONS ARCHITECTURE MODAL -->
+  <div class="sol-modal-backdrop" id="solModalBackdrop" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="sol-modal-window" id="solModalWindow">
+      <button type="button" class="sol-modal-close" id="solModalClose" aria-label="Close modal">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+
+      <span class="sol-modal-tag" id="solModalTag">ENGINEERING SPECIFICATION</span>
+      <h3 class="sol-modal-title" id="solModalTitle">Architecture Details</h3>
+      <p class="sol-modal-desc" id="solModalDesc">Detailed component topology, vendor bill of materials, and enterprise deployment guarantees.</p>
+
+      <div class="sol-modal-tabs">
+        <button type="button" class="sol-tab-btn is-active" data-tab="specs">Engineering Specs</button>
+        <button type="button" class="sol-tab-btn" data-tab="bom">Hardware Stack</button>
+        <button type="button" class="sol-tab-btn" data-tab="sla">SLA & Handover</button>
+      </div>
+
+      <div class="sol-tab-content" id="solTabContent">
+        <!-- Injected via JavaScript based on selected solution and active tab -->
+      </div>
+
+      <div class="sol-modal-footer">
+        <button type="button" class="btn btn-ghost btn-sm" id="solModalDismiss">Close Overview</button>
+        <a href="#contact" class="btn btn-primary btn-sm" id="solModalCta">
+          Request Project Consultation
+          <svg class="arw" viewBox="0 0 12 10" fill="none" aria-hidden="true">
+            <path d="M0.8 5h10M7.1 1.4 10.9 5l-3.8 3.6" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- FLOATING QUICK ACTIONS BAR -->
+  <div class="floating-bar" id="floatingBar">
+    <button type="button" class="btn-back-to-top" id="btnBackToTop" aria-label="Scroll back to top">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+    </button>
+    <a href="https://wa.me/6285157988002" target="_blank" rel="noopener" class="btn-float-wa" aria-label="Open WhatsApp consultation">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.698.077-2.18-.538-1.782-.736-2.91-2.555-2.999-2.673-.088-.117-.723-.961-.723-1.832 0-.871.458-1.3.621-1.476.163-.176.356-.221.474-.221.118 0 .237.001.341.006.11.005.258-.041.403.308.149.356.505 1.232.549 1.32.044.088.073.191.015.308-.058.118-.088.192-.176.295-.088.103-.186.23-.265.309-.088.088-.18.185-.077.362.103.177.458.756.984 1.224.678.604 1.25.79 1.427.878.177.088.281.073.384-.044.103-.117.444-.515.562-.692.118-.176.236-.147.399-.088.163.059 1.034.488 1.211.576.177.088.295.132.339.206.045.074.045.426-.099.831z"/></svg>
+      <span class="wa-tooltip">Direct Engineering Desk</span>
+    </a>
+  </div>
 
   <!-- COOKIE CONSENT BANNER -->
   <div id="cookie-toast">
@@ -2541,6 +3458,392 @@
             sel.removeAllRanges();
           }
         }
+      });
+    })();
+
+    // 8. PROJECT PORTFOLIO FILTER LOGIC
+    (function initProjectFilters() {
+      var filterBtns = document.querySelectorAll('.p-filter-btn');
+      var projectCards = document.querySelectorAll('.project-card');
+      if (!filterBtns.length || !projectCards.length) return;
+
+      filterBtns.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var filter = this.getAttribute('data-filter');
+
+          filterBtns.forEach(function(b) { b.classList.remove('is-active'); });
+          this.classList.add('is-active');
+
+          projectCards.forEach(function(card) {
+            var cat = card.getAttribute('data-category');
+            if (filter === 'all' || cat === filter) {
+              card.classList.remove('is-hidden');
+              card.style.display = '';
+            } else {
+              card.classList.add('is-hidden');
+              card.style.display = 'none';
+            }
+          });
+        });
+      });
+    })();
+
+    // 9. ENTERPRISE FAQ ACCORDION
+    (function initFaqAccordion() {
+      var faqItems = document.querySelectorAll('.faq-item');
+      if (!faqItems.length) return;
+
+      faqItems.forEach(function(item) {
+        var btn = item.querySelector('.faq-question');
+        if (!btn) return;
+
+        btn.addEventListener('click', function() {
+          var isOpen = item.classList.contains('is-open');
+
+          // Close other open FAQ items for a clean accordion experience
+          faqItems.forEach(function(other) {
+            if (other !== item) other.classList.remove('is-open');
+          });
+
+          if (isOpen) {
+            item.classList.remove('is-open');
+          } else {
+            item.classList.add('is-open');
+          }
+        });
+      });
+    })();
+
+    // 10. SOLUTIONS ARCHITECTURE MODAL
+    (function initSolutionsModal() {
+      var backdrop = document.getElementById('solModalBackdrop');
+      var closeBtn = document.getElementById('solModalClose');
+      var dismissBtn = document.getElementById('solModalDismiss');
+      var tabBtns = document.querySelectorAll('.sol-tab-btn');
+      var modalTitle = document.getElementById('solModalTitle');
+      var modalDesc = document.getElementById('solModalDesc');
+      var tabContent = document.getElementById('solTabContent');
+      var triggerBtns = document.querySelectorAll('.sol-detail-btn');
+      if (!backdrop || !tabContent) return;
+
+      var currentSol = 'network';
+      var currentTab = 'specs';
+
+      var solData = {
+        network: {
+          tag: 'ENTERPRISE NETWORK ARCHITECTURE',
+          title: 'High Throughput Core & SD WAN Infrastructure',
+          desc: 'High speed backbone routing, redundant switching fabrics, structured cabling, and zero trust branch connectivity.',
+          specs: [
+            { label: 'Backbone Throughput', val: 'Up to 100 Gbps Core Routing' },
+            { label: 'Cabling Standards', val: 'Cat6A / Cat7 & Singlemode Fiber' },
+            { label: 'Topology Architecture', val: 'Spine & Leaf High Availability' },
+            { label: 'Network Latency', val: 'Sub 2ms Intra Campus Switching' },
+            { label: 'Redundancy Protocol', val: 'Automated Dual Link BGP Failover' },
+            { label: 'Audit Certification', val: 'Fluke Versiv OTDR Tier 3 Reports' }
+          ],
+          bom: [
+            'Cisco Catalyst 9300 / 9500 Core & Distribution Switches',
+            'CommScope GigaSPEED X10D Structured Copper Cabling',
+            'Panduit OptiCam Pre Terminated Singlemode Fiber',
+            'MikroTik CCR2216 Carrier Grade Edge Cloud Routers',
+            'APC NetShelter 42U Server Racks with Cable Organizers'
+          ],
+          sla: [
+            '99.99% Availability Guarantee with written SLA',
+            '2 Hour Rapid Emergency Onsite Dispatch across Greater Jakarta',
+            '24/7 Live SNMP Telemetry & Proactive Link Monitoring',
+            'Annual Preventative Firmware Hardening & Security Patching'
+          ]
+        },
+        datacenter: {
+          tag: 'MISSION CRITICAL FACILITIES',
+          title: 'Data Center Facilities & Critical Power',
+          desc: 'Turnkey server room design, precision in row cooling, three phase modular UPS topologies, and automated fire suppression.',
+          specs: [
+            { label: 'Power Redundancy', val: 'N+1 / 2N Modular UPS Topologies' },
+            { label: 'Thermal Management', val: 'In Row Precision Cooling Units' },
+            { label: 'Fire Suppression', val: 'Clean Agent FM200 / Novec 1230' },
+            { label: 'Power Efficiency', val: 'Target PUE Under 1.4 Design' },
+            { label: 'Access Security', val: 'Dual Factor Biometric Air Lock' },
+            { label: 'Telemetry Monitoring', val: 'Continuous DCIM Environmental Sensors' }
+          ],
+          bom: [
+            'Schneider Electric Galaxy Modular Three Phase UPS Systems',
+            'Schneider Electric Uniflair Precision Air Handling Units',
+            'Panduit SmartZone Intelligent Power Distribution Units (ePDU)',
+            'FM200 Clean Agent Fire Extinguishing Automated System',
+            'Gas Detection, Leak Rope Sensors, and Ambient Hygrometers'
+          ],
+          sla: [
+            'Zero unplanned facility power loss guarantee under active SLA',
+            'Quarterly preventative thermal imaging & battery health audits',
+            '4 Hour critical replacement part dispatch from Jakarta stock',
+            'Documented annual electrical load bank test handover'
+          ]
+        },
+        security: {
+          tag: 'UNIFIED PHYSICAL & CYBER PROTECTION',
+          title: 'Integrated Enterprise Security & AI Surveillance',
+          desc: 'High resolution AI analytics CCTV, turnstile speed gates, biometric identity verification, and central security operation center.',
+          specs: [
+            { label: 'Video Analytics', val: '4K AI License Plate & Face Recognition' },
+            { label: 'Storage Retention', val: 'Redundant RAID6 90 Day Local Archive' },
+            { label: 'Door Controllers', val: 'OSDP Encrypted Biometric Readers' },
+            { label: 'Perimeter Defense', val: 'Infrared Barrier & Microwave Tripwire' },
+            { label: 'Integration Level', val: 'Single Unified PSIM Management Console' },
+            { label: 'Fail Safe Mechanism', val: 'Fire Alarm Automatic Egress Release' }
+          ],
+          bom: [
+            'Hikvision / Hanwha Vision 4K Ultra Low Light Network Cameras',
+            'Enterprise Multi Bay Network Video Recorders with Hot Spare',
+            'ZKTeco Speed Gate Turnstiles with RFID & Facial Readers',
+            'HID Global Seos Encrypted Smart Card Controllers',
+            'Centralized Video Wall Security Operations Command Console'
+          ],
+          sla: [
+            'Continuous 24/7 camera health check and disk failure alert',
+            'Immediate remote diagnostic response within 30 minutes',
+            'Scheduled optical lens cleaning and field calibration visits',
+            'Strict data protection compliant access logs and storage encryption'
+          ]
+        },
+        wireless: {
+          tag: 'HIGH CAPACITY ENTERPRISE WIRELESS',
+          title: 'Predictive Enterprise WiFi & Roaming',
+          desc: 'High density RF propagation mapping, seamless roaming access points, hospitality captive portals, and rugged outdoor mesh.',
+          specs: [
+            { label: 'Wireless Protocol', val: 'WiFi 6 / WiFi 6E & Next Gen WiFi 7' },
+            { label: 'Client Density', val: 'Up to 500 Active Devices per Access Point' },
+            { label: 'Roaming Latency', val: 'Sub 15ms Fast Handover (802.11r/k/v)' },
+            { label: 'RF Propagation', val: 'Ekahau 3D Predictive Heatmap Verification' },
+            { label: 'Captive Portal', val: 'Custom Branded SMS / OTP Guest Access' },
+            { label: 'Bandwidth QoS', val: 'Per User Dynamic Bandwidth Shaping' }
+          ],
+          bom: [
+            'Ruckus BeamFlex+ Ultra Density Indoor & Outdoor APs',
+            'Aruba CX Cloud Managed Multi Gigabit PoE+ Switches',
+            'Ubiquiti UniFi Enterprise Gateway & Aggregation Switches',
+            'Ekahau Sidekick Certified RF Spectrum Survey Toolkit',
+            'Weatherproof IP67 Enclosures for Outdoor Industrial Mesh'
+          ],
+          sla: [
+            'Guaranteed zero blind spots across approved floor layouts',
+            'Over the air automated RF interference channel adaptation',
+            'Quarterly wireless spectrum verification and tuning visits',
+            'Next business day access point hardware swap guarantee'
+          ]
+        },
+        smartbuilding: {
+          tag: 'IOT & ENVIRONMENTAL TELEMETRY',
+          title: 'Smart Building & Automated Sensor Arrays',
+          desc: 'Real time environmental monitoring, water leak detection, power metering, and multi channel emergency alerts via SMS and Telegram.',
+          specs: [
+            { label: 'Telemetry Channels', val: 'Redundant WiFi, GSM Cellular & LoRaWAN' },
+            { label: 'Sensory Types', val: 'Temperature, Humidity, Water, Gas, Voltage' },
+            { label: 'Alert Dispatch', val: 'Instant Push, SMS, Telegram & Siren Relay' },
+            { label: 'Power Autonomy', val: 'Internal Battery Backup up to 72 Hours' },
+            { label: 'Data Refresh', val: 'Configurable 1 to 60 Second Poll Rate' },
+            { label: 'BMS Integration', val: 'Standard Modbus TCP & BACnet Support' }
+          ],
+          bom: [
+            'Industrial Grade Modbus RTU / TCP Environmental Sensor Probes',
+            'Cellular IoT Multi Band Gateway with Auto SIM Failover',
+            'Water Leak Detection Rope Sensors with Conductive Polymer',
+            'Current Transducer (CT) Digital Power Consumption Meters',
+            'High Decibel Strobe Sirens with Relay Control Modules'
+          ],
+          sla: [
+            'Guaranteed sub 5 second emergency alert dispatch',
+            'Monthly battery health and cellular signal level audits',
+            'Secure encrypted MQTT / HTTPS cloud telemetry dashboard',
+            'Tailored threshold profiles for specialized manufacturing sites'
+          ]
+        },
+        maintenance: {
+          tag: 'ENTERPRISE CONTINUITY & SUPPORT',
+          title: '24/7 Managed Services & Guaranteed SLA',
+          desc: 'Round the clock technical assistance, dedicated spare parts buffer, preventative health visits, and guaranteed incident dispatch.',
+          specs: [
+            { label: 'Incident Response', val: 'Under 2 Hours Onsite Dispatch in Jakarta' },
+            { label: 'Support Availability', val: '24 Hours a Day, 365 Days a Year' },
+            { label: 'Monitoring Center', val: 'Dedicated In House Live Operations Desk' },
+            { label: 'Hardware Buffer', val: 'Local Jakarta Spare Parts Inventory Pool' },
+            { label: 'Reporting Cadence', val: 'Monthly Executive Uptime & Incident Dossier' },
+            { label: 'Account Ownership', val: 'Dedicated Named Senior Lead Engineer' }
+          ],
+          bom: [
+            'Enterprise SNMP / Syslog Centralized Monitoring Platform',
+            'Dedicated Hot Spare Switch, Router & Power Supply Inventory',
+            'Fluke Versiv Cable Analyzer & Fiber Inspection Scopes',
+            'Automated Configuration Backup & Cloud Version Repository',
+            'Direct Emergency WhatsApp & Phone Escalation Hotline'
+          ],
+          sla: [
+            '99.9% Overall Infrastructure Uptime SLA Commitment',
+            'Formal SLA penalty credits for unresolved critical downtime',
+            'Scheduled bi monthly preventative physical hardware servicing',
+            'Executive quarterly technology review and capacity planning'
+          ]
+        }
+      };
+
+      function renderModalContent() {
+        var data = solData[currentSol] || solData.network;
+        var tagEl = document.getElementById('solModalTag');
+        if (tagEl) tagEl.textContent = data.tag;
+        if (modalTitle) modalTitle.textContent = data.title;
+        if (modalDesc) modalDesc.textContent = data.desc;
+
+        if (currentTab === 'specs') {
+          var html = '<div class="sol-spec-grid">';
+          data.specs.forEach(function(item) {
+            html += '<div class="sol-spec-item">';
+            html += '<span class="sol-spec-label">' + item.label + '</span>';
+            html += '<span class="sol-spec-val">' + item.val + '</span>';
+            html += '</div>';
+          });
+          html += '</div>';
+          tabContent.innerHTML = html;
+        } else if (currentTab === 'bom') {
+          var htmlBom = '<ul style="list-style: none; display: flex; flex-direction: column; gap: 12px; padding: 4px 0;">';
+          data.bom.forEach(function(item) {
+            htmlBom += '<li style="display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: #e2e8f0;">';
+            htmlBom += '<span style="color: #a78bfa; font-weight: 700; margin-top: 1px;">✓</span>';
+            htmlBom += '<span>' + item + '</span>';
+            htmlBom += '</li>';
+          });
+          htmlBom += '</ul>';
+          tabContent.innerHTML = htmlBom;
+        } else if (currentTab === 'sla') {
+          var htmlSla = '<ul style="list-style: none; display: flex; flex-direction: column; gap: 12px; padding: 4px 0;">';
+          data.sla.forEach(function(item) {
+            htmlSla += '<li style="display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: #e2e8f0;">';
+            htmlSla += '<span style="color: #10b981; font-weight: 700; margin-top: 1px;">★</span>';
+            htmlSla += '<span>' + item + '</span>';
+            htmlSla += '</li>';
+          });
+          htmlSla += '</ul>';
+          tabContent.innerHTML = htmlSla;
+        }
+      }
+
+      function openModal(solKey) {
+        currentSol = solKey || 'network';
+        currentTab = 'specs';
+        tabBtns.forEach(function(btn) {
+          if (btn.getAttribute('data-tab') === 'specs') {
+            btn.classList.add('is-active');
+          } else {
+            btn.classList.remove('is-active');
+          }
+        });
+        renderModalContent();
+        backdrop.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeModal() {
+        backdrop.classList.remove('is-open');
+        document.body.style.overflow = '';
+      }
+
+      triggerBtns.forEach(function(btn) {
+        btn.addEventListener('click', function(e) {
+          e.preventDefault();
+          var solKey = this.getAttribute('data-sol');
+          openModal(solKey);
+        });
+      });
+
+      tabBtns.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          tabBtns.forEach(function(b) { b.classList.remove('is-active'); });
+          this.classList.add('is-active');
+          currentTab = this.getAttribute('data-tab') || 'specs';
+          renderModalContent();
+        });
+      });
+
+      if (closeBtn) closeBtn.addEventListener('click', closeModal);
+      if (dismissBtn) dismissBtn.addEventListener('click', closeModal);
+
+      backdrop.addEventListener('click', function(e) {
+        if (e.target === backdrop) closeModal();
+      });
+
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && backdrop.classList.contains('is-open')) {
+          closeModal();
+        }
+      });
+    })();
+
+    // 11. INTERACTIVE RFP FORM SUBMISSION & WHATSAPP GENERATOR
+    (function initRfpForm() {
+      var form = document.getElementById('rfpForm');
+      var successBanner = document.getElementById('rfpSuccess');
+      var waLink = document.getElementById('rfpWhatsAppLink');
+      if (!form || !successBanner || !waLink) return;
+
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        var name = (document.getElementById('rfpName').value || '').trim();
+        var company = (document.getElementById('rfpCompany').value || '').trim();
+        var email = (document.getElementById('rfpEmail').value || '').trim();
+        var phone = (document.getElementById('rfpPhone').value || '').trim();
+        var scope = (document.getElementById('rfpScope').value || '').trim();
+        var timeline = (document.getElementById('rfpTimeline').value || '').trim();
+        var details = (document.getElementById('rfpDetails').value || '').trim();
+
+        if (!name || !company || !email || !phone || !scope || !timeline) {
+          return;
+        }
+
+        var lines = [
+          'PROJECT RFP CONSULTATION REQUEST',
+          'PT. VIER VIRYA VENTURES',
+          '',
+          'Full Name: ' + name,
+          'Company: ' + company,
+          'Email: ' + email,
+          'Phone: ' + phone,
+          'Scope: ' + scope,
+          'Timeline: ' + timeline,
+          'Details: ' + (details || 'Site consultation requested')
+        ];
+
+        var encodedText = encodeURIComponent(lines.join('\n'));
+        var whatsappUrl = 'https://wa.me/6285157988002?text=' + encodedText;
+
+        waLink.setAttribute('href', whatsappUrl);
+        successBanner.classList.add('is-visible');
+
+        // Scroll smoothly to success banner so client sees their link
+        successBanner.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      });
+    })();
+
+    // 12. FLOATING BAR BACK TO TOP & SCROLL LISTENER
+    (function initBackToTop() {
+      var btn = document.getElementById('btnBackToTop');
+      if (!btn) return;
+
+      window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 380) {
+          btn.classList.add('is-visible');
+        } else {
+          btn.classList.remove('is-visible');
+        }
+      }, { passive: true });
+
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
       });
     })();
   </script>
