@@ -8,8 +8,8 @@
   <meta property="og:title" content="PT. Vier Virya Ventures | Enterprise IT Infrastructure">
   <meta property="og:description" content="Premier system integrator delivering network infrastructure, data center, and integrated security solutions for enterprises in Indonesia.">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="/assets/aistudio/cropped-logovier2_0297489c.webp">
-  <link rel="icon" type="image/webp" href="/assets/aistudio/cropped-logovier2_0297489c.webp">
+  <meta property="og:image" content="./assets/logo.webp">
+  <link rel="icon" type="image/webp" href="./assets/logo.webp">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1132,6 +1132,18 @@
       object-fit: contain;
       display: block;
     }
+    .partner-fallback-badge {
+      display: none;
+      font-weight: 800;
+      font-size: 1.15rem;
+      letter-spacing: 0.05em;
+      color: #0f172a;
+      text-align: center;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+    }
     .partner-name {
       font-size: 1.05rem;
       font-weight: 700;
@@ -1407,7 +1419,7 @@
   <header>
     <div class="w nav-inner">
       <a href="#home" class="brand-logo" aria-label="PT. Vier Virya Ventures">
-        <img src="/assets/aistudio/cropped-logovier2_0297489c.webp" alt="PT. Vier Virya Ventures Logo" class="brand-img" width="162" height="42">
+        <img src="./assets/logo.webp" alt="PT. Vier Virya Ventures Logo" class="brand-img" width="162" height="42" onerror="if(!this.dataset.tried){this.dataset.tried='1'; this.src='./public/assets/logo.webp';} else if(this.dataset.tried==='1'){this.dataset.tried='2'; this.src='./assets/aistudio/cropped-logovier2_0297489c.webp';}">
       </a>
 
       <nav class="nav-links" aria-label="Main menu">
@@ -1945,7 +1957,8 @@
       <div class="partners-grid">
         <div class="partner-tile" style="--p-color: #0559c9;">
           <div class="partner-logo-box">
-            <img src="/assets/partners/cisco.png" alt="Cisco Systems" class="partner-logo-img" loading="lazy" width="160" height="60">
+            <img src="./assets/partners/cisco.png" alt="Cisco Systems" class="partner-logo-img" loading="lazy" width="160" height="60" onerror="if(!this.dataset.tried){this.dataset.tried='1'; this.src='./public/assets/partners/cisco.png';} else {this.style.display='none'; this.nextElementSibling.style.display='flex';}">
+            <span class="partner-fallback-badge">CISCO</span>
           </div>
           <div class="partner-name">CISCO</div>
           <div class="partner-sub">Routing, Switching & Security</div>
@@ -1953,7 +1966,8 @@
 
         <div class="partner-tile" style="--p-color: #3dae4e;">
           <div class="partner-logo-box">
-            <img src="/assets/partners/schneider-electric.png" alt="Schneider Electric" class="partner-logo-img" loading="lazy" width="160" height="60">
+            <img src="./assets/partners/schneider-electric.png" alt="Schneider Electric" class="partner-logo-img" loading="lazy" width="160" height="60" onerror="if(!this.dataset.tried){this.dataset.tried='1'; this.src='./public/assets/partners/schneider-electric.png';} else {this.style.display='none'; this.nextElementSibling.style.display='flex';}">
+            <span class="partner-fallback-badge">SCHNEIDER</span>
           </div>
           <div class="partner-name">SCHNEIDER ELECTRIC</div>
           <div class="partner-sub">UPS & Power Management</div>
@@ -1961,7 +1975,8 @@
 
         <div class="partner-tile" style="--p-color: #ff8300;">
           <div class="partner-logo-box">
-            <img src="/assets/partners/aruba.png" alt="Aruba Networks" class="partner-logo-img" loading="lazy" width="160" height="60">
+            <img src="./assets/partners/aruba.png" alt="Aruba Networks" class="partner-logo-img" loading="lazy" width="160" height="60" onerror="if(!this.dataset.tried){this.dataset.tried='1'; this.src='./public/assets/partners/aruba.png';} else {this.style.display='none'; this.nextElementSibling.style.display='flex';}">
+            <span class="partner-fallback-badge">ARUBA</span>
           </div>
           <div class="partner-name">ARUBA NETWORKS</div>
           <div class="partner-sub">Enterprise WiFi & Switching</div>
@@ -1969,7 +1984,8 @@
 
         <div class="partner-tile" style="--p-color: #01a982;">
           <div class="partner-logo-box">
-            <img src="/assets/partners/hpe.png" alt="Hewlett Packard Enterprise" class="partner-logo-img" loading="lazy" width="160" height="60">
+            <img src="./assets/partners/hpe.png" alt="Hewlett Packard Enterprise" class="partner-logo-img" loading="lazy" width="160" height="60" onerror="if(!this.dataset.tried){this.dataset.tried='1'; this.src='./public/assets/partners/hpe.png';} else {this.style.display='none'; this.nextElementSibling.style.display='flex';}">
+            <span class="partner-fallback-badge">HPE</span>
           </div>
           <div class="partner-name">HPE</div>
           <div class="partner-sub">Enterprise Compute & Storage</div>
@@ -1977,7 +1993,8 @@
 
         <div class="partner-tile" style="--p-color: #3b82f6;">
           <div class="partner-logo-box">
-            <img src="/assets/partners/commscope.png" alt="CommScope" class="partner-logo-img" loading="lazy" width="160" height="60">
+            <img src="./assets/partners/commscope.png" alt="CommScope" class="partner-logo-img" loading="lazy" width="160" height="60" onerror="if(!this.dataset.tried){this.dataset.tried='1'; this.src='./public/assets/partners/commscope.png';} else {this.style.display='none'; this.nextElementSibling.style.display='flex';}">
+            <span class="partner-fallback-badge">COMMSCOPE</span>
           </div>
           <div class="partner-name">COMMSCOPE</div>
           <div class="partner-sub">Structured Fiber & Copper</div>
@@ -1985,7 +2002,8 @@
 
         <div class="partner-tile" style="--p-color: #00a99d;">
           <div class="partner-logo-box">
-            <img src="/assets/partners/panduit.png" alt="Panduit" class="partner-logo-img" loading="lazy" width="160" height="60">
+            <img src="./assets/partners/panduit.png" alt="Panduit" class="partner-logo-img" loading="lazy" width="160" height="60" onerror="if(!this.dataset.tried){this.dataset.tried='1'; this.src='./public/assets/partners/panduit.png';} else {this.style.display='none'; this.nextElementSibling.style.display='flex';}">
+            <span class="partner-fallback-badge">PANDUIT</span>
           </div>
           <div class="partner-name">PANDUIT</div>
           <div class="partner-sub">Data Center & Wire Management</div>
@@ -1993,7 +2011,8 @@
 
         <div class="partner-tile" style="--p-color: #0033a0;">
           <div class="partner-logo-box">
-            <img src="/assets/partners/belden.png" alt="Belden" class="partner-logo-img" loading="lazy" width="160" height="60">
+            <img src="./assets/partners/belden.png" alt="Belden" class="partner-logo-img" loading="lazy" width="160" height="60" onerror="if(!this.dataset.tried){this.dataset.tried='1'; this.src='./public/assets/partners/belden.png';} else {this.style.display='none'; this.nextElementSibling.style.display='flex';}">
+            <span class="partner-fallback-badge">BELDEN</span>
           </div>
           <div class="partner-name">BELDEN</div>
           <div class="partner-sub">Cabling & Industrial Networking</div>
@@ -2001,7 +2020,8 @@
 
         <div class="partner-tile" style="--p-color: #5a6472;">
           <div class="partner-logo-box">
-            <img src="/assets/partners/juniper-networks.png" alt="Juniper Networks" class="partner-logo-img" loading="lazy" width="160" height="60">
+            <img src="./assets/partners/juniper-networks.png" alt="Juniper Networks" class="partner-logo-img" loading="lazy" width="160" height="60" onerror="if(!this.dataset.tried){this.dataset.tried='1'; this.src='./public/assets/partners/juniper-networks.png';} else {this.style.display='none'; this.nextElementSibling.style.display='flex';}">
+            <span class="partner-fallback-badge">JUNIPER</span>
           </div>
           <div class="partner-name">JUNIPER NETWORKS</div>
           <div class="partner-sub">AI Driven Core Networking</div>
@@ -2009,7 +2029,8 @@
 
         <div class="partner-tile" style="--p-color: #c92437;">
           <div class="partner-logo-box">
-            <img src="/assets/partners/mikrotik.png" alt="MikroTik" class="partner-logo-img" loading="lazy" width="160" height="60">
+            <img src="./assets/partners/mikrotik.png" alt="MikroTik" class="partner-logo-img" loading="lazy" width="160" height="60" onerror="if(!this.dataset.tried){this.dataset.tried='1'; this.src='./public/assets/partners/mikrotik.png';} else {this.style.display='none'; this.nextElementSibling.style.display='flex';}">
+            <span class="partner-fallback-badge">MIKROTIK</span>
           </div>
           <div class="partner-name">MIKROTIK</div>
           <div class="partner-sub">Carrier Routing & Bandwidth Control</div>
@@ -2017,7 +2038,8 @@
 
         <div class="partner-tile" style="--p-color: #f58220;">
           <div class="partner-logo-box">
-            <img src="/assets/partners/ruckus.png" alt="Ruckus Networks" class="partner-logo-img" loading="lazy" width="160" height="60">
+            <img src="./assets/partners/ruckus.png" alt="Ruckus Networks" class="partner-logo-img" loading="lazy" width="160" height="60" onerror="if(!this.dataset.tried){this.dataset.tried='1'; this.src='./public/assets/partners/ruckus.png';} else {this.style.display='none'; this.nextElementSibling.style.display='flex';}">
+            <span class="partner-fallback-badge">RUCKUS</span>
           </div>
           <div class="partner-name">RUCKUS</div>
           <div class="partner-sub">Smart WiFi & Density Access Points</div>
@@ -2025,7 +2047,8 @@
 
         <div class="partner-tile" style="--p-color: #006fff;">
           <div class="partner-logo-box">
-            <img src="/assets/partners/ubiquiti.png" alt="Ubiquiti" class="partner-logo-img" loading="lazy" width="160" height="60">
+            <img src="./assets/partners/ubiquiti.png" alt="Ubiquiti" class="partner-logo-img" loading="lazy" width="160" height="60" onerror="if(!this.dataset.tried){this.dataset.tried='1'; this.src='./public/assets/partners/ubiquiti.png';} else {this.style.display='none'; this.nextElementSibling.style.display='flex';}">
+            <span class="partner-fallback-badge">UBIQUITI</span>
           </div>
           <div class="partner-name">UBIQUITI</div>
           <div class="partner-sub">UniFi SDN Switching & Gateways</div>
@@ -2033,7 +2056,8 @@
 
         <div class="partner-tile" style="--p-color: #cf0a2c;">
           <div class="partner-logo-box">
-            <img src="/assets/partners/huawei.png" alt="Huawei Enterprise" class="partner-logo-img" loading="lazy" width="160" height="60">
+            <img src="./assets/partners/huawei.png" alt="Huawei Enterprise" class="partner-logo-img" loading="lazy" width="160" height="60" onerror="if(!this.dataset.tried){this.dataset.tried='1'; this.src='./public/assets/partners/huawei.png';} else {this.style.display='none'; this.nextElementSibling.style.display='flex';}">
+            <span class="partner-fallback-badge">HUAWEI</span>
           </div>
           <div class="partner-name">HUAWEI</div>
           <div class="partner-sub">Enterprise Optical & ICT Systems</div>
@@ -2081,7 +2105,7 @@
       <div class="footer-grid">
         <div class="footer-col">
           <div class="brand-logo" style="margin-bottom: 14px;">
-            <img src="/assets/aistudio/cropped-logovier2_0297489c.webp" alt="PT. Vier Virya Ventures Logo" class="brand-img" style="height: 38px;" width="146" height="38">
+            <img src="./assets/logo.webp" alt="PT. Vier Virya Ventures Logo" class="brand-img" style="height: 38px;" width="146" height="38" onerror="if(!this.dataset.tried){this.dataset.tried='1'; this.src='./public/assets/logo.webp';} else if(this.dataset.tried==='1'){this.dataset.tried='2'; this.src='./assets/aistudio/cropped-logovier2_0297489c.webp';}">
           </div>
           <p style="color: var(--ink-muted); font-size: 14px; max-width: 420px; line-height: 1.6;">
             System integrator and enterprise IT infrastructure specialist based in Jakarta, delivering networks, data centers, wireless connectivity, and integrated security.
