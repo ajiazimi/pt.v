@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 136" width="440" height="136">
+  <defs>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&amp;display=swap");
+      .brand-name {
+        font-family: "Plus Jakarta Sans", -apple-system, sans-serif;
+        font-weight: 700;
+        font-size: 52px;
+        fill: #ffffff;
+      }
+      .brand-sub {
+        font-family: "Plus Jakarta Sans", -apple-system, sans-serif;
+        font-weight: 800;
+        font-size: 17px;
+        letter-spacing: 0.38em;
+        fill: #d62828;
+      }
+    </style>
+  </defs>
+  <!-- V Icon -->
+  <g id="v-icon">
+    <!-- Red Left Wing -->
+    <path d="M 11 8 L 45 8 L 69.5 62 L 69.5 125 Z" fill="#d62828" />
+    <!-- Blue Right Wing -->
+    <path d="M 94 8 L 128 8 L 69.5 125 L 69.5 62 Z" fill="#1d4ed8" />
+  </g>
+  <!-- Text -->
+  <text x="180" y="86" class="brand-name">Vier Virya</text>
+  <text x="183" y="117" class="brand-sub">VENTURES</text>
+</svg>

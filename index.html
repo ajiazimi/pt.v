@@ -203,17 +203,22 @@
       text-decoration: none;
     }
     .brand-img {
-      height: 42px;
+      height: 44px;
       width: auto;
       max-width: 220px;
       object-fit: contain;
       display: block;
-      filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.45));
-      transition: transform 0.22s ease, opacity 0.22s ease;
+      background: transparent;
+      padding: 0;
+      border: none;
+      box-shadow: none;
+      filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.45));
+      transition: transform 0.22s ease, opacity 0.22s ease, filter 0.22s ease;
     }
     .brand-logo:hover .brand-img {
-      transform: scale(1.02);
-      opacity: 0.94;
+      transform: translateY(-1px) scale(1.02);
+      opacity: 0.96;
+      filter: drop-shadow(0 4px 12px rgba(255, 255, 255, 0.15));
     }
     .brand-symbol {
       width: 36px;
@@ -1999,6 +2004,136 @@
         font-size: 11px;
       }
     }
+
+    /* LOGO REDESIGN SHOWCASE MODAL */
+    .logo-modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(3, 4, 8, 0.88);
+      -webkit-backdrop-filter: blur(20px);
+      backdrop-filter: blur(20px);
+      z-index: 1050;
+      display: grid;
+      place-items: center;
+      padding: 24px 16px;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .logo-modal-backdrop.is-open {
+      opacity: 1;
+      visibility: visible;
+    }
+    .logo-modal-window {
+      background: #0d0f16;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 20px;
+      max-width: 1120px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      padding: 32px 28px;
+      position: relative;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85);
+      transform: translateY(20px) scale(0.97);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .logo-modal-backdrop.is-open .logo-modal-window {
+      transform: translateY(0) scale(1);
+    }
+    .logo-options-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin-top: 24px;
+    }
+    .logo-opt-card {
+      background: rgba(18, 20, 29, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.25s ease;
+    }
+    .logo-opt-card:hover {
+      border-color: rgba(167, 139, 250, 0.45);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+    }
+    .logo-opt-card.is-active-brand {
+      border-color: #10b981;
+      background: rgba(16, 185, 129, 0.08);
+    }
+    .logo-img-frame {
+      width: 100%;
+      aspect-ratio: 1;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #06070a;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      margin-bottom: 16px;
+      position: relative;
+    }
+    .logo-img-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+    .logo-opt-card:hover .logo-img-frame img {
+      transform: scale(1.04);
+    }
+    .logo-opt-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 6px;
+    }
+    .logo-opt-concept {
+      font-size: 13px;
+      color: #94a3b8;
+      line-height: 1.5;
+      margin-bottom: 16px;
+      flex-grow: 1;
+    }
+    .logo-opt-actions {
+      display: flex;
+      gap: 8px;
+    }
+    .logo-apply-btn {
+      flex: 1;
+      padding: 9px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      background: rgba(167, 139, 250, 0.15);
+      border: 1px solid rgba(167, 139, 250, 0.35);
+      color: #ffffff;
+      transition: all 0.2s ease;
+    }
+    .logo-apply-btn:hover {
+      background: #7c3aed;
+      border-color: #8b5cf6;
+    }
+    .logo-revert-btn {
+      padding: 9px 16px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      color: #cbd5e1;
+      transition: all 0.2s ease;
+    }
+    .logo-revert-btn:hover {
+      background: rgba(255, 255, 255, 0.12);
+      color: #ffffff;
+    }
   </style>
 </head>
 <body>
@@ -2007,7 +2142,7 @@
   <header>
     <div class="w nav-inner">
       <a href="#home" class="brand-logo" aria-label="PT. Vier Virya Ventures">
-        <img src="./assets/logo.webp" alt="PT. Vier Virya Ventures Logo" class="brand-img" width="162" height="42" onerror="if(!this.dataset.tried){this.dataset.tried='1'; this.src='./public/assets/logo.webp';} else if(this.dataset.tried==='1'){this.dataset.tried='2'; this.src='./assets/aistudio/cropped-logovier2_0297489c.webp';}">
+        <img src="./assets/logo.png" alt="PT. Vier Virya Ventures Logo" class="brand-img" width="162" height="42" onerror="if(!this.dataset.tried){this.dataset.tried='1'; this.src='./assets/logo.webp';} else if(this.dataset.tried==='1'){this.dataset.tried='2'; this.src='./public/assets/logo.png';}">
       </a>
 
       <nav class="nav-links" aria-label="Main menu">
@@ -2021,6 +2156,7 @@
       </nav>
 
       <div class="nav-actions">
+        <button type="button" class="btn btn-ghost btn-sm" id="openLogoStudioBtn" style="border-color: rgba(167, 139, 250, 0.45); color: #ddd6fe;">5 Logo Redesigns</button>
         <a href="https://wa.me/6285157988002" target="_blank" rel="noopener" class="btn btn-ghost btn-sm">WhatsApp Direct</a>
         <a href="#contact" class="btn btn-primary btn-sm">
           Get Started
@@ -2037,6 +2173,7 @@
 
   <!-- MOBILE MENU -->
   <div class="mobile-menu" id="mobileMenu">
+    <a href="#logoStudio" id="openLogoStudioMobile" style="color: #a78bfa; font-weight: 700;">5 Logo Redesign Options</a>
     <a href="#solutions">Solutions</a>
     <a href="#why">Why Us</a>
     <a href="#industries">Industries</a>
@@ -2062,11 +2199,6 @@
     </div>
 
     <div class="hero-content">
-      <div class="pill-tag">
-        <span class="dot"></span>
-        System Integrator &bull; Jakarta, Indonesia
-      </div>
-
       <h1 class="hero-title">
         <span class="ln">Enterprise IT</span>
         <span class="ln gradient-text">Infrastructure</span>
@@ -3014,7 +3146,7 @@
       <div class="footer-grid">
         <div class="footer-col">
           <div class="brand-logo" style="margin-bottom: 14px;">
-            <img src="./assets/logo.webp" alt="PT. Vier Virya Ventures Logo" class="brand-img" style="height: 38px;" width="146" height="38" onerror="if(!this.dataset.tried){this.dataset.tried='1'; this.src='./public/assets/logo.webp';} else if(this.dataset.tried==='1'){this.dataset.tried='2'; this.src='./assets/aistudio/cropped-logovier2_0297489c.webp';}">
+            <img src="./assets/logo.png" alt="PT. Vier Virya Ventures Logo" class="brand-img" style="height: 38px;" width="146" height="38" onerror="if(!this.dataset.tried){this.dataset.tried='1'; this.src='./assets/logo.webp';} else if(this.dataset.tried==='1'){this.dataset.tried='2'; this.src='./public/assets/logo.png';}">
           </div>
           <p style="color: var(--ink-muted); font-size: 14px; max-width: 420px; line-height: 1.6;">
             System integrator and enterprise IT infrastructure specialist based in Jakarta, delivering networks, data centers, wireless connectivity, and integrated security.
@@ -3076,6 +3208,86 @@
             <path d="M0.8 5h10M7.1 1.4 10.9 5l-3.8 3.6" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- LOGO REDESIGN SHOWCASE MODAL -->
+  <div class="logo-modal-backdrop" id="logoStudioModal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="logo-modal-window">
+      <button type="button" class="sol-modal-close" id="logoStudioClose" aria-label="Close modal">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+
+      <span class="sol-modal-tag">BRAND IDENTITY REDESIGN</span>
+      <h3 class="sol-modal-title">5 Logo Redesign Options &bull; PT. Vier Virya Ventures</h3>
+      <p class="sol-modal-desc">Pilih salah satu dari 5 arah konsep visual di bawah ini. Anda dapat mengklik tombol terapkan untuk langsung menguji tampilan logo pada header dan footer situs web ini secara langsung.</p>
+
+      <div class="logo-options-grid">
+        <!-- Opsi 1 -->
+        <div class="logo-opt-card" data-logo-src="./assets/logos/logo1.jpg">
+          <div class="logo-img-frame">
+            <img src="./assets/logos/logo1.jpg" alt="Opsi 1 Dual V Monogram" loading="lazy">
+          </div>
+          <div class="logo-opt-title">Opsi 1: Dual V Monogram</div>
+          <div class="logo-opt-concept">Sinergi monogram ganda V bersudut 45 derajat dengan jalur serat optik simetris bergradasi electric cyan ke violet. Sangat presisi, kokoh, dan berwibawa.</div>
+          <div class="logo-opt-actions">
+            <button type="button" class="logo-apply-btn" data-apply="./assets/logos/logo1.jpg">Terapkan Pada Web</button>
+          </div>
+        </div>
+
+        <!-- Opsi 2 -->
+        <div class="logo-opt-card" data-logo-src="./assets/logos/logo2.jpg">
+          <div class="logo-img-frame">
+            <img src="./assets/logos/logo2.jpg" alt="Opsi 2 Dynamic Data Convergence" loading="lazy">
+          </div>
+          <div class="logo-opt-title">Opsi 2: Dynamic Data Convergence</div>
+          <div class="logo-opt-concept">Pita multidimensi 3D meliuk menyerupai infinity loop kontinuitas data 24/7. Mengangkat DNA warna asli merah rubi, biru kobalt, dan cyan elektrik secara modern.</div>
+          <div class="logo-opt-actions">
+            <button type="button" class="logo-apply-btn" data-apply="./assets/logos/logo2.jpg">Terapkan Pada Web</button>
+          </div>
+        </div>
+
+        <!-- Opsi 3 -->
+        <div class="logo-opt-card" data-logo-src="./assets/logos/logo3.jpg">
+          <div class="logo-img-frame">
+            <img src="./assets/logos/logo3.jpg" alt="Opsi 3 Hexagon Shield Core" loading="lazy">
+          </div>
+          <div class="logo-opt-title">Opsi 3: Hexagon Shield Core</div>
+          <div class="logo-opt-concept">Perisai heksagonal arsitektural dengan V isometrik di intinya. Melambangkan kestabilan rak data center, sirkuit telemetri, dan keamanan siber fisik korporat.</div>
+          <div class="logo-opt-actions">
+            <button type="button" class="logo-apply-btn" data-apply="./assets/logos/logo3.jpg">Terapkan Pada Web</button>
+          </div>
+        </div>
+
+        <!-- Opsi 4 -->
+        <div class="logo-opt-card" data-logo-src="./assets/logos/logo4.jpg">
+          <div class="logo-img-frame">
+            <img src="./assets/logos/logo4.jpg" alt="Opsi 4 Minimalist Prismatic Chevron" loading="lazy">
+          </div>
+          <div class="logo-opt-title">Opsi 4: Minimalist Prismatic Chevron</div>
+          <div class="logo-opt-concept">Tiga bidang sudut geometris transparan bertumpuk rapi gaya Swiss modern. Sangat bersih, prestisius, abadi, dan mudah dicetak di berbagai media korporat.</div>
+          <div class="logo-opt-actions">
+            <button type="button" class="logo-apply-btn" data-apply="./assets/logos/logo4.jpg">Terapkan Pada Web</button>
+          </div>
+        </div>
+
+        <!-- Opsi 5 -->
+        <div class="logo-opt-card" data-logo-src="./assets/logos/logo5.jpg">
+          <div class="logo-img-frame">
+            <img src="./assets/logos/logo5.jpg" alt="Opsi 5 Quantum Fiber Wings" loading="lazy">
+          </div>
+          <div class="logo-opt-title">Opsi 5: Quantum Fiber Wings</div>
+          <div class="logo-opt-concept">Sayap optik aerodinamis bersudut lancip dengan pendaran cahaya neon magenta dan cyan berenergi tinggi. Melambangkan kecepatan transmisi dan otomasi masa depan.</div>
+          <div class="logo-opt-actions">
+            <button type="button" class="logo-apply-btn" data-apply="./assets/logos/logo5.jpg">Terapkan Pada Web</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="sol-modal-footer" style="margin-top: 28px;">
+        <button type="button" class="logo-revert-btn" id="revertOriginalLogoBtn">Kembalikan Logo Awal</button>
+        <button type="button" class="btn btn-primary btn-sm" id="logoStudioDismiss">Tutup Preview</button>
       </div>
     </div>
   </div>
@@ -3843,6 +4055,106 @@
         window.scrollTo({
           top: 0,
           behavior: 'smooth'
+        });
+      });
+    })();
+
+    // 13. LOGO REDESIGN STUDIO MODAL HANDLERS
+    (function initLogoStudio() {
+      var openBtn = document.getElementById('openLogoStudioBtn');
+      var openMobile = document.getElementById('openLogoStudioMobile');
+      var modal = document.getElementById('logoStudioModal');
+      var closeBtn = document.getElementById('logoStudioClose');
+      var dismissBtn = document.getElementById('logoStudioDismiss');
+      var revertBtn = document.getElementById('revertOriginalLogoBtn');
+      var applyBtns = document.querySelectorAll('.logo-apply-btn');
+      var brandImgs = document.querySelectorAll('.brand-img');
+      var optCards = document.querySelectorAll('.logo-opt-card');
+      if (!modal) return;
+
+      var defaultLogo = './assets/logo.png';
+
+      function openModal(e) {
+        if (e) e.preventDefault();
+        modal.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeModal() {
+        modal.classList.remove('is-open');
+        document.body.style.overflow = '';
+      }
+
+      function applyLogo(logoSrc) {
+        brandImgs.forEach(function(img) {
+          img.src = logoSrc;
+          // Set appropriate styling for square logo previews in navbar
+          img.style.objectFit = 'contain';
+          img.style.maxHeight = '42px';
+        });
+
+        optCards.forEach(function(card) {
+          if (card.getAttribute('data-logo-src') === logoSrc) {
+            card.classList.add('is-active-brand');
+            var btn = card.querySelector('.logo-apply-btn');
+            if (btn) btn.textContent = 'Aktif Digunakan';
+          } else {
+            card.classList.remove('is-active-brand');
+            var otherBtn = card.querySelector('.logo-apply-btn');
+            if (otherBtn) otherBtn.textContent = 'Terapkan Pada Web';
+          }
+        });
+
+        try {
+          localStorage.setItem('vv_custom_logo', logoSrc);
+        } catch (err) {}
+      }
+
+      function revertLogo() {
+        brandImgs.forEach(function(img) {
+          img.src = defaultLogo;
+        });
+        optCards.forEach(function(card) {
+          card.classList.remove('is-active-brand');
+          var btn = card.querySelector('.logo-apply-btn');
+          if (btn) btn.textContent = 'Terapkan Pada Web';
+        });
+        try {
+          localStorage.removeItem('vv_custom_logo');
+        } catch (err) {}
+      }
+
+      // Check saved logo
+      try {
+        var savedLogo = localStorage.getItem('vv_custom_logo');
+        if (savedLogo) {
+          applyLogo(savedLogo);
+        }
+      } catch (err) {}
+
+      if (openBtn) openBtn.addEventListener('click', openModal);
+      if (openMobile) openMobile.addEventListener('click', openModal);
+      if (closeBtn) closeBtn.addEventListener('click', closeModal);
+      if (dismissBtn) dismissBtn.addEventListener('click', closeModal);
+      if (revertBtn) revertBtn.addEventListener('click', revertLogo);
+
+      modal.addEventListener('click', function(e) {
+        if (e.target === modal) closeModal();
+      });
+
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal.classList.contains('is-open')) {
+          closeModal();
+        }
+      });
+
+      applyBtns.forEach(function(btn) {
+        btn.addEventListener('click', function(e) {
+          e.preventDefault();
+          var src = this.getAttribute('data-apply');
+          if (src) {
+            applyLogo(src);
+          }
         });
       });
     })();
