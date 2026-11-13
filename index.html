@@ -424,13 +424,6 @@
       0%, 100% { opacity: 0.45; transform: scale(0.98); }
       50%      { opacity: 0.85; transform: scale(1.02); }
     }
-    @keyframes metricsFadeIn {
-      from { opacity: 0; transform: translateY(6px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    .metrics-fade-in {
-      animation: metricsFadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-    }
     .hero-globe-skeleton {
       position: absolute;
       inset: 0;
@@ -473,37 +466,6 @@
       background: linear-gradient(110deg, transparent 25%, rgba(196, 181, 253, 0.16) 50%, transparent 75%);
       background-size: 200% 100%;
       animation: skeletonShimmer 1.8s ease-in-out infinite;
-    }
-    .sk-box {
-      border-radius: 8px;
-      background: linear-gradient(110deg, rgba(255, 255, 255, 0.04) 22%, rgba(167, 139, 250, 0.14) 50%, rgba(255, 255, 255, 0.04) 78%);
-      background-size: 220% 100%;
-      animation: skeletonShimmer 1.5s ease-in-out infinite;
-    }
-    .sk-pill {
-      border-radius: 999px;
-    }
-    .sk-chart-area {
-      height: 320px;
-      display: flex;
-      align-items: flex-end;
-      padding: 28px 18px 14px;
-      border-radius: 12px;
-      background: rgba(255, 255, 255, 0.02);
-      border: 1px solid rgba(255, 255, 255, 0.05);
-    }
-    .sk-chart-bars {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      gap: 12px;
-    }
-    .sk-chart-bar {
-      flex: 1;
-      border-radius: 6px 6px 2px 2px;
-      min-height: 24%;
     }
     .bg-video {
       position: absolute;
@@ -891,194 +853,6 @@
       color: var(--ink-muted);
       font-size: 13.5px;
       line-height: 1.6;
-    }
-
-    /* PERFORMANCE METRICS CHART SECTION */
-    .metrics-section-container {
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      border-radius: 24px;
-      padding: 34px 30px;
-      -webkit-backdrop-filter: blur(16px);
-      backdrop-filter: blur(16px);
-      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
-      position: relative;
-      overflow: hidden;
-      margin-bottom: 40px;
-    }
-    .metrics-section-container::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, #7c3aed, #38bdf8, #10b981);
-      opacity: 0.85;
-    }
-    .metrics-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      flex-wrap: wrap;
-      gap: 20px;
-      margin-bottom: 28px;
-    }
-    .metrics-title {
-      font-size: 1.65rem;
-      font-weight: 700;
-      color: #fff;
-      margin: 8px 0 8px;
-      letter-spacing: -0.01em;
-    }
-    .metrics-desc {
-      color: var(--ink-muted);
-      font-size: 14.5px;
-      max-width: 680px;
-      line-height: 1.55;
-    }
-    .metrics-tabs {
-      display: inline-flex;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 12px;
-      padding: 4px;
-      gap: 4px;
-    }
-    .metric-tab-btn {
-      background: transparent;
-      border: none;
-      color: var(--ink-muted);
-      padding: 8px 16px;
-      font-size: 13px;
-      font-weight: 600;
-      border-radius: 9px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      transition: all 0.2s ease;
-    }
-    .metric-tab-btn:hover {
-      color: #fff;
-    }
-    .metric-tab-btn.active {
-      background: rgba(167, 139, 250, 0.2);
-      color: #fff;
-      border: 1px solid rgba(167, 139, 250, 0.4);
-      box-shadow: 0 2px 10px rgba(124, 58, 237, 0.25);
-    }
-    .metrics-kpi-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-      margin-bottom: 24px;
-    }
-    .metric-kpi-card {
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.07);
-      border-radius: 16px;
-      padding: 18px 16px;
-      transition: all 0.22s ease;
-    }
-    .metric-kpi-card:hover {
-      background: rgba(255, 255, 255, 0.05);
-      border-color: rgba(167, 139, 250, 0.3);
-      transform: translateY(-2px);
-    }
-    .kpi-value-row {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      gap: 8px;
-      margin-bottom: 6px;
-    }
-    .kpi-num {
-      font-size: 1.5rem;
-      font-weight: 800;
-      color: #fff;
-      letter-spacing: -0.02em;
-    }
-    .kpi-badge {
-      font-size: 11px;
-      font-weight: 700;
-      padding: 2px 8px;
-      border-radius: 6px;
-      letter-spacing: 0.02em;
-    }
-    .kpi-success {
-      background: rgba(16, 185, 129, 0.15);
-      color: #34d399;
-      border: 1px solid rgba(16, 185, 129, 0.3);
-    }
-    .kpi-accent {
-      background: rgba(56, 189, 248, 0.15);
-      color: #38bdf8;
-      border: 1px solid rgba(56, 189, 248, 0.3);
-    }
-    .kpi-label {
-      color: #e2e8f0;
-      font-size: 13px;
-      font-weight: 600;
-      margin-bottom: 2px;
-    }
-    .kpi-sub {
-      color: var(--ink-faint);
-      font-size: 11.5px;
-    }
-    .chart-card-wrapper {
-      background: rgba(10, 11, 16, 0.6);
-      border: 1px solid rgba(255, 255, 255, 0.07);
-      border-radius: 18px;
-      padding: 22px 20px 14px;
-    }
-    .chart-card-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-bottom: 16px;
-    }
-    .chart-legend-row {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      font-size: 12.5px;
-      color: var(--ink-muted);
-    }
-    .chart-legend-item {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .legend-indicator {
-      width: 12px;
-      height: 12px;
-      border-radius: 3px;
-      display: inline-block;
-    }
-    .legend-indicator.dashed {
-      border: 1.5px dashed;
-      background: transparent !important;
-    }
-    .live-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      background: rgba(16, 185, 129, 0.12);
-      color: #34d399;
-      border: 1px solid rgba(16, 185, 129, 0.28);
-      border-radius: 999px;
-      padding: 4px 12px;
-      font-size: 11.5px;
-      font-weight: 600;
-    }
-    .live-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: #10b981;
     }
 
 
@@ -2405,10 +2179,10 @@
         <div class="hero-globe-orb"></div>
       </div>
       <canvas id="globe-canvas" class="hero-canvas"></canvas>
-      <video class="bg-video is-active" id="bgVideoA" autoplay muted loop playsinline preload="auto" disablepictureinpicture aria-hidden="true" poster="https://d2ol7oe51mr4n9.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/82e7eb75-c65f-490a-99b5-f3d1cad54200.webp">
+      <video class="bg-video" id="bgVideoA" muted loop playsinline preload="none" disablepictureinpicture aria-hidden="true">
         <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260912_104036_bd6924f6-3c8e-417e-8465-6d03c8c2e9e6.mp4" type="video/mp4">
       </video>
-      <video class="bg-video" id="bgVideoB" muted loop playsinline preload="auto" disablepictureinpicture aria-hidden="true" poster="https://d2ol7oe51mr4n9.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/82e7eb75-c65f-490a-99b5-f3d1cad54200.webp">
+      <video class="bg-video" id="bgVideoB" muted loop playsinline preload="none" disablepictureinpicture aria-hidden="true">
         <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260912_104036_bd6924f6-3c8e-417e-8465-6d03c8c2e9e6.mp4" type="video/mp4">
       </video>
     </div>
@@ -2497,7 +2271,7 @@
         <div class="sec-head">
           <span class="sec-tag">Executive Overview</span>
           <h2 class="sec-title">Explore Our Infrastructure Branches</h2>
-          <p class="sec-desc">Select any section below to open its dedicated page covering detailed engineering specifications, verified uptime telemetry, industry deployments, and direct consultation.</p>
+          <p class="sec-desc">Select any section below to open its dedicated page covering detailed engineering specifications, key achievements, industry deployments, and direct consultation.</p>
         </div>
 
         <div class="summary-grid">
@@ -2528,9 +2302,9 @@
                 <span class="summary-metric">99.994% Uptime</span>
               </div>
               <h3>Why Vier Ventures</h3>
-              <p>Strategic business objectives, 40+ certified in house engineers, 12 month live telemetry benchmarks, and single vendor accountability.</p>
+              <p>Strategic business objectives, 40+ certified in house engineers, key achievements, and single vendor accountability.</p>
               <ul class="summary-tags">
-                <li>SLA Telemetry</li>
+                <li>Vendor Neutral</li>
                 <li>Certifications</li>
                 <li>Proven ROI</li>
               </ul>
@@ -2886,41 +2660,6 @@
           <p>Rigorous multi stage pre commissioning testing ensuring zero surprise go lives and flawless documented handovers.</p>
         </div>
       </div>
-
-      <!-- PERFORMANCE METRICS CHART SECTION (RECHARTS) -->
-      <div id="metrics-chart-root">
-        <div class="metrics-section-container sk-dashboard" aria-busy="true" aria-label="Loading performance telemetry dashboard">
-          <div class="metrics-header">
-            <div style="flex: 1; min-width: 240px;">
-              <div class="sk-box sk-pill" style="width: 170px; height: 22px; margin-bottom: 12px;"></div>
-              <div class="sk-box" style="width: 72%; max-width: 420px; height: 28px; margin-bottom: 10px;"></div>
-              <div class="sk-box" style="width: 90%; max-width: 560px; height: 16px;"></div>
-            </div>
-            <div class="sk-box sk-pill" style="width: 250px; height: 40px; border-radius: 12px;"></div>
-          </div>
-          <div class="metrics-kpi-grid">
-            <div class="metric-kpi-card"><div class="sk-box" style="width: 65%; height: 26px; margin-bottom: 10px;"></div><div class="sk-box" style="width: 80%; height: 14px; margin-bottom: 6px;"></div><div class="sk-box" style="width: 55%; height: 12px;"></div></div>
-            <div class="metric-kpi-card"><div class="sk-box" style="width: 65%; height: 26px; margin-bottom: 10px;"></div><div class="sk-box" style="width: 80%; height: 14px; margin-bottom: 6px;"></div><div class="sk-box" style="width: 55%; height: 12px;"></div></div>
-            <div class="metric-kpi-card"><div class="sk-box" style="width: 65%; height: 26px; margin-bottom: 10px;"></div><div class="sk-box" style="width: 80%; height: 14px; margin-bottom: 6px;"></div><div class="sk-box" style="width: 55%; height: 12px;"></div></div>
-            <div class="metric-kpi-card"><div class="sk-box" style="width: 65%; height: 26px; margin-bottom: 10px;"></div><div class="sk-box" style="width: 80%; height: 14px; margin-bottom: 6px;"></div><div class="sk-box" style="width: 55%; height: 12px;"></div></div>
-          </div>
-          <div class="chart-card-wrapper">
-            <div class="sk-chart-area">
-              <div class="sk-chart-bars">
-                <div class="sk-box sk-chart-bar" style="height: 46%;"></div>
-                <div class="sk-box sk-chart-bar" style="height: 62%;"></div>
-                <div class="sk-box sk-chart-bar" style="height: 54%;"></div>
-                <div class="sk-box sk-chart-bar" style="height: 76%;"></div>
-                <div class="sk-box sk-chart-bar" style="height: 68%;"></div>
-                <div class="sk-box sk-chart-bar" style="height: 84%;"></div>
-                <div class="sk-box sk-chart-bar" style="height: 72%;"></div>
-                <div class="sk-box sk-chart-bar" style="height: 90%;"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
 
     </div>
   </section>
@@ -3755,72 +3494,77 @@
       }
     })();
 
-    // 2. Continuous Video Looping with Seamless Crossfade & Fallback
+    // 2. Fallback Video Looping (activated only when WebGL is unavailable)
     (function() {
-      var vA = document.getElementById('bgVideoA');
-      var vB = document.getElementById('bgVideoB');
-      if (!vA || !vB) return;
+      var started = false;
+      function startFallbackVideo() {
+        if (started) return;
+        started = true;
 
-      // Ensure muted properties for strict iframe & mobile autoplay policies
-      vA.muted = true;
-      vA.defaultMuted = true;
-      vB.muted = true;
-      vB.defaultMuted = true;
+        var vA = document.getElementById('bgVideoA');
+        var vB = document.getElementById('bgVideoB');
+        if (!vA || !vB) return;
 
-      if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        vA.removeAttribute('autoplay');
-        vA.pause();
-        vB.pause();
-        try { vA.currentTime = 0; } catch (e) {}
-        return;
-      }
+        vA.muted = true;
+        vA.defaultMuted = true;
+        vB.muted = true;
+        vB.defaultMuted = true;
+        vA.classList.add('is-active');
 
-      var FADE = 0.9;
-      var cur = vA;
-      var nxt = vB;
-      var swapping = false;
-
-      function play(v) {
-        var p = v.play();
-        if (p && typeof p.catch === 'function') {
-          p.catch(function() {});
+        if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          vA.pause();
+          vB.pause();
+          return;
         }
+
+        var FADE = 0.9;
+        var cur = vA;
+        var nxt = vB;
+        var swapping = false;
+
+        function play(v) {
+          var p = v.play();
+          if (p && typeof p.catch === 'function') {
+            p.catch(function() {});
+          }
+        }
+
+        play(vA);
+
+        function tryUnlockAutoplay() {
+          if (vA.paused) play(vA);
+        }
+        window.addEventListener('pointerdown', tryUnlockAutoplay, { once: true, passive: true });
+        window.addEventListener('scroll', tryUnlockAutoplay, { once: true, passive: true });
+        window.addEventListener('touchstart', tryUnlockAutoplay, { once: true, passive: true });
+
+        function tick() {
+          if (swapping || !cur.duration) return;
+          if (cur.duration - cur.currentTime > FADE) return;
+
+          swapping = true;
+          var out = cur;
+          nxt.currentTime = 0;
+          play(nxt);
+          nxt.classList.add('is-active');
+          out.classList.remove('is-active');
+
+          var temp = cur;
+          cur = nxt;
+          nxt = temp;
+
+          setTimeout(function() {
+            out.pause();
+            out.currentTime = 0;
+            swapping = false;
+          }, FADE * 1000 + 100);
+        }
+
+        vA.addEventListener('timeupdate', tick);
+        vB.addEventListener('timeupdate', tick);
       }
 
-      play(vA);
-
-      // Auto-unlock play on first user interaction if initially throttled
-      function tryUnlockAutoplay() {
-        if (vA.paused) play(vA);
-      }
-      window.addEventListener('pointerdown', tryUnlockAutoplay, { once: true, passive: true });
-      window.addEventListener('scroll', tryUnlockAutoplay, { once: true, passive: true });
-      window.addEventListener('touchstart', tryUnlockAutoplay, { once: true, passive: true });
-
-      function tick() {
-        if (swapping || !cur.duration) return;
-        if (cur.duration - cur.currentTime > FADE) return;
-
-        swapping = true;
-        var out = cur;
-        nxt.currentTime = 0;
-        play(nxt);
-        nxt.classList.add('is-active');
-        out.classList.remove('is-active');
-
-        var temp = cur;
-        cur = nxt;
-        nxt = temp;
-
-        setTimeout(function() {
-          out.pause();
-          out.currentTime = 0;
-          swapping = false;
-        }, FADE * 1000 + 100);
-      }
-
-      vA.addEventListener('timeupdate', tick);
-      vB.addEventListener('timeupdate', tick);
+      window.addEventListener('vv:webgl-fallback', startFallbackVideo, { once: true });
     })();
 
     // 3. Cookie Toast
@@ -4637,7 +4381,7 @@
           window.dispatchEvent(new Event('vv:refresh-lazy-observers'));
         } catch (err) {}
 
-        // Notify Recharts ResponsiveContainer & Three.js Globe to recalculate dimensions
+        // Notify Three.js Globe to recalculate dimensions
         setTimeout(function() {
           window.dispatchEvent(new Event('resize'));
         }, 45);
@@ -4676,9 +4420,49 @@
       navigateToBranch(resolveBranch(window.location.hash), false);
     })();
   </script>
-  <!-- Three.js 3D Interactive Rotating Dot-Matrix Earth Scene -->
-  <script type="module" src="/src/globe.ts"></script>
-  <!-- Recharts Historical Uptime & SLA Metrics Component -->
-  <script type="module" src="/src/metrics-chart.tsx"></script>
+  <!-- Code-Split Deferred WebGL Globe Loader (loads only after first paint when Home is active) -->
+  <script type="module">
+    var globeLoaded = false;
+    function bootHeroGlobe() {
+      if (globeLoaded) return;
+      var branchHome = document.getElementById('branch-home');
+      if (branchHome && !branchHome.classList.contains('is-active')) return;
+      globeLoaded = true;
+
+      import('/src/globe.ts')
+        .then(function(mod) {
+          if (mod && typeof mod.initHeroGlobe === 'function') {
+            mod.initHeroGlobe();
+          }
+        })
+        .catch(function() {
+          var sk = document.getElementById('hero-globe-skeleton');
+          if (sk) sk.classList.add('is-loaded');
+          window.dispatchEvent(new Event('vv:webgl-fallback'));
+        });
+    }
+
+    function scheduleGlobeBoot() {
+      requestAnimationFrame(function() {
+        if ('requestIdleCallback' in window) {
+          window.requestIdleCallback(bootHeroGlobe, { timeout: 140 });
+        } else {
+          setTimeout(bootHeroGlobe, 40);
+        }
+      });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', scheduleGlobeBoot, { once: true });
+    } else {
+      scheduleGlobeBoot();
+    }
+
+    window.addEventListener('vv:branch-activated', function(e) {
+      if (!globeLoaded && e && e.detail && e.detail.branch === 'home') {
+        bootHeroGlobe();
+      }
+    });
+  </script>
 </body>
 </html>
