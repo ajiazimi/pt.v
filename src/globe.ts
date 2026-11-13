@@ -41,6 +41,7 @@ export function initHeroGlobe() {
     });
   } catch (err) {
     console.warn('WebGL initialization failed, falling back to video background', err);
+    document.getElementById('hero-globe-skeleton')?.classList.add('is-loaded');
     return;
   }
 
@@ -759,9 +760,10 @@ export function initHeroGlobe() {
   // Kick off animation loop
   tick();
 
-  // Fade out video poster once WebGL canvas is rendering active frames
+  // Fade out skeleton & video poster once WebGL canvas is rendering active frames
   setTimeout(() => {
     canvas.classList.add('is-ready');
+    document.getElementById('hero-globe-skeleton')?.classList.add('is-loaded');
     const videos = document.querySelectorAll('.bg-video');
     videos.forEach((v) => {
       (v as HTMLElement).style.opacity = '0.05';

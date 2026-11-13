@@ -232,20 +232,27 @@
       color: #fff;
       box-shadow: 0 0 20px rgba(124, 58, 237, 0.45);
     }
-    .brand-title {
-      font-weight: 800;
-      font-size: 18px;
-      letter-spacing: -0.02em;
-      color: #fff;
+    .brand-wordmark {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      line-height: 1.05;
     }
-    .brand-title span {
-      color: var(--accent);
+    .brand-name-main {
       font-weight: 600;
-      font-size: 13px;
-      display: block;
-      letter-spacing: 0.08em;
+      font-size: 20px;
+      letter-spacing: -0.02em;
+      color: #ffffff;
+      white-space: nowrap;
+    }
+    .brand-name-sub {
+      font-weight: 600;
+      font-size: 10px;
+      letter-spacing: 0.41em;
       text-transform: uppercase;
-      margin-top: -2px;
+      color: #e53935;
+      margin-top: 3px;
+      white-space: nowrap;
     }
 
     .nav-links {
@@ -402,6 +409,101 @@
     }
     .hero-canvas.is-ready {
       opacity: 1;
+    }
+
+    /* LOADING SKELETON UI (GLOBE HERO & DASHBOARD TELEMETRY) */
+    @keyframes skeletonShimmer {
+      0%   { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
+    @keyframes globeSkeletonSpin {
+      0%   { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    @keyframes globeSkeletonPulse {
+      0%, 100% { opacity: 0.45; transform: scale(0.98); }
+      50%      { opacity: 0.85; transform: scale(1.02); }
+    }
+    @keyframes metricsFadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .metrics-fade-in {
+      animation: metricsFadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .hero-globe-skeleton {
+      position: absolute;
+      inset: 0;
+      z-index: 3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+      background: radial-gradient(circle at 50% 56%, rgba(88, 28, 135, 0.22) 0%, rgba(10, 10, 18, 0.86) 52%, rgba(0, 0, 0, 0.96) 100%);
+      transition: opacity 0.6s ease, visibility 0.6s ease;
+    }
+    .hero-globe-skeleton.is-loaded {
+      opacity: 0;
+      visibility: hidden;
+    }
+    .hero-globe-orb {
+      position: relative;
+      width: min(54vw, 480px);
+      height: min(54vw, 480px);
+      margin-top: 40px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 38% 35%, rgba(167, 139, 250, 0.2), rgba(59, 130, 246, 0.08) 48%, rgba(7, 7, 10, 0.4) 76%);
+      border: 1px solid rgba(167, 139, 250, 0.24);
+      box-shadow: 0 0 80px rgba(124, 58, 237, 0.2), inset 0 0 50px rgba(167, 139, 250, 0.12);
+      animation: globeSkeletonPulse 2.4s ease-in-out infinite;
+    }
+    .hero-globe-orb::before {
+      content: "";
+      position: absolute;
+      inset: -16%;
+      border-radius: 50%;
+      border: 1px dashed rgba(167, 139, 250, 0.28);
+      animation: globeSkeletonSpin 18s linear infinite;
+    }
+    .hero-globe-orb::after {
+      content: "";
+      position: absolute;
+      inset: 14%;
+      border-radius: 50%;
+      background: linear-gradient(110deg, transparent 25%, rgba(196, 181, 253, 0.16) 50%, transparent 75%);
+      background-size: 200% 100%;
+      animation: skeletonShimmer 1.8s ease-in-out infinite;
+    }
+    .sk-box {
+      border-radius: 8px;
+      background: linear-gradient(110deg, rgba(255, 255, 255, 0.04) 22%, rgba(167, 139, 250, 0.14) 50%, rgba(255, 255, 255, 0.04) 78%);
+      background-size: 220% 100%;
+      animation: skeletonShimmer 1.5s ease-in-out infinite;
+    }
+    .sk-pill {
+      border-radius: 999px;
+    }
+    .sk-chart-area {
+      height: 320px;
+      display: flex;
+      align-items: flex-end;
+      padding: 28px 18px 14px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .sk-chart-bars {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .sk-chart-bar {
+      flex: 1;
+      border-radius: 6px 6px 2px 2px;
+      min-height: 24%;
     }
     .bg-video {
       position: absolute;
@@ -1067,6 +1169,8 @@
       -webkit-backdrop-filter: blur(16px);
       backdrop-filter: blur(16px);
       transition: all 0.22s ease;
+      content-visibility: auto;
+      contain-intrinsic-size: 260px;
     }
     .project-card:hover {
       transform: translateY(-4px);
@@ -1137,6 +1241,8 @@
       position: relative;
       overflow: hidden;
       min-height: 195px;
+      content-visibility: auto;
+      contain-intrinsic-size: 195px;
     }
     .partner-tile::before {
       content: "";
@@ -1159,6 +1265,8 @@
       height: 4px;
     }
     .partner-logo-box {
+      position: relative;
+      overflow: hidden;
       width: 100%;
       height: 74px;
       background: #ffffff;
@@ -1171,6 +1279,14 @@
       box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
       transition: transform 0.22s ease, box-shadow 0.22s ease;
     }
+    .partner-logo-box.is-loading::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(110deg, #f1f5f9 22%, #e2e8f0 50%, #f1f5f9 78%);
+      background-size: 220% 100%;
+      animation: skeletonShimmer 1.3s ease-in-out infinite;
+    }
     .partner-tile:hover .partner-logo-box {
       transform: scale(1.03);
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
@@ -1182,6 +1298,11 @@
       height: auto;
       object-fit: contain;
       display: block;
+      opacity: 0;
+      transition: opacity 0.35s ease;
+    }
+    .partner-logo-img.is-loaded {
+      opacity: 1;
     }
     .partner-fallback-badge {
       display: none;
@@ -2102,6 +2223,11 @@
       margin-top: auto;
       white-space: nowrap;
     }
+    .summary-card-cta.btn-primary {
+      color: var(--btn-ink);
+      margin-top: 0;
+      flex-shrink: 0;
+    }
     .summary-branch-card:hover .summary-card-cta svg {
       transform: translateX(4px);
     }
@@ -2196,6 +2322,13 @@
     }
 
     @media (max-width: 480px) {
+      .brand-name-main {
+        font-size: 17px;
+      }
+      .brand-name-sub {
+        font-size: 8.5px;
+        letter-spacing: 0.38em;
+      }
       .partner-tile {
         padding: 16px 12px 18px;
         min-height: 165px;
@@ -2215,7 +2348,11 @@
   <header>
     <div class="w nav-inner">
       <a href="#home" class="brand-logo" aria-label="PT. Vier Virya Ventures">
-        <img src="./assets/logo.png" alt="PT. Vier Virya Ventures Logo" class="brand-img" width="162" height="42" onerror="if(!this.dataset.tried){this.dataset.tried='1'; this.src='./assets/logo.webp';} else if(this.dataset.tried==='1'){this.dataset.tried='2'; this.src='./public/assets/logo.png';}">
+        <img src="./assets/logo.png" alt="PT. Vier Virya Ventures Logo" class="brand-img" width="53" height="44" onerror="if(!this.dataset.tried){this.dataset.tried='1'; this.src='./assets/logo.webp';} else if(this.dataset.tried==='1'){this.dataset.tried='2'; this.src='./public/assets/logo.png';}">
+        <div class="brand-wordmark">
+          <span class="brand-name-main">Vier Virya</span>
+          <span class="brand-name-sub">VENTURES</span>
+        </div>
       </a>
 
       <nav class="nav-links" aria-label="Main menu">
@@ -2264,6 +2401,9 @@
   <!-- HERO SECTION WITH CONTINUOUS ROTATING DOT-MATRIX EARTH -->
   <section class="hero" id="home">
     <div class="hero-bg" role="img" aria-label="Rotating violet dot-matrix Earth globe">
+      <div class="hero-globe-skeleton" id="hero-globe-skeleton" aria-hidden="true">
+        <div class="hero-globe-orb"></div>
+      </div>
       <canvas id="globe-canvas" class="hero-canvas"></canvas>
       <video class="bg-video is-active" id="bgVideoA" autoplay muted loop playsinline preload="auto" disablepictureinpicture aria-hidden="true" poster="https://d2ol7oe51mr4n9.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/82e7eb75-c65f-490a-99b5-f3d1cad54200.webp">
         <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260912_104036_bd6924f6-3c8e-417e-8465-6d03c8c2e9e6.mp4" type="video/mp4">
@@ -2748,7 +2888,38 @@
       </div>
 
       <!-- PERFORMANCE METRICS CHART SECTION (RECHARTS) -->
-      <div id="metrics-chart-root"></div>
+      <div id="metrics-chart-root">
+        <div class="metrics-section-container sk-dashboard" aria-busy="true" aria-label="Loading performance telemetry dashboard">
+          <div class="metrics-header">
+            <div style="flex: 1; min-width: 240px;">
+              <div class="sk-box sk-pill" style="width: 170px; height: 22px; margin-bottom: 12px;"></div>
+              <div class="sk-box" style="width: 72%; max-width: 420px; height: 28px; margin-bottom: 10px;"></div>
+              <div class="sk-box" style="width: 90%; max-width: 560px; height: 16px;"></div>
+            </div>
+            <div class="sk-box sk-pill" style="width: 250px; height: 40px; border-radius: 12px;"></div>
+          </div>
+          <div class="metrics-kpi-grid">
+            <div class="metric-kpi-card"><div class="sk-box" style="width: 65%; height: 26px; margin-bottom: 10px;"></div><div class="sk-box" style="width: 80%; height: 14px; margin-bottom: 6px;"></div><div class="sk-box" style="width: 55%; height: 12px;"></div></div>
+            <div class="metric-kpi-card"><div class="sk-box" style="width: 65%; height: 26px; margin-bottom: 10px;"></div><div class="sk-box" style="width: 80%; height: 14px; margin-bottom: 6px;"></div><div class="sk-box" style="width: 55%; height: 12px;"></div></div>
+            <div class="metric-kpi-card"><div class="sk-box" style="width: 65%; height: 26px; margin-bottom: 10px;"></div><div class="sk-box" style="width: 80%; height: 14px; margin-bottom: 6px;"></div><div class="sk-box" style="width: 55%; height: 12px;"></div></div>
+            <div class="metric-kpi-card"><div class="sk-box" style="width: 65%; height: 26px; margin-bottom: 10px;"></div><div class="sk-box" style="width: 80%; height: 14px; margin-bottom: 6px;"></div><div class="sk-box" style="width: 55%; height: 12px;"></div></div>
+          </div>
+          <div class="chart-card-wrapper">
+            <div class="sk-chart-area">
+              <div class="sk-chart-bars">
+                <div class="sk-box sk-chart-bar" style="height: 46%;"></div>
+                <div class="sk-box sk-chart-bar" style="height: 62%;"></div>
+                <div class="sk-box sk-chart-bar" style="height: 54%;"></div>
+                <div class="sk-box sk-chart-bar" style="height: 76%;"></div>
+                <div class="sk-box sk-chart-bar" style="height: 68%;"></div>
+                <div class="sk-box sk-chart-bar" style="height: 84%;"></div>
+                <div class="sk-box sk-chart-bar" style="height: 72%;"></div>
+                <div class="sk-box sk-chart-bar" style="height: 90%;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
 
     </div>
@@ -3137,8 +3308,8 @@
 
       <div class="partners-grid">
         <div class="partner-tile" style="--p-color: #0559c9;">
-          <div class="partner-logo-box">
-            <img src="./assets/partners/cisco.png" alt="Cisco Systems" class="partner-logo-img" loading="lazy" width="160" height="60" onerror="if(!this.dataset.tried){this.dataset.tried='1'; this.src='./public/assets/partners/cisco.png';} else {this.style.display='none'; this.nextElementSibling.style.display='flex';}">
+          <div class="partner-logo-box is-loading">
+            <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="./assets/partners/cisco.png" data-fallback="./public/assets/partners/cisco.png" alt="Cisco Systems" class="partner-logo-img" decoding="async" width="160" height="60">
             <span class="partner-fallback-badge">CISCO</span>
           </div>
           <div class="partner-name">CISCO</div>
@@ -3146,8 +3317,8 @@
         </div>
 
         <div class="partner-tile" style="--p-color: #3dae4e;">
-          <div class="partner-logo-box">
-            <img src="./assets/partners/schneider-electric.png" alt="Schneider Electric" class="partner-logo-img" loading="lazy" width="160" height="60" onerror="if(!this.dataset.tried){this.dataset.tried='1'; this.src='./public/assets/partners/schneider-electric.png';} else {this.style.display='none'; this.nextElementSibling.style.display='flex';}">
+          <div class="partner-logo-box is-loading">
+            <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="./assets/partners/schneider-electric.png" data-fallback="./public/assets/partners/schneider-electric.png" alt="Schneider Electric" class="partner-logo-img" decoding="async" width="160" height="60">
             <span class="partner-fallback-badge">SCHNEIDER</span>
           </div>
           <div class="partner-name">SCHNEIDER ELECTRIC</div>
@@ -3155,8 +3326,8 @@
         </div>
 
         <div class="partner-tile" style="--p-color: #ff8300;">
-          <div class="partner-logo-box">
-            <img src="./assets/partners/aruba.png" alt="Aruba Networks" class="partner-logo-img" loading="lazy" width="160" height="60" onerror="if(!this.dataset.tried){this.dataset.tried='1'; this.src='./public/assets/partners/aruba.png';} else {this.style.display='none'; this.nextElementSibling.style.display='flex';}">
+          <div class="partner-logo-box is-loading">
+            <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="./assets/partners/aruba.png" data-fallback="./public/assets/partners/aruba.png" alt="Aruba Networks" class="partner-logo-img" decoding="async" width="160" height="60">
             <span class="partner-fallback-badge">ARUBA</span>
           </div>
           <div class="partner-name">ARUBA NETWORKS</div>
@@ -3164,8 +3335,8 @@
         </div>
 
         <div class="partner-tile" style="--p-color: #01a982;">
-          <div class="partner-logo-box">
-            <img src="./assets/partners/hpe.png" alt="Hewlett Packard Enterprise" class="partner-logo-img" loading="lazy" width="160" height="60" onerror="if(!this.dataset.tried){this.dataset.tried='1'; this.src='./public/assets/partners/hpe.png';} else {this.style.display='none'; this.nextElementSibling.style.display='flex';}">
+          <div class="partner-logo-box is-loading">
+            <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="./assets/partners/hpe.png" data-fallback="./public/assets/partners/hpe.png" alt="Hewlett Packard Enterprise" class="partner-logo-img" decoding="async" width="160" height="60">
             <span class="partner-fallback-badge">HPE</span>
           </div>
           <div class="partner-name">HPE</div>
@@ -3173,8 +3344,8 @@
         </div>
 
         <div class="partner-tile" style="--p-color: #3b82f6;">
-          <div class="partner-logo-box">
-            <img src="./assets/partners/commscope.png" alt="CommScope" class="partner-logo-img" loading="lazy" width="160" height="60" onerror="if(!this.dataset.tried){this.dataset.tried='1'; this.src='./public/assets/partners/commscope.png';} else {this.style.display='none'; this.nextElementSibling.style.display='flex';}">
+          <div class="partner-logo-box is-loading">
+            <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="./assets/partners/commscope.png" data-fallback="./public/assets/partners/commscope.png" alt="CommScope" class="partner-logo-img" decoding="async" width="160" height="60">
             <span class="partner-fallback-badge">COMMSCOPE</span>
           </div>
           <div class="partner-name">COMMSCOPE</div>
@@ -3182,8 +3353,8 @@
         </div>
 
         <div class="partner-tile" style="--p-color: #00a99d;">
-          <div class="partner-logo-box">
-            <img src="./assets/partners/panduit.png" alt="Panduit" class="partner-logo-img" loading="lazy" width="160" height="60" onerror="if(!this.dataset.tried){this.dataset.tried='1'; this.src='./public/assets/partners/panduit.png';} else {this.style.display='none'; this.nextElementSibling.style.display='flex';}">
+          <div class="partner-logo-box is-loading">
+            <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="./assets/partners/panduit.png" data-fallback="./public/assets/partners/panduit.png" alt="Panduit" class="partner-logo-img" decoding="async" width="160" height="60">
             <span class="partner-fallback-badge">PANDUIT</span>
           </div>
           <div class="partner-name">PANDUIT</div>
@@ -3191,8 +3362,8 @@
         </div>
 
         <div class="partner-tile" style="--p-color: #0033a0;">
-          <div class="partner-logo-box">
-            <img src="./assets/partners/belden.png" alt="Belden" class="partner-logo-img" loading="lazy" width="160" height="60" onerror="if(!this.dataset.tried){this.dataset.tried='1'; this.src='./public/assets/partners/belden.png';} else {this.style.display='none'; this.nextElementSibling.style.display='flex';}">
+          <div class="partner-logo-box is-loading">
+            <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="./assets/partners/belden.png" data-fallback="./public/assets/partners/belden.png" alt="Belden" class="partner-logo-img" decoding="async" width="160" height="60">
             <span class="partner-fallback-badge">BELDEN</span>
           </div>
           <div class="partner-name">BELDEN</div>
@@ -3200,8 +3371,8 @@
         </div>
 
         <div class="partner-tile" style="--p-color: #5a6472;">
-          <div class="partner-logo-box">
-            <img src="./assets/partners/juniper-networks.png" alt="Juniper Networks" class="partner-logo-img" loading="lazy" width="160" height="60" onerror="if(!this.dataset.tried){this.dataset.tried='1'; this.src='./public/assets/partners/juniper-networks.png';} else {this.style.display='none'; this.nextElementSibling.style.display='flex';}">
+          <div class="partner-logo-box is-loading">
+            <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="./assets/partners/juniper-networks.png" data-fallback="./public/assets/partners/juniper-networks.png" alt="Juniper Networks" class="partner-logo-img" decoding="async" width="160" height="60">
             <span class="partner-fallback-badge">JUNIPER</span>
           </div>
           <div class="partner-name">JUNIPER NETWORKS</div>
@@ -3209,8 +3380,8 @@
         </div>
 
         <div class="partner-tile" style="--p-color: #c92437;">
-          <div class="partner-logo-box">
-            <img src="./assets/partners/mikrotik.png" alt="MikroTik" class="partner-logo-img" loading="lazy" width="160" height="60" onerror="if(!this.dataset.tried){this.dataset.tried='1'; this.src='./public/assets/partners/mikrotik.png';} else {this.style.display='none'; this.nextElementSibling.style.display='flex';}">
+          <div class="partner-logo-box is-loading">
+            <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="./assets/partners/mikrotik.png" data-fallback="./public/assets/partners/mikrotik.png" alt="MikroTik" class="partner-logo-img" decoding="async" width="160" height="60">
             <span class="partner-fallback-badge">MIKROTIK</span>
           </div>
           <div class="partner-name">MIKROTIK</div>
@@ -3218,8 +3389,8 @@
         </div>
 
         <div class="partner-tile" style="--p-color: #f58220;">
-          <div class="partner-logo-box">
-            <img src="./assets/partners/ruckus.png" alt="Ruckus Networks" class="partner-logo-img" loading="lazy" width="160" height="60" onerror="if(!this.dataset.tried){this.dataset.tried='1'; this.src='./public/assets/partners/ruckus.png';} else {this.style.display='none'; this.nextElementSibling.style.display='flex';}">
+          <div class="partner-logo-box is-loading">
+            <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="./assets/partners/ruckus.png" data-fallback="./public/assets/partners/ruckus.png" alt="Ruckus Networks" class="partner-logo-img" decoding="async" width="160" height="60">
             <span class="partner-fallback-badge">RUCKUS</span>
           </div>
           <div class="partner-name">RUCKUS</div>
@@ -3227,8 +3398,8 @@
         </div>
 
         <div class="partner-tile" style="--p-color: #006fff;">
-          <div class="partner-logo-box">
-            <img src="./assets/partners/ubiquiti.png" alt="Ubiquiti" class="partner-logo-img" loading="lazy" width="160" height="60" onerror="if(!this.dataset.tried){this.dataset.tried='1'; this.src='./public/assets/partners/ubiquiti.png';} else {this.style.display='none'; this.nextElementSibling.style.display='flex';}">
+          <div class="partner-logo-box is-loading">
+            <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="./assets/partners/ubiquiti.png" data-fallback="./public/assets/partners/ubiquiti.png" alt="Ubiquiti" class="partner-logo-img" decoding="async" width="160" height="60">
             <span class="partner-fallback-badge">UBIQUITI</span>
           </div>
           <div class="partner-name">UBIQUITI</div>
@@ -3236,8 +3407,8 @@
         </div>
 
         <div class="partner-tile" style="--p-color: #cf0a2c;">
-          <div class="partner-logo-box">
-            <img src="./assets/partners/huawei.png" alt="Huawei Enterprise" class="partner-logo-img" loading="lazy" width="160" height="60" onerror="if(!this.dataset.tried){this.dataset.tried='1'; this.src='./public/assets/partners/huawei.png';} else {this.style.display='none'; this.nextElementSibling.style.display='flex';}">
+          <div class="partner-logo-box is-loading">
+            <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="./assets/partners/huawei.png" data-fallback="./public/assets/partners/huawei.png" alt="Huawei Enterprise" class="partner-logo-img" decoding="async" width="160" height="60">
             <span class="partner-fallback-badge">HUAWEI</span>
           </div>
           <div class="partner-name">HUAWEI</div>
@@ -3467,9 +3638,13 @@
     <div class="w">
       <div class="footer-grid">
         <div class="footer-col">
-          <div class="brand-logo" style="margin-bottom: 14px;">
-            <img src="./assets/logo.png" alt="PT. Vier Virya Ventures Logo" class="brand-img" style="height: 38px;" width="146" height="38" onerror="if(!this.dataset.tried){this.dataset.tried='1'; this.src='./assets/logo.webp';} else if(this.dataset.tried==='1'){this.dataset.tried='2'; this.src='./public/assets/logo.png';}">
-          </div>
+          <a href="#home" class="brand-logo" style="margin-bottom: 14px;" aria-label="PT. Vier Virya Ventures">
+            <img src="./assets/logo.png" alt="PT. Vier Virya Ventures Logo" class="brand-img" style="height: 40px;" width="48" height="40" onerror="if(!this.dataset.tried){this.dataset.tried='1'; this.src='./assets/logo.webp';} else if(this.dataset.tried==='1'){this.dataset.tried='2'; this.src='./public/assets/logo.png';}">
+            <div class="brand-wordmark">
+              <span class="brand-name-main">Vier Virya</span>
+              <span class="brand-name-sub">VENTURES</span>
+            </div>
+          </a>
           <p style="color: var(--ink-muted); font-size: 14px; max-width: 420px; line-height: 1.6;">
             System integrator and enterprise IT infrastructure specialist based in Jakarta, delivering networks, data centers, wireless connectivity, and integrated security.
           </p>
@@ -3762,65 +3937,157 @@
       }
     })();
 
-    // 6. SCROLL REVEAL CARDS INTERSECTION OBSERVER
+    // 6. SCROLL REVEAL & INTERSECTION OBSERVER LAZY LOADING (PROJECTS + PARTNER LOGOS)
     (function initCardScrollReveal() {
-      var cardSelectors = '.pillar-card, .solution-card, .ind-card, .project-card, .achieve-card, .partner-tile';
+      var cardSelectors = '.pillar-card, .solution-card, .ind-card, .achieve-card';
       var cards = document.querySelectorAll(cardSelectors);
-      if (!cards.length) return;
 
-      // Respect user's reduced motion preference
-      if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        cards.forEach(function(card) {
-          card.classList.add('is-revealed');
-        });
-        return;
-      }
-
-      // Fallback for browsers without IntersectionObserver
-      if (!('IntersectionObserver' in window)) {
-        cards.forEach(function(card) {
-          card.classList.add('is-revealed');
-        });
-        return;
-      }
-
-      // Assign subtle stagger delay based on position among visible grid siblings
-      cards.forEach(function(card) {
-        var parent = card.parentElement;
-        if (parent) {
-          var siblings = Array.prototype.slice.call(parent.children).filter(function(child) {
-            return child.matches && child.matches(cardSelectors);
+      if (cards.length) {
+        if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) {
+          cards.forEach(function(card) {
+            card.classList.add('is-revealed');
           });
-          var idx = siblings.indexOf(card);
-          if (idx !== -1) {
-            // Stagger cards in the same row/group by 90ms (0ms, 90ms, 180ms, 270ms)
-            var delay = (idx % 4) * 90;
-            card.style.transitionDelay = delay + 'ms';
-          }
-        }
-      });
+        } else {
+          cards.forEach(function(card) {
+            var parent = card.parentElement;
+            if (parent) {
+              var siblings = Array.prototype.slice.call(parent.children).filter(function(child) {
+                return child.matches && child.matches(cardSelectors);
+              });
+              var idx = siblings.indexOf(card);
+              if (idx !== -1) {
+                card.style.transitionDelay = ((idx % 4) * 90) + 'ms';
+              }
+            }
+          });
 
-      var cardObserver = new IntersectionObserver(function(entries, observer) {
+          var cardObserver = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(function(entry) {
+              if (entry.isIntersecting) {
+                var target = entry.target;
+                target.classList.add('is-revealed');
+                observer.unobserve(target);
+
+                var currentDelay = parseFloat(target.style.transitionDelay) || 0;
+                setTimeout(function() {
+                  target.style.transitionDelay = '0s';
+                }, currentDelay + 850);
+              }
+            });
+          }, {
+            threshold: 0.12,
+            rootMargin: '0px 0px -40px 0px'
+          });
+
+          cards.forEach(function(card) {
+            cardObserver.observe(card);
+          });
+        }
+      }
+    })();
+
+    // 6B. INTERSECTION OBSERVER LAZY LOADING FOR PROJECT CARDS & PARTNER LOGOS
+    (function initLazyPortfolioAndPartners() {
+      var projectCards = document.querySelectorAll('.project-card');
+      var partnerTiles = document.querySelectorAll('.partner-tile');
+
+      function hydratePartnerLogo(tile) {
+        var box = tile.querySelector('.partner-logo-box');
+        var img = tile.querySelector('.partner-logo-img');
+        var fallbackBadge = tile.querySelector('.partner-fallback-badge');
+
+        tile.classList.add('is-revealed');
+        if (!img) return;
+
+        var lazySrc = img.getAttribute('data-src');
+        if (lazySrc) {
+          var fallbackSrc = img.getAttribute('data-fallback');
+          img.onload = function() {
+            img.classList.add('is-loaded');
+            if (box) box.classList.remove('is-loading');
+          };
+          img.onerror = function() {
+            if (!img.dataset.tried && fallbackSrc) {
+              img.dataset.tried = '1';
+              img.src = fallbackSrc;
+            } else {
+              img.style.display = 'none';
+              if (fallbackBadge) fallbackBadge.style.display = 'flex';
+              if (box) box.classList.remove('is-loading');
+            }
+          };
+          img.removeAttribute('data-src');
+          img.src = lazySrc;
+        }
+      }
+
+      function revealProjectCard(card, idx) {
+        if (card.getAttribute('data-lazy-loaded') === 'true') return;
+        card.setAttribute('data-lazy-loaded', 'true');
+        var delay = ((idx || 0) % 3) * 85;
+        card.style.transitionDelay = delay + 'ms';
+        card.classList.add('is-revealed');
+        setTimeout(function() {
+          card.style.transitionDelay = '0s';
+        }, delay + 800);
+      }
+
+      if (!('IntersectionObserver' in window)) {
+        projectCards.forEach(function(card, idx) { revealProjectCard(card, idx); });
+        partnerTiles.forEach(hydratePartnerLogo);
+        return;
+      }
+
+      var projectObserver = new IntersectionObserver(function(entries, obs) {
+        var visibleCount = 0;
         entries.forEach(function(entry) {
           if (entry.isIntersecting) {
-            var target = entry.target;
-            target.classList.add('is-revealed');
-            observer.unobserve(target);
-
-            // Clear transitionDelay after reveal animation finishes so hover interactions respond instantly
-            var currentDelay = parseFloat(target.style.transitionDelay) || 0;
-            setTimeout(function() {
-              target.style.transitionDelay = '0s';
-            }, currentDelay + 850);
+            revealProjectCard(entry.target, visibleCount++);
+            obs.unobserve(entry.target);
           }
         });
       }, {
-        threshold: 0.12,
-        rootMargin: '0px 0px -40px 0px'
+        root: null,
+        rootMargin: '80px 0px',
+        threshold: 0.08
       });
 
-      cards.forEach(function(card) {
-        cardObserver.observe(card);
+      projectCards.forEach(function(card) {
+        projectObserver.observe(card);
+      });
+
+      var partnerObserver = new IntersectionObserver(function(entries, obs) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            hydratePartnerLogo(entry.target);
+            obs.unobserve(entry.target);
+          }
+        });
+      }, {
+        root: null,
+        rootMargin: '120px 0px',
+        threshold: 0.05
+      });
+
+      partnerTiles.forEach(function(tile) {
+        partnerObserver.observe(tile);
+      });
+
+      // Re-observe unrevealed cards when switching branches or filters
+      window.addEventListener('vv:refresh-lazy-observers', function() {
+        projectCards.forEach(function(card) {
+          if (card.getAttribute('data-lazy-loaded') !== 'true' && card.style.display !== 'none') {
+            projectObserver.unobserve(card);
+            projectObserver.observe(card);
+          }
+        });
+        partnerTiles.forEach(function(tile) {
+          var img = tile.querySelector('.partner-logo-img[data-src]');
+          if (img) {
+            partnerObserver.unobserve(tile);
+            partnerObserver.observe(tile);
+          }
+        });
       });
     })();
 
@@ -3917,6 +4184,9 @@
               card.style.display = 'none';
             }
           });
+          try {
+            window.dispatchEvent(new Event('vv:refresh-lazy-observers'));
+          } catch (err) {}
         });
       });
     })();
@@ -4310,7 +4580,7 @@
 
       function revealBranchCards(container) {
         if (!container) return;
-        var cards = container.querySelectorAll('.pillar-card, .solution-card, .ind-card, .project-card, .achieve-card, .partner-tile');
+        var cards = container.querySelectorAll('.pillar-card, .solution-card, .ind-card, .achieve-card');
         cards.forEach(function(card, idx) {
           card.style.transitionDelay = ((idx % 4) * 55) + 'ms';
           card.classList.add('is-revealed');
@@ -4362,6 +4632,11 @@
 
         window.scrollTo({ top: 0, behavior: 'auto' });
 
+        try {
+          window.dispatchEvent(new CustomEvent('vv:branch-activated', { detail: { branch: target } }));
+          window.dispatchEvent(new Event('vv:refresh-lazy-observers'));
+        } catch (err) {}
+
         // Notify Recharts ResponsiveContainer & Three.js Globe to recalculate dimensions
         setTimeout(function() {
           window.dispatchEvent(new Event('resize'));
@@ -4370,6 +4645,12 @@
           window.dispatchEvent(new Event('resize'));
         }, 160);
       }
+
+      // Safety timeout so globe hero skeleton fades cleanly even if WebGL is unavailable
+      setTimeout(function() {
+        var globeSk = document.getElementById('hero-globe-skeleton');
+        if (globeSk) globeSk.classList.add('is-loaded');
+      }, 2400);
 
       document.addEventListener('click', function(e) {
         if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) {

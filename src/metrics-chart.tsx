@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { createRoot } from 'react-dom/client';
 import {
   ResponsiveContainer,
@@ -113,8 +113,85 @@ const CustomTooltip: React.FC<CustomTooltipProps> = ({ active, payload, label, a
   return null;
 };
 
+const DashboardSkeleton: React.FC = () => (
+  <div className="metrics-section-container sk-dashboard" aria-busy="true" aria-label="Loading performance telemetry dashboard">
+    <div className="metrics-header">
+      <div style={{ flex: 1, minWidth: '240px' }}>
+        <div className="sk-box sk-pill" style={{ width: '170px', height: '22px', marginBottom: '12px' }} />
+        <div className="sk-box" style={{ width: '72%', maxWidth: '420px', height: '28px', marginBottom: '10px' }} />
+        <div className="sk-box" style={{ width: '90%', maxWidth: '560px', height: '16px' }} />
+      </div>
+      <div className="sk-box sk-pill" style={{ width: '250px', height: '40px', borderRadius: '12px' }} />
+    </div>
+
+    <div className="metrics-kpi-grid">
+      {[0, 1, 2, 3].map((idx) => (
+        <div className="metric-kpi-card" key={idx}>
+          <div className="kpi-value-row" style={{ marginBottom: '10px' }}>
+            <div className="sk-box" style={{ width: '88px', height: '28px' }} />
+            <div className="sk-box" style={{ width: '76px', height: '20px', borderRadius: '6px' }} />
+          </div>
+          <div className="sk-box" style={{ width: '75%', height: '14px', marginBottom: '8px' }} />
+          <div className="sk-box" style={{ width: '58%', height: '12px' }} />
+        </div>
+      ))}
+    </div>
+
+    <div className="chart-card-wrapper">
+      <div className="chart-card-top">
+        <div style={{ display: 'flex', gap: '16px' }}>
+          <div className="sk-box" style={{ width: '150px', height: '16px' }} />
+          <div className="sk-box" style={{ width: '165px', height: '16px' }} />
+        </div>
+        <div className="sk-box sk-pill" style={{ width: '145px', height: '24px' }} />
+      </div>
+      <div className="sk-chart-area">
+        <div className="sk-chart-bars">
+          {[44, 62, 54, 78, 66, 84, 72, 90, 76, 88, 94, 82].map((pct, idx) => (
+            <div
+              key={idx}
+              className="sk-box sk-chart-bar"
+              style={{ height: `${pct}%`, animationDelay: `${idx * 70}ms` }}
+            />
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+);
+
 export const PerformanceMetricsSection: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'uptime' | 'latency'>('uptime');
+  const [isInitializing, setIsInitializing] = useState<boolean>(true);
+  const timerRef = useRef<number | null>(null);
+
+  useEffect(() => {
+    const startInitTransition = () => {
+      if (timerRef.current) window.clearTimeout(timerRef.current);
+      setIsInitializing(true);
+      timerRef.current = window.setTimeout(() => {
+        setIsInitializing(false);
+      }, 360);
+    };
+
+    const whyBranch = document.getElementById('branch-why');
+    if (!whyBranch || whyBranch.classList.contains('is-active')) {
+      startInitTransition();
+    }
+
+    const onBranchActivated = (ev: Event) => {
+      const customEv = ev as CustomEvent<{ branch?: string }>;
+      if (customEv.detail?.branch === 'why') {
+        startInitTransition();
+      }
+    };
+
+    window.addEventListener('vv:branch-activated', onBranchActivated);
+    return () => {
+      window.removeEventListener('vv:branch-activated', onBranchActivated);
+      if (timerRef.current) window.clearTimeout(timerRef.current);
+    };
+  }, []);
 
   // Compute 12-month summary stats
   const avgUptime = (
@@ -127,8 +204,12 @@ export const PerformanceMetricsSection: React.FC = () => {
     HISTORICAL_DATA.reduce((acc, curr) => acc + curr.mttrMinutes, 0) / HISTORICAL_DATA.length
   ).toFixed(1);
 
+  if (isInitializing) {
+    return <DashboardSkeleton />;
+  }
+
   return (
-    <div className="metrics-section-container">
+    <div className="metrics-section-container metrics-fade-in">
       {/* Header with Badges */}
       <div className="metrics-header">
         <div>
