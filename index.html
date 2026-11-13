@@ -8,8 +8,8 @@
   <meta property="og:title" content="PT. Vier Virya Ventures | Enterprise IT Infrastructure">
   <meta property="og:description" content="Premier system integrator delivering network infrastructure, data center, and integrated security solutions for enterprises in Indonesia.">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="./assets/logo.webp">
-  <link rel="icon" type="image/webp" href="./assets/logo.webp">
+  <meta property="og:image" content="./assets/logo.png">
+  <link rel="icon" type="image/png" href="./assets/logo.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -259,10 +259,22 @@
       font-weight: 500;
       transition: color 0.2s ease;
       letter-spacing: -0.01em;
+      position: relative;
+      padding: 6px 0;
     }
     .nav-links a:hover,
     .nav-links a.active {
       color: #fff;
+    }
+    .nav-links a.active::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 2px;
+      border-radius: 2px;
+      background: linear-gradient(90deg, #a78bfa, #38bdf8);
     }
 
     .nav-actions {
@@ -340,6 +352,10 @@
     }
     .mobile-menu a:hover {
       background: rgba(255, 255, 255, 0.06);
+      color: #fff;
+    }
+    .mobile-menu a.active {
+      background: rgba(167, 139, 250, 0.14);
       color: #fff;
     }
     .mobile-menu .divider {
@@ -1802,7 +1818,8 @@
       margin-top: 16px;
       text-align: center;
     }
-    .rfp-success-banner.is-active {
+    .rfp-success-banner.is-active,
+    .rfp-success-banner.is-visible {
       display: block;
     }
     .rfp-wa-btn {
@@ -1915,6 +1932,183 @@
       transform: translateY(-3px);
     }
 
+    /* BRANCH MULTI VIEW ROUTING */
+    .branch-view {
+      display: none;
+    }
+    .branch-view.is-active {
+      display: block;
+      animation: branchEnter 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    @keyframes branchEnter {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .branch-topbar {
+      padding: 100px 0 6px;
+    }
+    .branch-topbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 14px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .branch-back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #e2e8f0;
+      font-size: 13px;
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+    .branch-back-btn:hover {
+      background: rgba(167, 139, 250, 0.16);
+      border-color: rgba(167, 139, 250, 0.45);
+      color: #ffffff;
+      transform: translateX(-2px);
+    }
+    .branch-breadcrumb {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12.5px;
+      color: var(--ink-muted);
+    }
+    .branch-breadcrumb a {
+      color: var(--ink-muted);
+      transition: color 0.18s ease;
+    }
+    .branch-breadcrumb a:hover {
+      color: #ffffff;
+    }
+    .branch-breadcrumb .sep {
+      color: var(--ink-faint);
+    }
+    .branch-breadcrumb .curr {
+      color: var(--accent);
+      font-weight: 700;
+    }
+    .branch-view:not(#branch-home) > section:first-of-type {
+      padding-top: 38px;
+    }
+
+    /* HOME EXECUTIVE SUMMARY GRID */
+    #home-summary {
+      padding-top: 24px;
+      padding-bottom: 84px;
+    }
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .summary-branch-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 22px;
+      padding: 28px 26px;
+      -webkit-backdrop-filter: blur(16px);
+      backdrop-filter: blur(16px);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 18px;
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease, opacity 0.6s ease;
+      text-decoration: none;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+    .summary-branch-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(167, 139, 250, 0.45);
+      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.5);
+    }
+    .summary-branch-card.summary-card-wide {
+      grid-column: span 3;
+      flex-direction: row;
+      align-items: center;
+      background: linear-gradient(135deg, rgba(124, 58, 237, 0.2), rgba(37, 99, 235, 0.16));
+      border-color: rgba(167, 139, 250, 0.35);
+    }
+    .summary-card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+    .summary-num {
+      font-size: 11.5px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: rgba(167, 139, 250, 0.12);
+      padding: 4px 10px;
+      border-radius: 8px;
+    }
+    .summary-metric {
+      font-size: 12px;
+      font-weight: 600;
+      color: #34d399;
+      background: rgba(16, 185, 129, 0.12);
+      border: 1px solid rgba(16, 185, 129, 0.25);
+      padding: 3px 10px;
+      border-radius: 999px;
+    }
+    .summary-branch-card h3 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 8px;
+      letter-spacing: -0.015em;
+    }
+    .summary-branch-card p {
+      font-size: 14px;
+      color: var(--ink-muted);
+      line-height: 1.6;
+    }
+    .summary-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      list-style: none;
+      margin-top: 14px;
+    }
+    .summary-tags li {
+      font-size: 11.5px;
+      font-weight: 600;
+      color: #cbd5e1;
+      background: rgba(255, 255, 255, 0.06);
+      padding: 4px 10px;
+      border-radius: 6px;
+    }
+    .summary-card-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13.5px;
+      font-weight: 600;
+      color: #ffffff;
+      margin-top: auto;
+      white-space: nowrap;
+    }
+    .summary-branch-card:hover .summary-card-cta svg {
+      transform: translateX(4px);
+    }
+    .summary-card-cta svg {
+      transition: transform 0.2s ease;
+    }
+
     /* RESPONSIVE BREAKPOINTS */
     @media (max-width: 1080px) {
       .nav-links, .nav-actions .btn {
@@ -1931,8 +2125,11 @@
         border-left: none;
         padding-left: 0;
       }
-      .pillars-grid, .solutions-grid, .achieve-grid, .projects-grid, .partners-grid, .contact-grid {
+      .pillars-grid, .solutions-grid, .achieve-grid, .projects-grid, .partners-grid, .contact-grid, .summary-grid {
         grid-template-columns: repeat(2, 1fr);
+      }
+      .summary-branch-card.summary-card-wide {
+        grid-column: span 2;
       }
       .cert-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -1967,10 +2164,16 @@
       .projects-grid,
       .contact-grid,
       .cert-grid,
+      .summary-grid,
       .form-row-2,
       .sol-spec-grid,
       .footer-grid {
         grid-template-columns: 1fr;
+      }
+      .summary-branch-card.summary-card-wide {
+        grid-column: span 1;
+        flex-direction: column;
+        align-items: flex-start;
       }
       .rfp-form-card {
         padding: 24px 18px;
@@ -2004,136 +2207,6 @@
         font-size: 11px;
       }
     }
-
-    /* LOGO REDESIGN SHOWCASE MODAL */
-    .logo-modal-backdrop {
-      position: fixed;
-      inset: 0;
-      background: rgba(3, 4, 8, 0.88);
-      -webkit-backdrop-filter: blur(20px);
-      backdrop-filter: blur(20px);
-      z-index: 1050;
-      display: grid;
-      place-items: center;
-      padding: 24px 16px;
-      opacity: 0;
-      visibility: hidden;
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .logo-modal-backdrop.is-open {
-      opacity: 1;
-      visibility: visible;
-    }
-    .logo-modal-window {
-      background: #0d0f16;
-      border: 1px solid rgba(255, 255, 255, 0.14);
-      border-radius: 20px;
-      max-width: 1120px;
-      width: 100%;
-      max-height: 90vh;
-      overflow-y: auto;
-      padding: 32px 28px;
-      position: relative;
-      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85);
-      transform: translateY(20px) scale(0.97);
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .logo-modal-backdrop.is-open .logo-modal-window {
-      transform: translateY(0) scale(1);
-    }
-    .logo-options-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-      margin-top: 24px;
-    }
-    .logo-opt-card {
-      background: rgba(18, 20, 29, 0.7);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 16px;
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      transition: all 0.25s ease;
-    }
-    .logo-opt-card:hover {
-      border-color: rgba(167, 139, 250, 0.45);
-      transform: translateY(-4px);
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
-    }
-    .logo-opt-card.is-active-brand {
-      border-color: #10b981;
-      background: rgba(16, 185, 129, 0.08);
-    }
-    .logo-img-frame {
-      width: 100%;
-      aspect-ratio: 1;
-      border-radius: 12px;
-      overflow: hidden;
-      background: #06070a;
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      margin-bottom: 16px;
-      position: relative;
-    }
-    .logo-img-frame img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      display: block;
-      transition: transform 0.3s ease;
-    }
-    .logo-opt-card:hover .logo-img-frame img {
-      transform: scale(1.04);
-    }
-    .logo-opt-title {
-      font-size: 16px;
-      font-weight: 700;
-      color: #ffffff;
-      margin-bottom: 6px;
-    }
-    .logo-opt-concept {
-      font-size: 13px;
-      color: #94a3b8;
-      line-height: 1.5;
-      margin-bottom: 16px;
-      flex-grow: 1;
-    }
-    .logo-opt-actions {
-      display: flex;
-      gap: 8px;
-    }
-    .logo-apply-btn {
-      flex: 1;
-      padding: 9px 12px;
-      border-radius: 999px;
-      font-size: 13px;
-      font-weight: 600;
-      cursor: pointer;
-      background: rgba(167, 139, 250, 0.15);
-      border: 1px solid rgba(167, 139, 250, 0.35);
-      color: #ffffff;
-      transition: all 0.2s ease;
-    }
-    .logo-apply-btn:hover {
-      background: #7c3aed;
-      border-color: #8b5cf6;
-    }
-    .logo-revert-btn {
-      padding: 9px 16px;
-      border-radius: 999px;
-      font-size: 13px;
-      font-weight: 600;
-      cursor: pointer;
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.14);
-      color: #cbd5e1;
-      transition: all 0.2s ease;
-    }
-    .logo-revert-btn:hover {
-      background: rgba(255, 255, 255, 0.12);
-      color: #ffffff;
-    }
   </style>
 </head>
 <body>
@@ -2146,17 +2219,16 @@
       </a>
 
       <nav class="nav-links" aria-label="Main menu">
-        <a href="#solutions">Solutions</a>
-        <a href="#why">Why Us</a>
-        <a href="#industries">Industries</a>
-        <a href="#projects">Projects</a>
-        <a href="#partners">Partners</a>
-        <a href="#faq">FAQ</a>
-        <a href="#contact">Contact</a>
+        <a href="#solutions" data-branch-link="solutions">Solutions</a>
+        <a href="#why" data-branch-link="why">Why Us</a>
+        <a href="#industries" data-branch-link="industries">Industries</a>
+        <a href="#projects" data-branch-link="projects">Projects</a>
+        <a href="#partners" data-branch-link="partners">Partners</a>
+        <a href="#faq" data-branch-link="faq">FAQ</a>
+        <a href="#contact" data-branch-link="contact">Contact</a>
       </nav>
 
       <div class="nav-actions">
-        <button type="button" class="btn btn-ghost btn-sm" id="openLogoStudioBtn" style="border-color: rgba(167, 139, 250, 0.45); color: #ddd6fe;">5 Logo Redesigns</button>
         <a href="https://wa.me/6285157988002" target="_blank" rel="noopener" class="btn btn-ghost btn-sm">WhatsApp Direct</a>
         <a href="#contact" class="btn btn-primary btn-sm">
           Get Started
@@ -2173,18 +2245,21 @@
 
   <!-- MOBILE MENU -->
   <div class="mobile-menu" id="mobileMenu">
-    <a href="#logoStudio" id="openLogoStudioMobile" style="color: #a78bfa; font-weight: 700;">5 Logo Redesign Options</a>
-    <a href="#solutions">Solutions</a>
-    <a href="#why">Why Us</a>
-    <a href="#industries">Industries</a>
-    <a href="#projects">Projects</a>
-    <a href="#partners">Partners</a>
-    <a href="#faq">FAQ</a>
-    <a href="#contact">Contact</a>
+    <a href="#home" data-branch-link="home">Home Overview</a>
+    <a href="#solutions" data-branch-link="solutions">Solutions</a>
+    <a href="#why" data-branch-link="why">Why Us</a>
+    <a href="#industries" data-branch-link="industries">Industries</a>
+    <a href="#projects" data-branch-link="projects">Projects</a>
+    <a href="#partners" data-branch-link="partners">Partners</a>
+    <a href="#faq" data-branch-link="faq">FAQ</a>
+    <a href="#contact" data-branch-link="contact">Contact</a>
     <div class="divider"></div>
     <a href="https://wa.me/6285157988002" target="_blank" rel="noopener">WhatsApp Direct (+62 851 5798 8002)</a>
     <a href="#contact" class="btn btn-primary" style="margin-top: 8px;">Consult an Engineer</a>
   </div>
+
+  <!-- BRANCH 1: HOME SUMMARY VIEW -->
+  <div class="branch-view is-active" id="branch-home" data-branch="home">
 
   <!-- HERO SECTION WITH CONTINUOUS ROTATING DOT-MATRIX EARTH -->
   <section class="hero" id="home">
@@ -2276,87 +2351,170 @@
     </div>
   </div>
 
-  <!-- ENGINEERING TRUST & CERTIFICATIONS SECTION -->
-  <section id="certifications" style="padding-top: 10px;">
-    <div class="w">
-      <div class="sec-head">
-        <span class="sec-tag">Engineering Credentials</span>
-        <h2 class="sec-title">Certified In House Engineering Specialists</h2>
-        <p class="sec-desc">Our implementation team holds premier technical credentials directly from global hardware vendors, ensuring every deployment meets rigorous international engineering standards.</p>
+    <!-- EXECUTIVE SUMMARY OF ALL SECTIONS (HOME OVERVIEW) -->
+    <section id="home-summary">
+      <div class="w">
+        <div class="sec-head">
+          <span class="sec-tag">Executive Overview</span>
+          <h2 class="sec-title">Explore Our Infrastructure Branches</h2>
+          <p class="sec-desc">Select any section below to open its dedicated page covering detailed engineering specifications, verified uptime telemetry, industry deployments, and direct consultation.</p>
+        </div>
+
+        <div class="summary-grid">
+          <a href="#solutions" class="summary-branch-card">
+            <div>
+              <div class="summary-card-top">
+                <span class="summary-num">01 &bull; Solutions</span>
+                <span class="summary-metric">6 Core Stacks</span>
+              </div>
+              <h3>Enterprise Solutions</h3>
+              <p>Turnkey infrastructure stacks covering high throughput networking, Tier 3 data centers, integrated security, wireless density, IoT alarms, and 24/7 SLA.</p>
+              <ul class="summary-tags">
+                <li>Network & Fiber</li>
+                <li>Data Center</li>
+                <li>AI Security</li>
+              </ul>
+            </div>
+            <span class="summary-card-cta">
+              Open Solutions Branch
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
+          </a>
+
+          <a href="#why" class="summary-branch-card">
+            <div>
+              <div class="summary-card-top">
+                <span class="summary-num">02 &bull; Why Us</span>
+                <span class="summary-metric">99.994% Uptime</span>
+              </div>
+              <h3>Why Vier Ventures</h3>
+              <p>Strategic business objectives, 40+ certified in house engineers, 12 month live telemetry benchmarks, and single vendor accountability.</p>
+              <ul class="summary-tags">
+                <li>SLA Telemetry</li>
+                <li>Certifications</li>
+                <li>Proven ROI</li>
+              </ul>
+            </div>
+            <span class="summary-card-cta">
+              Open Why Us Branch
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
+          </a>
+
+          <a href="#industries" class="summary-branch-card">
+            <div>
+              <div class="summary-card-top">
+                <span class="summary-num">03 &bull; Industries</span>
+                <span class="summary-metric">7 Verticals</span>
+              </div>
+              <h3>Industries Served</h3>
+              <p>Proven system integration across government offices, hospitality chains, schools, industrial plants, plantations, media, and healthcare facilities.</p>
+              <ul class="summary-tags">
+                <li>Government</li>
+                <li>Hospitality</li>
+                <li>Manufacturing</li>
+              </ul>
+            </div>
+            <span class="summary-card-cta">
+              Open Industries Branch
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
+          </a>
+
+          <a href="#projects" class="summary-branch-card">
+            <div>
+              <div class="summary-card-top">
+                <span class="summary-num">04 &bull; Projects</span>
+                <span class="summary-metric">150+ Deployments</span>
+              </div>
+              <h3>Projects & Case Studies</h3>
+              <p>Measured outcomes across hospitality WiFi modernization, redundant DR sites, campus optical rings, and multi branch SD WAN.</p>
+              <ul class="summary-tags">
+                <li>Maxley Hotels</li>
+                <li>Tzu Chi Ring</li>
+                <li>JPI SD WAN</li>
+              </ul>
+            </div>
+            <span class="summary-card-cta">
+              Open Projects Branch
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
+          </a>
+
+          <a href="#partners" class="summary-branch-card">
+            <div>
+              <div class="summary-card-top">
+                <span class="summary-num">05 &bull; Partners</span>
+                <span class="summary-metric">12 Global Vendors</span>
+              </div>
+              <h3>Technology Partners</h3>
+              <p>Authorized alliances with Cisco, Schneider Electric, Aruba, HPE, CommScope, Panduit, Belden, Juniper, MikroTik, Ruckus, Ubiquiti, and Huawei.</p>
+              <ul class="summary-tags">
+                <li>Official Warranty</li>
+                <li>Certified Supply</li>
+                <li>Multi Brand</li>
+              </ul>
+            </div>
+            <span class="summary-card-cta">
+              Open Partners Branch
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
+          </a>
+
+          <a href="#faq" class="summary-branch-card">
+            <div>
+              <div class="summary-card-top">
+                <span class="summary-num">06 &bull; FAQ</span>
+                <span class="summary-metric">6 Key Answers</span>
+              </div>
+              <h3>Technical FAQ</h3>
+              <p>Clear answers on zero disruption cutovers, under 2 hour SLA dispatch, Fluke OTDR fiber testing, and pre tender engineering audits.</p>
+              <ul class="summary-tags">
+                <li>2 Hour SLA</li>
+                <li>Fluke Certified</li>
+                <li>Pre Tender Audit</li>
+              </ul>
+            </div>
+            <span class="summary-card-cta">
+              Open FAQ Branch
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
+          </a>
+
+          <a href="#contact" class="summary-branch-card summary-card-wide">
+            <div>
+              <div class="summary-card-top" style="margin-bottom: 10px;">
+                <span class="summary-num">07 &bull; Contact & RFP Desk</span>
+                <span class="summary-metric">24/7 Engineering Support</span>
+              </div>
+              <h3>Start Your Infrastructure Consultation</h3>
+              <p>Connect directly with our Jakarta head office in PIK, call our 24/7 emergency SLA hotline, or build a structured RFP inquiry routed straight to WhatsApp.</p>
+            </div>
+            <span class="btn btn-primary btn-sm summary-card-cta">
+              Open Contact Branch
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
+          </a>
+        </div>
       </div>
+    </section>
+  </div>
 
-      <div class="cert-grid">
-        <div class="cert-card">
-          <div class="cert-header">
-            <div class="cert-icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="10" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
-            </div>
-            <span class="cert-badge-tag">Network Architecture</span>
-          </div>
-          <h4>Cisco Certified Specialists</h4>
-          <p>Enterprise core routing, switching, automated SD WAN failover, and zero trust network security implementations.</p>
-        </div>
-
-        <div class="cert-card">
-          <div class="cert-header">
-            <div class="cert-icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
-            </div>
-            <span class="cert-badge-tag">Data Center Infrastructure</span>
-          </div>
-          <h4>Schneider Electric EcoStruxure</h4>
-          <p>Certified data center cooling precision, redundant three phase UPS power topologies, and environmental telemetry.</p>
-        </div>
-
-        <div class="cert-card">
-          <div class="cert-header">
-            <div class="cert-icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3v12"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 0 1-9 9"/></svg>
-            </div>
-            <span class="cert-badge-tag">Structured Cabling</span>
-          </div>
-          <h4>CommScope & Panduit Certified</h4>
-          <p>High speed Cat6A, Cat7, and singlemode fiber optic backbone installation certified to Tier 3 enterprise standards.</p>
-        </div>
-
-        <div class="cert-card">
-          <div class="cert-header">
-            <div class="cert-icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
-            </div>
-            <span class="cert-badge-tag">Wireless & Density</span>
-          </div>
-          <h4>Ruckus & Aruba WiFi Engineers</h4>
-          <p>Predictive RF simulation, high density stadium and hotel WiFi deployments with zero handover packet loss.</p>
-        </div>
-
-        <div class="cert-card">
-          <div class="cert-header">
-            <div class="cert-icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
-            </div>
-            <span class="cert-badge-tag">Carrier Grade Routing</span>
-          </div>
-          <h4>MikroTik MTCINE Certified</h4>
-          <p>Advanced BGP multi homing, MPLS traffic engineering, and carrier level QoS bandwidth prioritization.</p>
-        </div>
-
-        <div class="cert-card">
-          <div class="cert-header">
-            <div class="cert-icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
-            </div>
-            <span class="cert-badge-tag">Testing & Certification</span>
-          </div>
-          <h4>Certified Optical Fiber Technicians</h4>
-          <p>OTDR reflective loss testing, optical power loss budgets, and documented Fluke certs for every terminated drop.</p>
+  <!-- BRANCH 2: SOLUTIONS VIEW -->
+  <div class="branch-view" id="branch-solutions" data-branch="solutions">
+    <div class="branch-topbar">
+      <div class="w branch-topbar-inner">
+        <a href="#home" class="branch-back-btn">&larr; Back to Home Summary</a>
+        <div class="branch-breadcrumb">
+          <a href="#home">Home</a>
+          <span class="sep">/</span>
+          <span class="curr">Solutions</span>
         </div>
       </div>
     </div>
-  </section>
 
-  <!-- SOLUTIONS SECTION -->
-  <section id="solutions">
+    <!-- SOLUTIONS SECTION -->
+    <section id="solutions">
     <div class="w">
       <div class="sec-head">
         <span class="sec-tag">Core Capabilities</span>
@@ -2511,6 +2669,20 @@
       </div>
     </div>
   </section>
+  </div>
+
+  <!-- BRANCH 3: WHY US VIEW -->
+  <div class="branch-view" id="branch-why" data-branch="why">
+    <div class="branch-topbar">
+      <div class="w branch-topbar-inner">
+        <a href="#home" class="branch-back-btn">&larr; Back to Home Summary</a>
+        <div class="branch-breadcrumb">
+          <a href="#home">Home</a>
+          <span class="sep">/</span>
+          <span class="curr">Why Us</span>
+        </div>
+      </div>
+    </div>
 
   <!-- WHY US SECTION -->
   <section id="why">
@@ -2581,6 +2753,99 @@
 
     </div>
   </section>
+
+  <!-- ENGINEERING TRUST & CERTIFICATIONS SECTION -->
+  <section id="certifications" style="padding-top: 10px;">
+    <div class="w">
+      <div class="sec-head">
+        <span class="sec-tag">Engineering Credentials</span>
+        <h2 class="sec-title">Certified In House Engineering Specialists</h2>
+        <p class="sec-desc">Our implementation team holds premier technical credentials directly from global hardware vendors, ensuring every deployment meets rigorous international engineering standards.</p>
+      </div>
+
+      <div class="cert-grid">
+        <div class="cert-card">
+          <div class="cert-header">
+            <div class="cert-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="10" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+            </div>
+            <span class="cert-badge-tag">Network Architecture</span>
+          </div>
+          <h4>Cisco Certified Specialists</h4>
+          <p>Enterprise core routing, switching, automated SD WAN failover, and zero trust network security implementations.</p>
+        </div>
+
+        <div class="cert-card">
+          <div class="cert-header">
+            <div class="cert-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+            </div>
+            <span class="cert-badge-tag">Data Center Infrastructure</span>
+          </div>
+          <h4>Schneider Electric EcoStruxure</h4>
+          <p>Certified data center cooling precision, redundant three phase UPS power topologies, and environmental telemetry.</p>
+        </div>
+
+        <div class="cert-card">
+          <div class="cert-header">
+            <div class="cert-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3v12"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 0 1-9 9"/></svg>
+            </div>
+            <span class="cert-badge-tag">Structured Cabling</span>
+          </div>
+          <h4>CommScope & Panduit Certified</h4>
+          <p>High speed Cat6A, Cat7, and singlemode fiber optic backbone installation certified to Tier 3 enterprise standards.</p>
+        </div>
+
+        <div class="cert-card">
+          <div class="cert-header">
+            <div class="cert-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
+            </div>
+            <span class="cert-badge-tag">Wireless & Density</span>
+          </div>
+          <h4>Ruckus & Aruba WiFi Engineers</h4>
+          <p>Predictive RF simulation, high density stadium and hotel WiFi deployments with zero handover packet loss.</p>
+        </div>
+
+        <div class="cert-card">
+          <div class="cert-header">
+            <div class="cert-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+            </div>
+            <span class="cert-badge-tag">Carrier Grade Routing</span>
+          </div>
+          <h4>MikroTik MTCINE Certified</h4>
+          <p>Advanced BGP multi homing, MPLS traffic engineering, and carrier level QoS bandwidth prioritization.</p>
+        </div>
+
+        <div class="cert-card">
+          <div class="cert-header">
+            <div class="cert-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+            </div>
+            <span class="cert-badge-tag">Testing & Certification</span>
+          </div>
+          <h4>Certified Optical Fiber Technicians</h4>
+          <p>OTDR reflective loss testing, optical power loss budgets, and documented Fluke certs for every terminated drop.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  </div>
+
+  <!-- BRANCH 4: INDUSTRIES VIEW -->
+  <div class="branch-view" id="branch-industries" data-branch="industries">
+    <div class="branch-topbar">
+      <div class="w branch-topbar-inner">
+        <a href="#home" class="branch-back-btn">&larr; Back to Home Summary</a>
+        <div class="branch-breadcrumb">
+          <a href="#home">Home</a>
+          <span class="sep">/</span>
+          <span class="curr">Industries</span>
+        </div>
+      </div>
+    </div>
 
   <!-- INDUSTRIES SERVED -->
   <section id="industries">
@@ -2708,6 +2973,20 @@
       </div>
     </div>
   </section>
+  </div>
+
+  <!-- BRANCH 5: PROJECTS VIEW -->
+  <div class="branch-view" id="branch-projects" data-branch="projects">
+    <div class="branch-topbar">
+      <div class="w branch-topbar-inner">
+        <a href="#home" class="branch-back-btn">&larr; Back to Home Summary</a>
+        <div class="branch-breadcrumb">
+          <a href="#home">Home</a>
+          <span class="sep">/</span>
+          <span class="curr">Projects</span>
+        </div>
+      </div>
+    </div>
 
   <!-- PROJECTS & CASE STUDIES -->
   <section id="projects">
@@ -2832,6 +3111,20 @@
       </div>
     </div>
   </section>
+  </div>
+
+  <!-- BRANCH 6: PARTNERS VIEW -->
+  <div class="branch-view" id="branch-partners" data-branch="partners">
+    <div class="branch-topbar">
+      <div class="w branch-topbar-inner">
+        <a href="#home" class="branch-back-btn">&larr; Back to Home Summary</a>
+        <div class="branch-breadcrumb">
+          <a href="#home">Home</a>
+          <span class="sep">/</span>
+          <span class="curr">Partners</span>
+        </div>
+      </div>
+    </div>
 
   <!-- TECHNOLOGY PARTNERS -->
   <section id="partners">
@@ -2953,6 +3246,20 @@
       </div>
     </div>
   </section>
+  </div>
+
+  <!-- BRANCH 7: FAQ VIEW -->
+  <div class="branch-view" id="branch-faq" data-branch="faq">
+    <div class="branch-topbar">
+      <div class="w branch-topbar-inner">
+        <a href="#home" class="branch-back-btn">&larr; Back to Home Summary</a>
+        <div class="branch-breadcrumb">
+          <a href="#home">Home</a>
+          <span class="sep">/</span>
+          <span class="curr">FAQ</span>
+        </div>
+      </div>
+    </div>
 
   <!-- ENTERPRISE FAQ ACCORDION SECTION -->
   <section id="faq" style="background: rgba(13, 14, 20, 0.45);">
@@ -3026,6 +3333,20 @@
       </div>
     </div>
   </section>
+  </div>
+
+  <!-- BRANCH 8: CONTACT VIEW -->
+  <div class="branch-view" id="branch-contact" data-branch="contact">
+    <div class="branch-topbar">
+      <div class="w branch-topbar-inner">
+        <a href="#home" class="branch-back-btn">&larr; Back to Home Summary</a>
+        <div class="branch-breadcrumb">
+          <a href="#home">Home</a>
+          <span class="sep">/</span>
+          <span class="curr">Contact</span>
+        </div>
+      </div>
+    </div>
 
   <!-- CONTACT & CONSULTATION WITH INTERACTIVE RFP FORM -->
   <section id="contact">
@@ -3139,6 +3460,7 @@
       </div>
     </div>
   </section>
+  </div>
 
   <!-- FOOTER -->
   <footer>
@@ -3164,10 +3486,12 @@
 
         <div class="footer-col">
           <h5>Navigation</h5>
+          <a href="#home">Home Overview</a>
           <a href="#why">Why Choose Us</a>
           <a href="#industries">Industries</a>
           <a href="#projects">Recent Projects</a>
           <a href="#partners">Technology Partners</a>
+          <a href="#faq">Technical FAQ</a>
           <a href="#contact">Contact Us</a>
         </div>
       </div>
@@ -3208,86 +3532,6 @@
             <path d="M0.8 5h10M7.1 1.4 10.9 5l-3.8 3.6" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </a>
-      </div>
-    </div>
-  </div>
-
-  <!-- LOGO REDESIGN SHOWCASE MODAL -->
-  <div class="logo-modal-backdrop" id="logoStudioModal" aria-hidden="true" role="dialog" aria-modal="true">
-    <div class="logo-modal-window">
-      <button type="button" class="sol-modal-close" id="logoStudioClose" aria-label="Close modal">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-      </button>
-
-      <span class="sol-modal-tag">BRAND IDENTITY REDESIGN</span>
-      <h3 class="sol-modal-title">5 Logo Redesign Options &bull; PT. Vier Virya Ventures</h3>
-      <p class="sol-modal-desc">Pilih salah satu dari 5 arah konsep visual di bawah ini. Anda dapat mengklik tombol terapkan untuk langsung menguji tampilan logo pada header dan footer situs web ini secara langsung.</p>
-
-      <div class="logo-options-grid">
-        <!-- Opsi 1 -->
-        <div class="logo-opt-card" data-logo-src="./assets/logos/logo1.jpg">
-          <div class="logo-img-frame">
-            <img src="./assets/logos/logo1.jpg" alt="Opsi 1 Dual V Monogram" loading="lazy">
-          </div>
-          <div class="logo-opt-title">Opsi 1: Dual V Monogram</div>
-          <div class="logo-opt-concept">Sinergi monogram ganda V bersudut 45 derajat dengan jalur serat optik simetris bergradasi electric cyan ke violet. Sangat presisi, kokoh, dan berwibawa.</div>
-          <div class="logo-opt-actions">
-            <button type="button" class="logo-apply-btn" data-apply="./assets/logos/logo1.jpg">Terapkan Pada Web</button>
-          </div>
-        </div>
-
-        <!-- Opsi 2 -->
-        <div class="logo-opt-card" data-logo-src="./assets/logos/logo2.jpg">
-          <div class="logo-img-frame">
-            <img src="./assets/logos/logo2.jpg" alt="Opsi 2 Dynamic Data Convergence" loading="lazy">
-          </div>
-          <div class="logo-opt-title">Opsi 2: Dynamic Data Convergence</div>
-          <div class="logo-opt-concept">Pita multidimensi 3D meliuk menyerupai infinity loop kontinuitas data 24/7. Mengangkat DNA warna asli merah rubi, biru kobalt, dan cyan elektrik secara modern.</div>
-          <div class="logo-opt-actions">
-            <button type="button" class="logo-apply-btn" data-apply="./assets/logos/logo2.jpg">Terapkan Pada Web</button>
-          </div>
-        </div>
-
-        <!-- Opsi 3 -->
-        <div class="logo-opt-card" data-logo-src="./assets/logos/logo3.jpg">
-          <div class="logo-img-frame">
-            <img src="./assets/logos/logo3.jpg" alt="Opsi 3 Hexagon Shield Core" loading="lazy">
-          </div>
-          <div class="logo-opt-title">Opsi 3: Hexagon Shield Core</div>
-          <div class="logo-opt-concept">Perisai heksagonal arsitektural dengan V isometrik di intinya. Melambangkan kestabilan rak data center, sirkuit telemetri, dan keamanan siber fisik korporat.</div>
-          <div class="logo-opt-actions">
-            <button type="button" class="logo-apply-btn" data-apply="./assets/logos/logo3.jpg">Terapkan Pada Web</button>
-          </div>
-        </div>
-
-        <!-- Opsi 4 -->
-        <div class="logo-opt-card" data-logo-src="./assets/logos/logo4.jpg">
-          <div class="logo-img-frame">
-            <img src="./assets/logos/logo4.jpg" alt="Opsi 4 Minimalist Prismatic Chevron" loading="lazy">
-          </div>
-          <div class="logo-opt-title">Opsi 4: Minimalist Prismatic Chevron</div>
-          <div class="logo-opt-concept">Tiga bidang sudut geometris transparan bertumpuk rapi gaya Swiss modern. Sangat bersih, prestisius, abadi, dan mudah dicetak di berbagai media korporat.</div>
-          <div class="logo-opt-actions">
-            <button type="button" class="logo-apply-btn" data-apply="./assets/logos/logo4.jpg">Terapkan Pada Web</button>
-          </div>
-        </div>
-
-        <!-- Opsi 5 -->
-        <div class="logo-opt-card" data-logo-src="./assets/logos/logo5.jpg">
-          <div class="logo-img-frame">
-            <img src="./assets/logos/logo5.jpg" alt="Opsi 5 Quantum Fiber Wings" loading="lazy">
-          </div>
-          <div class="logo-opt-title">Opsi 5: Quantum Fiber Wings</div>
-          <div class="logo-opt-concept">Sayap optik aerodinamis bersudut lancip dengan pendaran cahaya neon magenta dan cyan berenergi tinggi. Melambangkan kecepatan transmisi dan otomasi masa depan.</div>
-          <div class="logo-opt-actions">
-            <button type="button" class="logo-apply-btn" data-apply="./assets/logos/logo5.jpg">Terapkan Pada Web</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="sol-modal-footer" style="margin-top: 28px;">
-        <button type="button" class="logo-revert-btn" id="revertOriginalLogoBtn">Kembalikan Logo Awal</button>
-        <button type="button" class="btn btn-primary btn-sm" id="logoStudioDismiss">Tutup Preview</button>
       </div>
     </div>
   </div>
@@ -3428,30 +3672,7 @@
       if (dismissBtn) dismissBtn.addEventListener('click', closeToast);
     })();
 
-    // 4. Smooth scroll active link updates
-    (function() {
-      var sections = document.querySelectorAll('section[id], div[id]');
-      var navLinks = document.querySelectorAll('.nav-links a');
-
-      window.addEventListener('scroll', function() {
-        var scrollY = window.pageYOffset;
-        sections.forEach(function(current) {
-          var sectionHeight = current.offsetHeight;
-          var sectionTop = current.offsetTop - 120;
-          var sectionId = current.getAttribute('id');
-
-          if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-            navLinks.forEach(function(link) {
-              if (link.getAttribute('href') === '#' + sectionId) {
-                link.classList.add('active');
-              } else {
-                link.classList.remove('active');
-              }
-            });
-          }
-        });
-      });
-    })();
+    // 4. Branch navigation active link updates handled by Branch Router (Section 13)
 
     // 5. Stats Number Counter Animation with IntersectionObserver
     (function() {
@@ -4059,104 +4280,119 @@
       });
     })();
 
-    // 13. LOGO REDESIGN STUDIO MODAL HANDLERS
-    (function initLogoStudio() {
-      var openBtn = document.getElementById('openLogoStudioBtn');
-      var openMobile = document.getElementById('openLogoStudioMobile');
-      var modal = document.getElementById('logoStudioModal');
-      var closeBtn = document.getElementById('logoStudioClose');
-      var dismissBtn = document.getElementById('logoStudioDismiss');
-      var revertBtn = document.getElementById('revertOriginalLogoBtn');
-      var applyBtns = document.querySelectorAll('.logo-apply-btn');
-      var brandImgs = document.querySelectorAll('.brand-img');
-      var optCards = document.querySelectorAll('.logo-opt-card');
-      if (!modal) return;
-
-      var defaultLogo = './assets/logo.png';
-
-      function openModal(e) {
-        if (e) e.preventDefault();
-        modal.classList.add('is-open');
-        document.body.style.overflow = 'hidden';
-      }
-
-      function closeModal() {
-        modal.classList.remove('is-open');
-        document.body.style.overflow = '';
-      }
-
-      function applyLogo(logoSrc) {
-        brandImgs.forEach(function(img) {
-          img.src = logoSrc;
-          // Set appropriate styling for square logo previews in navbar
-          img.style.objectFit = 'contain';
-          img.style.maxHeight = '42px';
-        });
-
-        optCards.forEach(function(card) {
-          if (card.getAttribute('data-logo-src') === logoSrc) {
-            card.classList.add('is-active-brand');
-            var btn = card.querySelector('.logo-apply-btn');
-            if (btn) btn.textContent = 'Aktif Digunakan';
-          } else {
-            card.classList.remove('is-active-brand');
-            var otherBtn = card.querySelector('.logo-apply-btn');
-            if (otherBtn) otherBtn.textContent = 'Terapkan Pada Web';
-          }
-        });
-
-        try {
-          localStorage.setItem('vv_custom_logo', logoSrc);
-        } catch (err) {}
-      }
-
-      function revertLogo() {
-        brandImgs.forEach(function(img) {
-          img.src = defaultLogo;
-        });
-        optCards.forEach(function(card) {
-          card.classList.remove('is-active-brand');
-          var btn = card.querySelector('.logo-apply-btn');
-          if (btn) btn.textContent = 'Terapkan Pada Web';
-        });
-        try {
-          localStorage.removeItem('vv_custom_logo');
-        } catch (err) {}
-      }
-
-      // Check saved logo
+    // 13. DEDICATED BRANCH ROUTER & CLEANUP LEGACY LOGO OVERRIDE
+    (function initBranchRouter() {
       try {
-        var savedLogo = localStorage.getItem('vv_custom_logo');
-        if (savedLogo) {
-          applyLogo(savedLogo);
-        }
+        localStorage.removeItem('vv_custom_logo');
       } catch (err) {}
 
-      if (openBtn) openBtn.addEventListener('click', openModal);
-      if (openMobile) openMobile.addEventListener('click', openModal);
-      if (closeBtn) closeBtn.addEventListener('click', closeModal);
-      if (dismissBtn) dismissBtn.addEventListener('click', closeModal);
-      if (revertBtn) revertBtn.addEventListener('click', revertLogo);
+      var VALID_BRANCHES = {
+        home: 'home',
+        solutions: 'solutions',
+        why: 'why',
+        certifications: 'why',
+        industries: 'industries',
+        projects: 'projects',
+        partners: 'partners',
+        faq: 'faq',
+        contact: 'contact'
+      };
 
-      modal.addEventListener('click', function(e) {
-        if (e.target === modal) closeModal();
-      });
+      var views = document.querySelectorAll('.branch-view');
+      var navLinks = document.querySelectorAll('.nav-links a, .mobile-menu a[data-branch-link]');
+      var mobileMenu = document.getElementById('mobileMenu');
+      var solModal = document.getElementById('solModalBackdrop');
 
-      document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && modal.classList.contains('is-open')) {
-          closeModal();
+      function resolveBranch(rawHash) {
+        var clean = (rawHash || '').replace(/^#\/?/, '').trim().toLowerCase();
+        return VALID_BRANCHES[clean] || 'home';
+      }
+
+      function revealBranchCards(container) {
+        if (!container) return;
+        var cards = container.querySelectorAll('.pillar-card, .solution-card, .ind-card, .project-card, .achieve-card, .partner-tile');
+        cards.forEach(function(card, idx) {
+          card.style.transitionDelay = ((idx % 4) * 55) + 'ms';
+          card.classList.add('is-revealed');
+          setTimeout(function() {
+            card.style.transitionDelay = '0s';
+          }, 550);
+        });
+      }
+
+      function navigateToBranch(branchName, updateUrl) {
+        var target = VALID_BRANCHES[branchName] || 'home';
+
+        views.forEach(function(view) {
+          if (view.getAttribute('data-branch') === target) {
+            view.classList.add('is-active');
+            revealBranchCards(view);
+          } else {
+            view.classList.remove('is-active');
+          }
+        });
+
+        navLinks.forEach(function(link) {
+          var linkBranch = link.getAttribute('data-branch-link') || resolveBranch(link.getAttribute('href'));
+          if (linkBranch === target) {
+            link.classList.add('active');
+          } else {
+            link.classList.remove('active');
+          }
+        });
+
+        if (mobileMenu) {
+          mobileMenu.classList.remove('open');
+        }
+        if (solModal && solModal.classList.contains('is-open')) {
+          solModal.classList.remove('is-open');
+          document.body.style.overflow = '';
+        }
+
+        if (updateUrl) {
+          var nextHash = '#' + target;
+          if (window.location.hash !== nextHash) {
+            if (window.history && typeof window.history.pushState === 'function') {
+              window.history.pushState(null, '', nextHash);
+            } else {
+              window.location.hash = nextHash;
+            }
+          }
+        }
+
+        window.scrollTo({ top: 0, behavior: 'auto' });
+
+        // Notify Recharts ResponsiveContainer & Three.js Globe to recalculate dimensions
+        setTimeout(function() {
+          window.dispatchEvent(new Event('resize'));
+        }, 45);
+        setTimeout(function() {
+          window.dispatchEvent(new Event('resize'));
+        }, 160);
+      }
+
+      document.addEventListener('click', function(e) {
+        if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) {
+          return;
+        }
+        var anchor = e.target && e.target.closest ? e.target.closest('a[href^="#"]') : null;
+        if (!anchor) return;
+
+        var href = anchor.getAttribute('href') || '';
+        if (!href || href === '#') return;
+
+        var cleanKey = href.replace(/^#\/?/, '').trim().toLowerCase();
+        if (VALID_BRANCHES[cleanKey]) {
+          e.preventDefault();
+          navigateToBranch(VALID_BRANCHES[cleanKey], true);
         }
       });
 
-      applyBtns.forEach(function(btn) {
-        btn.addEventListener('click', function(e) {
-          e.preventDefault();
-          var src = this.getAttribute('data-apply');
-          if (src) {
-            applyLogo(src);
-          }
-        });
+      window.addEventListener('hashchange', function() {
+        navigateToBranch(resolveBranch(window.location.hash), false);
       });
+
+      navigateToBranch(resolveBranch(window.location.hash), false);
     })();
   </script>
   <!-- Three.js 3D Interactive Rotating Dot-Matrix Earth Scene -->
