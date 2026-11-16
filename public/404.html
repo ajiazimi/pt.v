@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>404 Page Not Found | PT. Vier Virya Ventures</title>
+  <meta name="robots" content="noindex, follow">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="theme-color" content="#07070a">
+  <link rel="icon" type="image/x-icon" href="./favicon.ico">
+  <link rel="icon" type="image/png" href="./assets/logo.png">
+  <link rel="apple-touch-icon" href="./assets/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=block" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #07070a;
+      --ink: #ffffff;
+      --ink-muted: #a6adbb;
+      --accent: #a78bfa;
+      --brand-blue: #3b82f6;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body {
+      min-height: 100%;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    body {
+      display: grid;
+      place-items: center;
+      padding: 32px 24px;
+      background-image: radial-gradient(70% 50% at 50% 0%, rgba(167, 139, 250, 0.14) 0%, transparent 70%);
+    }
+    .nf-shell {
+      width: 100%;
+      max-width: 620px;
+      border-top: 2px solid var(--accent);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 48px 0;
+    }
+    .nf-brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--ink);
+      margin-bottom: 36px;
+    }
+    .nf-brand img {
+      height: 36px;
+      width: auto;
+      display: block;
+    }
+    .nf-brand-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.08;
+    }
+    .nf-brand-main {
+      font-size: 19px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+    .nf-brand-sub {
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 0.42em;
+      color: #dc2626;
+      margin-top: 4px;
+    }
+    .nf-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 14px;
+    }
+    .nf-kicker::before,
+    .nf-kicker::after {
+      content: "";
+      width: 24px;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(167, 139, 250, 0.75), transparent);
+    }
+    .nf-kicker::before {
+      background: linear-gradient(90deg, transparent, rgba(167, 139, 250, 0.75));
+    }
+    h1 {
+      font-size: clamp(2rem, 5vw, 3.1rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+    .nf-desc {
+      color: var(--ink-muted);
+      font-size: 15.5px;
+      line-height: 1.65;
+      margin-bottom: 32px;
+      max-width: 520px;
+    }
+    .nf-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 600;
+      border-radius: 999px;
+      padding: 12px 24px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    .btn-primary {
+      background: #fdfdfd;
+      color: #050505;
+    }
+    .btn-primary:hover {
+      background: #ffffff;
+      transform: translateY(-2px);
+    }
+    .btn-ghost {
+      background: rgba(14, 15, 22, 0.8);
+      color: #e2e8f0;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+    }
+    .btn-ghost:hover {
+      border-color: rgba(255, 255, 255, 0.3);
+      color: #ffffff;
+    }
+  </style>
+</head>
+<body>
+  <main class="nf-shell">
+    <a href="./" class="nf-brand" aria-label="PT. Vier Virya Ventures Home">
+      <img src="./assets/logo.png" alt="PT. Vier Virya Ventures Logo" width="44" height="36">
+      <span class="nf-brand-text">
+        <span class="nf-brand-main">Vier Virya</span>
+        <span class="nf-brand-sub">VENTURES</span>
+      </span>
+    </a>
+
+    <div class="nf-kicker">Error 404</div>
+    <h1>Requested Route Not Found</h1>
+    <p class="nf-desc">
+      The requested address does not exist or may have been relocated within our infrastructure portal. Return to the main overview or reach our engineering desk directly.
+    </p>
+    <div class="nf-actions">
+      <a href="./" class="btn btn-primary">Return to Home Overview</a>
+      <a href="https://wa.me/6285157988002" target="_blank" rel="noopener" class="btn btn-ghost">WhatsApp Engineering Desk</a>
+    </div>
+  </main>
+</body>
+</html>

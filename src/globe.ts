@@ -48,8 +48,7 @@ export function initHeroGlobe(): (() => void) | undefined {
       stencil: false,
       powerPreference: 'high-performance',
     });
-  } catch (err) {
-    console.warn('WebGL initialization failed, activating fallback', err);
+  } catch {
     document.getElementById('hero-globe-skeleton')?.classList.add('is-loaded');
     window.dispatchEvent(new Event('vv:webgl-fallback'));
     return;

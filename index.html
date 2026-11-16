@@ -5,29 +5,125 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>PT. Vier Virya Ventures | System Integrator & Enterprise IT Infrastructure</title>
   <meta name="description" content="PT. Vier Virya Ventures is a premier system integrator based in Jakarta, delivering enterprise network infrastructure, data centers, wireless connectivity, and integrated security across Indonesia.">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="theme-color" content="#07070a">
+  <link rel="canonical" id="canonicalLink" href="https://vierventures.com/">
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="./sitemap.xml">
+
   <meta property="og:title" content="PT. Vier Virya Ventures | Enterprise IT Infrastructure">
   <meta property="og:description" content="Premier system integrator delivering network infrastructure, data center, and integrated security solutions for enterprises in Indonesia.">
   <meta property="og:type" content="website">
+  <meta property="og:site_name" content="PT. Vier Virya Ventures">
+  <meta property="og:url" id="ogUrlMeta" content="https://vierventures.com/">
   <meta property="og:image" content="./assets/logo.png">
-  <link rel="icon" type="image/png" href="./assets/logo.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="PT. Vier Virya Ventures | Enterprise IT Infrastructure">
+  <meta name="twitter:description" content="Premier system integrator delivering network infrastructure, data center, and integrated security solutions for enterprises in Indonesia.">
+  <meta name="twitter:image" content="./assets/logo.png">
+
+  <link rel="icon" type="image/x-icon" href="./favicon.ico">
+  <link rel="icon" type="image/png" sizes="306x256" href="./assets/logo.png">
+  <link rel="shortcut icon" href="./assets/logo.png">
+  <link rel="apple-touch-icon" href="./assets/logo.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=block" rel="stylesheet">
 
-  <script type="application/ld+json">
+  <script>
+    (function syncCanonicalUrl() {
+      try {
+        if (window.location.protocol === 'http:' || window.location.protocol === 'https:') {
+          var currentUrl = window.location.origin + window.location.pathname;
+          var canonicalEl = document.getElementById('canonicalLink');
+          var ogUrlEl = document.getElementById('ogUrlMeta');
+          if (canonicalEl) canonicalEl.setAttribute('href', currentUrl);
+          if (ogUrlEl) ogUrlEl.setAttribute('content', currentUrl);
+        }
+      } catch (e) {}
+    })();
+  </script>
+
+  <script type="application/ld+json" id="structuredDataGraph">
   {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "PT. Vier Virya Ventures",
-    "telephone": "+622154397460",
-    "email": "info@vierventures.com",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Arcade Business Center 6th Floor Unit 6-03, Jl. Pantai Indah Utara 2 Kav. C1",
-      "addressLocality": "Jakarta",
-      "addressCountry": "ID"
-    }
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://vierventures.com/#organization",
+        "name": "PT. Vier Virya Ventures",
+        "legalName": "PT. Vier Virya Ventures",
+        "url": "https://vierventures.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://vierventures.com/assets/logo.png"
+        },
+        "email": "info@vierventures.com",
+        "telephone": "+622154397460",
+        "areaServed": "ID",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Arcade Business Center 6th Floor Unit 6-03, Jl. Pantai Indah Utara 2 Kav. C1",
+          "addressLocality": "Jakarta",
+          "addressRegion": "DKI Jakarta",
+          "postalCode": "14470",
+          "addressCountry": "ID"
+        },
+        "contactPoint": [
+          {
+            "@type": "ContactPoint",
+            "telephone": "+6285157988002",
+            "contactType": "sales",
+            "areaServed": "ID",
+            "availableLanguage": ["en", "id"]
+          }
+        ]
+      },
+      {
+        "@type": "LocalBusiness",
+        "@id": "https://vierventures.com/#localbusiness",
+        "name": "PT. Vier Virya Ventures",
+        "url": "https://vierventures.com/",
+        "image": "https://vierventures.com/assets/logo.png",
+        "telephone": "+622154397460",
+        "email": "info@vierventures.com",
+        "priceRange": "$$$",
+        "areaServed": "ID",
+        "parentOrganization": {
+          "@id": "https://vierventures.com/#organization"
+        },
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Arcade Business Center 6th Floor Unit 6-03, Jl. Pantai Indah Utara 2 Kav. C1",
+          "addressLocality": "Jakarta",
+          "addressRegion": "DKI Jakarta",
+          "postalCode": "14470",
+          "addressCountry": "ID"
+        },
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            "opens": "08:30",
+            "closes": "17:30"
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://vierventures.com/#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://vierventures.com/"
+          }
+        ]
+      }
+    ]
   }
   </script>
 
@@ -1915,6 +2011,34 @@
       resize: vertical;
       min-height: 80px;
     }
+    .form-input.is-invalid,
+    .form-select.is-invalid,
+    .form-textarea.is-invalid {
+      border-bottom-color: #ef4444;
+      background: rgba(239, 68, 68, 0.05);
+    }
+    .rfp-hp-field {
+      position: absolute;
+      left: -9999px;
+      width: 1px;
+      height: 1px;
+      opacity: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    .rfp-error-banner {
+      display: none;
+      background: rgba(239, 68, 68, 0.08);
+      border-top: 2px solid #ef4444;
+      color: #fca5a5;
+      font-size: 13.5px;
+      line-height: 1.5;
+      padding: 12px 14px;
+      margin-bottom: 18px;
+    }
+    .rfp-error-banner.is-visible {
+      display: block;
+    }
     .form-submit-btn {
       width: 100%;
       padding: 14px 24px;
@@ -2759,11 +2883,11 @@
     <div class="branch-topbar">
       <div class="w branch-topbar-inner">
         <a href="#home" class="branch-back-btn">&larr; Back to Home Summary</a>
-        <div class="branch-breadcrumb">
+        <nav class="branch-breadcrumb" aria-label="Breadcrumb">
           <a href="#home">Home</a>
           <span class="sep">/</span>
           <span class="curr">Solutions</span>
-        </div>
+        </nav>
       </div>
     </div>
 
@@ -2930,11 +3054,11 @@
     <div class="branch-topbar">
       <div class="w branch-topbar-inner">
         <a href="#home" class="branch-back-btn">&larr; Back to Home Summary</a>
-        <div class="branch-breadcrumb">
+        <nav class="branch-breadcrumb" aria-label="Breadcrumb">
           <a href="#home">Home</a>
           <span class="sep">/</span>
           <span class="curr">Why Us</span>
-        </div>
+        </nav>
       </div>
     </div>
 
@@ -3089,11 +3213,11 @@
     <div class="branch-topbar">
       <div class="w branch-topbar-inner">
         <a href="#home" class="branch-back-btn">&larr; Back to Home Summary</a>
-        <div class="branch-breadcrumb">
+        <nav class="branch-breadcrumb" aria-label="Breadcrumb">
           <a href="#home">Home</a>
           <span class="sep">/</span>
           <span class="curr">Industries</span>
-        </div>
+        </nav>
       </div>
     </div>
 
@@ -3230,11 +3354,11 @@
     <div class="branch-topbar">
       <div class="w branch-topbar-inner">
         <a href="#home" class="branch-back-btn">&larr; Back to Home Summary</a>
-        <div class="branch-breadcrumb">
+        <nav class="branch-breadcrumb" aria-label="Breadcrumb">
           <a href="#home">Home</a>
           <span class="sep">/</span>
           <span class="curr">Projects</span>
-        </div>
+        </nav>
       </div>
     </div>
 
@@ -3368,11 +3492,11 @@
     <div class="branch-topbar">
       <div class="w branch-topbar-inner">
         <a href="#home" class="branch-back-btn">&larr; Back to Home Summary</a>
-        <div class="branch-breadcrumb">
+        <nav class="branch-breadcrumb" aria-label="Breadcrumb">
           <a href="#home">Home</a>
           <span class="sep">/</span>
           <span class="curr">Partners</span>
-        </div>
+        </nav>
       </div>
     </div>
 
@@ -3503,11 +3627,11 @@
     <div class="branch-topbar">
       <div class="w branch-topbar-inner">
         <a href="#home" class="branch-back-btn">&larr; Back to Home Summary</a>
-        <div class="branch-breadcrumb">
+        <nav class="branch-breadcrumb" aria-label="Breadcrumb">
           <a href="#home">Home</a>
           <span class="sep">/</span>
           <span class="curr">FAQ</span>
-        </div>
+        </nav>
       </div>
     </div>
 
@@ -3590,11 +3714,11 @@
     <div class="branch-topbar">
       <div class="w branch-topbar-inner">
         <a href="#home" class="branch-back-btn">&larr; Back to Home Summary</a>
-        <div class="branch-breadcrumb">
+        <nav class="branch-breadcrumb" aria-label="Breadcrumb">
           <a href="#home">Home</a>
           <span class="sep">/</span>
           <span class="curr">Contact</span>
-        </div>
+        </nav>
       </div>
     </div>
 
@@ -3638,26 +3762,33 @@
             <p>Fill out your requirements for a comprehensive architectural proposal, bill of materials estimate, and vendor matching.</p>
           </div>
 
-          <form id="rfpForm">
+          <form id="rfpForm" novalidate>
+            <div class="rfp-hp-field" aria-hidden="true">
+              <label for="rfpWebsite">Company Website</label>
+              <input type="text" id="rfpWebsite" name="website" tabindex="-1" autocomplete="off">
+            </div>
+
+            <div class="rfp-error-banner" id="rfpError" role="alert" aria-live="polite"></div>
+
             <div class="form-row-2">
               <div class="form-group">
                 <label class="form-label" for="rfpName">Full Name *</label>
-                <input type="text" id="rfpName" class="form-input" placeholder="e.g. Hendra Wijaya" required>
+                <input type="text" id="rfpName" class="form-input" placeholder="e.g. Hendra Wijaya" maxlength="80" autocomplete="name" required>
               </div>
               <div class="form-group">
                 <label class="form-label" for="rfpCompany">Company or Institution *</label>
-                <input type="text" id="rfpCompany" class="form-input" placeholder="e.g. PT. Nusantara Digital" required>
+                <input type="text" id="rfpCompany" class="form-input" placeholder="e.g. PT. Nusantara Digital" maxlength="120" autocomplete="organization" required>
               </div>
             </div>
 
             <div class="form-row-2">
               <div class="form-group">
                 <label class="form-label" for="rfpEmail">Business Email *</label>
-                <input type="email" id="rfpEmail" class="form-input" placeholder="hendra@company.co.id" required>
+                <input type="email" id="rfpEmail" class="form-input" placeholder="hendra@company.co.id" maxlength="120" autocomplete="email" required>
               </div>
               <div class="form-group">
                 <label class="form-label" for="rfpPhone">Phone or WhatsApp *</label>
-                <input type="tel" id="rfpPhone" class="form-input" placeholder="+62 812 3456 7890" required>
+                <input type="tel" id="rfpPhone" class="form-input" placeholder="+62 812 3456 7890" maxlength="24" autocomplete="tel" required>
               </div>
             </div>
 
@@ -3689,7 +3820,7 @@
 
             <div class="form-group">
               <label class="form-label" for="rfpDetails">Project Specifics & Site Details</label>
-              <textarea id="rfpDetails" class="form-textarea" placeholder="Detail your site locations, rack counts, current pain points, or specific vendor preferences..."></textarea>
+              <textarea id="rfpDetails" class="form-textarea" maxlength="1000" placeholder="Detail your site locations, rack counts, current pain points, or specific vendor preferences..."></textarea>
             </div>
 
             <button type="submit" class="form-submit-btn">
@@ -4533,36 +4664,46 @@
         if (modalTitle) modalTitle.textContent = data.title;
         if (modalDesc) modalDesc.textContent = data.desc;
 
+        while (tabContent.firstChild) {
+          tabContent.removeChild(tabContent.firstChild);
+        }
+
         if (currentTab === 'specs') {
-          var html = '<div class="sol-spec-grid">';
+          var specGrid = document.createElement('div');
+          specGrid.className = 'sol-spec-grid';
           data.specs.forEach(function(item) {
-            html += '<div class="sol-spec-item">';
-            html += '<span class="sol-spec-label">' + item.label + '</span>';
-            html += '<span class="sol-spec-val">' + item.val + '</span>';
-            html += '</div>';
+            var cell = document.createElement('div');
+            cell.className = 'sol-spec-item';
+            var lbl = document.createElement('span');
+            lbl.className = 'sol-spec-label';
+            lbl.textContent = item.label;
+            var val = document.createElement('span');
+            val.className = 'sol-spec-val';
+            val.textContent = item.val;
+            cell.appendChild(lbl);
+            cell.appendChild(val);
+            specGrid.appendChild(cell);
           });
-          html += '</div>';
-          tabContent.innerHTML = html;
-        } else if (currentTab === 'bom') {
-          var htmlBom = '<ul style="list-style: none; display: flex; flex-direction: column; gap: 12px; padding: 4px 0;">';
-          data.bom.forEach(function(item) {
-            htmlBom += '<li style="display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: #e2e8f0;">';
-            htmlBom += '<span style="color: #a78bfa; font-weight: 700; margin-top: 1px;">✓</span>';
-            htmlBom += '<span>' + item + '</span>';
-            htmlBom += '</li>';
+          tabContent.appendChild(specGrid);
+        } else if (currentTab === 'bom' || currentTab === 'sla') {
+          var items = currentTab === 'bom' ? data.bom : data.sla;
+          var list = document.createElement('ul');
+          list.style.cssText = 'list-style: none; display: flex; flex-direction: column; gap: 12px; padding: 4px 0;';
+          items.forEach(function(item) {
+            var li = document.createElement('li');
+            li.style.cssText = 'display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: #e2e8f0;';
+            var mark = document.createElement('span');
+            mark.style.cssText = currentTab === 'bom'
+              ? 'color: #a78bfa; font-weight: 700; margin-top: 1px;'
+              : 'color: #10b981; font-weight: 700; margin-top: 1px;';
+            mark.textContent = currentTab === 'bom' ? '✓' : '★';
+            var txt = document.createElement('span');
+            txt.textContent = item;
+            li.appendChild(mark);
+            li.appendChild(txt);
+            list.appendChild(li);
           });
-          htmlBom += '</ul>';
-          tabContent.innerHTML = htmlBom;
-        } else if (currentTab === 'sla') {
-          var htmlSla = '<ul style="list-style: none; display: flex; flex-direction: column; gap: 12px; padding: 4px 0;">';
-          data.sla.forEach(function(item) {
-            htmlSla += '<li style="display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: #e2e8f0;">';
-            htmlSla += '<span style="color: #10b981; font-weight: 700; margin-top: 1px;">★</span>';
-            htmlSla += '<span>' + item + '</span>';
-            htmlSla += '</li>';
-          });
-          htmlSla += '</ul>';
-          tabContent.innerHTML = htmlSla;
+          tabContent.appendChild(list);
         }
       }
 
@@ -4617,26 +4758,222 @@
       });
     })();
 
-    // 11. INTERACTIVE RFP FORM SUBMISSION & WHATSAPP GENERATOR
+    // 11. EVENT TRACKING LAYER (GTM / GA4 dataLayer + CustomEvent, zero PII)
+    (function initConversionTracking() {
+      window.dataLayer = window.dataLayer || [];
+
+      window.__vvTrackEvent = function(eventName, params) {
+        try {
+          var payload = Object.assign({ event: eventName }, params || {});
+          window.dataLayer.push(payload);
+          if (typeof window.gtag === 'function') {
+            window.gtag('event', eventName, params || {});
+          }
+          window.dispatchEvent(new CustomEvent('vv:track', { detail: payload }));
+        } catch (err) {}
+      };
+
+      document.addEventListener('click', function(e) {
+        var link = e.target && e.target.closest ? e.target.closest('a, button') : null;
+        if (!link) return;
+
+        var href = (link.getAttribute('href') || '').trim();
+        var activeView = document.querySelector('.branch-view.is-active');
+        var branch = activeView ? (activeView.getAttribute('data-branch') || 'home') : 'home';
+
+        if (href.indexOf('wa.me') !== -1) {
+          var waLocation = 'page';
+          if (link.closest('header')) waLocation = 'header';
+          else if (link.closest('#mobileMenu')) waLocation = 'mobile_drawer';
+          else if (link.closest('#rfpSuccess')) waLocation = 'rfp_banner';
+          else if (link.closest('#floatingBar')) waLocation = 'floating_button';
+          else if (link.closest('#contact')) waLocation = 'contact_card';
+          window.__vvTrackEvent('whatsapp_click', {
+            cta_location: waLocation,
+            branch: branch
+          });
+          return;
+        }
+
+        if (
+          link.classList.contains('btn-primary') ||
+          link.classList.contains('summary-branch-card') ||
+          link.classList.contains('sol-detail-btn') ||
+          (link.closest('.hero-ctas') && link.tagName === 'A')
+        ) {
+          var labelEl = link.querySelector('h3') || link;
+          var ctaLabel = (labelEl.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 64);
+          var ctaLoc = link.closest('.hero') ? 'hero'
+            : link.closest('#home-summary') ? 'home_summary'
+            : link.closest('header') ? 'header'
+            : link.closest('#mobileMenu') ? 'mobile_drawer'
+            : link.closest('#solModalBackdrop') ? 'solution_modal'
+            : branch;
+          window.__vvTrackEvent('cta_click', {
+            cta_label: ctaLabel,
+            cta_location: ctaLoc,
+            target: href || link.getAttribute('data-sol') || '',
+            branch: branch
+          });
+        }
+      });
+    })();
+
+    // 12. INTERACTIVE RFP FORM VALIDATION, SANITIZATION, ANTI-SPAM & WHATSAPP GENERATOR
     (function initRfpForm() {
       var form = document.getElementById('rfpForm');
+      var errorBanner = document.getElementById('rfpError');
       var successBanner = document.getElementById('rfpSuccess');
       var waLink = document.getElementById('rfpWhatsAppLink');
       if (!form || !successBanner || !waLink) return;
 
+      var formMountTime = Date.now();
+      var COOLDOWN_MS = 30000;
+      var COOLDOWN_KEY = 'vv_rfp_last_ts';
+
+      var ALLOWED_SCOPES = {
+        'Enterprise Network Infrastructure': true,
+        'Data Center Facilities & Power': true,
+        'Integrated Security & Surveillance': true,
+        'High Density Wireless Connectivity': true,
+        'Smart Building & Alarm Telemetry': true,
+        'Maintenance & 24/7 SLA Service': true,
+        'Multi Site Turnkey Overhaul': true
+      };
+
+      var ALLOWED_TIMELINES = {
+        'Immediate within 30 days': true,
+        '1 to 3 Months': true,
+        '3 to 6 Months': true,
+        'Fiscal Budget Planning': true
+      };
+
+      function sanitizeText(raw, maxLen, allowNewlines) {
+        var str = String(raw || '');
+        str = str.replace(/<[^>]*>/g, '');
+        str = str.replace(/(?:javascript|vbscript|data):/gi, '');
+        if (allowNewlines) {
+          str = str.replace(/[\x00-\x08\x0B\x0C\x0E-\x1F\x7F\u200B-\u200D\uFEFF]/g, '');
+          str = str.replace(/\r\n?/g, '\n').replace(/\n{3,}/g, '\n\n');
+        } else {
+          str = str.replace(/[\x00-\x1F\x7F\u200B-\u200D\uFEFF]+/g, ' ');
+          str = str.replace(/\s+/g, ' ');
+        }
+        str = str.trim();
+        if (maxLen && str.length > maxLen) {
+          str = str.slice(0, maxLen).trim();
+        }
+        return str;
+      }
+
+      function clearFieldErrors() {
+        var invalids = form.querySelectorAll('.is-invalid');
+        invalids.forEach(function(el) {
+          el.classList.remove('is-invalid');
+          el.removeAttribute('aria-invalid');
+        });
+        if (errorBanner) {
+          errorBanner.textContent = '';
+          errorBanner.classList.remove('is-visible');
+        }
+      }
+
+      function showFormError(message, fieldEl) {
+        clearFieldErrors();
+        if (fieldEl) {
+          fieldEl.classList.add('is-invalid');
+          fieldEl.setAttribute('aria-invalid', 'true');
+          fieldEl.focus();
+        }
+        if (errorBanner) {
+          errorBanner.textContent = message;
+          errorBanner.classList.add('is-visible');
+        }
+        successBanner.classList.remove('is-visible');
+      }
+
+      form.querySelectorAll('.form-input, .form-select, .form-textarea').forEach(function(el) {
+        el.addEventListener('input', function() {
+          el.classList.remove('is-invalid');
+          el.removeAttribute('aria-invalid');
+          if (errorBanner) errorBanner.classList.remove('is-visible');
+        });
+      });
+
       form.addEventListener('submit', function(e) {
         e.preventDefault();
+        clearFieldErrors();
 
-        var name = (document.getElementById('rfpName').value || '').trim();
-        var company = (document.getElementById('rfpCompany').value || '').trim();
-        var email = (document.getElementById('rfpEmail').value || '').trim();
-        var phone = (document.getElementById('rfpPhone').value || '').trim();
-        var scope = (document.getElementById('rfpScope').value || '').trim();
-        var timeline = (document.getElementById('rfpTimeline').value || '').trim();
-        var details = (document.getElementById('rfpDetails').value || '').trim();
-
-        if (!name || !company || !email || !phone || !scope || !timeline) {
+        var honeypotEl = document.getElementById('rfpWebsite');
+        if (honeypotEl && honeypotEl.value && honeypotEl.value.trim() !== '') {
           return;
+        }
+
+        if (Date.now() - formMountTime < 2500) {
+          showFormError('Please take a moment to verify your project details before submitting.');
+          return;
+        }
+
+        try {
+          var lastSubmit = parseInt(sessionStorage.getItem(COOLDOWN_KEY) || '0', 10);
+          if (lastSubmit && (Date.now() - lastSubmit) < COOLDOWN_MS) {
+            var waitSec = Math.ceil((COOLDOWN_MS - (Date.now() - lastSubmit)) / 1000);
+            showFormError('Please wait ' + waitSec + ' seconds before submitting another proposal request.');
+            return;
+          }
+        } catch (err) {}
+
+        var nameEl = document.getElementById('rfpName');
+        var companyEl = document.getElementById('rfpCompany');
+        var emailEl = document.getElementById('rfpEmail');
+        var phoneEl = document.getElementById('rfpPhone');
+        var scopeEl = document.getElementById('rfpScope');
+        var timelineEl = document.getElementById('rfpTimeline');
+        var detailsEl = document.getElementById('rfpDetails');
+
+        var name = sanitizeText(nameEl ? nameEl.value : '', 80, false);
+        var company = sanitizeText(companyEl ? companyEl.value : '', 120, false);
+        var email = sanitizeText(emailEl ? emailEl.value : '', 120, false);
+        var phone = sanitizeText(phoneEl ? phoneEl.value : '', 24, false);
+        var scope = sanitizeText(scopeEl ? scopeEl.value : '', 80, false);
+        var timeline = sanitizeText(timelineEl ? timelineEl.value : '', 80, false);
+        var details = sanitizeText(detailsEl ? detailsEl.value : '', 1000, true);
+
+        if (name.length < 2) {
+          showFormError('Please enter your full name (minimum 2 characters).', nameEl);
+          return;
+        }
+        if (company.length < 2) {
+          showFormError('Please enter your company or institution name.', companyEl);
+          return;
+        }
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) {
+          showFormError('Please enter a valid business email address.', emailEl);
+          return;
+        }
+        var phoneDigits = phone.replace(/[^\d]/g, '');
+        if (!/^\+?[\d\s()]{8,24}$/.test(phone) || phoneDigits.length < 8 || phoneDigits.length > 15) {
+          showFormError('Please enter a valid phone or WhatsApp number (8 to 15 digits).', phoneEl);
+          return;
+        }
+        if (!ALLOWED_SCOPES[scope]) {
+          showFormError('Please select a valid infrastructure scope.', scopeEl);
+          return;
+        }
+        if (!ALLOWED_TIMELINES[timeline]) {
+          showFormError('Please select a valid target timeline.', timelineEl);
+          return;
+        }
+
+        try {
+          sessionStorage.setItem(COOLDOWN_KEY, String(Date.now()));
+        } catch (err) {}
+
+        if (typeof window.__vvTrackEvent === 'function') {
+          window.__vvTrackEvent('rfp_form_submit', {
+            scope: scope,
+            timeline: timeline
+          });
         }
 
         var lines = [
@@ -4657,13 +4994,11 @@
 
         waLink.setAttribute('href', whatsappUrl);
         successBanner.classList.add('is-visible');
-
-        // Scroll smoothly to success banner so client sees their link
         successBanner.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       });
     })();
 
-    // 12. FLOATING BAR BACK TO TOP & SCROLL LISTENER
+    // 13. FLOATING BAR BACK TO TOP & SCROLL LISTENER
     (function initBackToTop() {
       var btn = document.getElementById('btnBackToTop');
       if (!btn) return;
@@ -4685,7 +5020,7 @@
       });
     })();
 
-    // 13. DEDICATED BRANCH ROUTER & CLEANUP LEGACY LOGO OVERRIDE
+    // 14. DEDICATED BRANCH ROUTER, BREADCRUMB SCHEMA & CLEANUP LEGACY LOGO OVERRIDE
     (function initBranchRouter() {
       try {
         localStorage.removeItem('vv_custom_logo');
@@ -4703,6 +5038,17 @@
         contact: 'contact'
       };
 
+      var BRANCH_LABELS = {
+        home: 'Home',
+        solutions: 'Solutions',
+        why: 'Why Us',
+        industries: 'Industries',
+        projects: 'Projects',
+        partners: 'Partners',
+        faq: 'FAQ',
+        contact: 'Contact'
+      };
+
       var views = document.querySelectorAll('.branch-view');
       var navLinks = document.querySelectorAll('.nav-links a, .mobile-menu a[data-branch-link]');
       var mobileMenu = document.getElementById('mobileMenu');
@@ -4710,7 +5056,44 @@
 
       function resolveBranch(rawHash) {
         var clean = (rawHash || '').replace(/^#\/?/, '').trim().toLowerCase();
-        return VALID_BRANCHES[clean] || 'home';
+        if (VALID_BRANCHES[clean]) return VALID_BRANCHES[clean];
+        try {
+          var qBranch = new URLSearchParams(window.location.search).get('branch');
+          if (qBranch) {
+            var qClean = qBranch.trim().toLowerCase();
+            if (VALID_BRANCHES[qClean]) return VALID_BRANCHES[qClean];
+          }
+        } catch (err) {}
+        return 'home';
+      }
+
+      function updateBreadcrumbSchema(branch) {
+        try {
+          var schemaEl = document.getElementById('structuredDataGraph');
+          if (!schemaEl) return;
+          var parsed = JSON.parse(schemaEl.textContent || '{}');
+          if (!Array.isArray(parsed['@graph'])) return;
+          var baseUrl = (window.location.protocol === 'http:' || window.location.protocol === 'https:')
+            ? (window.location.origin + window.location.pathname)
+            : 'https://vierventures.com/';
+          var crumbs = [
+            { '@type': 'ListItem', position: 1, name: 'Home', item: baseUrl }
+          ];
+          if (branch && branch !== 'home') {
+            crumbs.push({
+              '@type': 'ListItem',
+              position: 2,
+              name: BRANCH_LABELS[branch] || branch,
+              item: baseUrl + '#' + branch
+            });
+          }
+          parsed['@graph'].forEach(function(node) {
+            if (node && node['@type'] === 'BreadcrumbList') {
+              node.itemListElement = crumbs;
+            }
+          });
+          schemaEl.textContent = JSON.stringify(parsed);
+        } catch (err) {}
       }
 
       function revealBranchCards(container) {
@@ -4766,6 +5149,8 @@
             }
           }
         }
+
+        updateBreadcrumbSchema(target);
 
         window.scrollTo({ top: 0, behavior: 'auto' });
 
