@@ -2780,9 +2780,10 @@
     }
 
     html[data-theme="light"] .btn-ghost {
-      background: rgba(255, 255, 255, 0.92);
+      background: rgba(255, 255, 255, 0.94);
       color: #0f172a;
       border-color: rgba(15, 23, 42, 0.24);
+      box-shadow: 0 2px 12px rgba(15, 23, 42, 0.06);
     }
 
     html[data-theme="light"] .btn-ghost:hover {
@@ -2858,21 +2859,22 @@
     }
 
     html[data-theme="light"] .hero-bg {
-      background-color: #e2e8f0;
+      background-color: #f8fafc;
     }
 
     html[data-theme="light"] .hero-globe-skeleton {
-      background: radial-gradient(circle at 50% 56%, rgba(91, 33, 182, 0.16) 0%, rgba(241, 245, 249, 0.92) 55%, #f8fafc 100%);
+      background: radial-gradient(circle at 50% 56%, rgba(91, 33, 182, 0.14) 0%, rgba(248, 250, 252, 0.94) 56%, #f8fafc 100%);
     }
 
     html[data-theme="light"] .hero-globe-orb {
-      background: radial-gradient(circle at 38% 35%, rgba(91, 33, 182, 0.16), rgba(29, 78, 216, 0.08) 48%, rgba(248, 250, 252, 0.5) 76%);
-      border-color: rgba(91, 33, 182, 0.28);
+      background: radial-gradient(circle at 38% 35%, rgba(91, 33, 182, 0.14), rgba(29, 78, 216, 0.07) 48%, rgba(248, 250, 252, 0.45) 76%);
+      border-color: rgba(91, 33, 182, 0.3);
     }
 
     html[data-theme="light"] .hero::after {
-      background: radial-gradient(circle at 50% 50%, rgba(248, 250, 252, 0.84) 0%, rgba(248, 250, 252, 0.72) 58%, #f8fafc 94%),
-                  linear-gradient(180deg, rgba(248, 250, 252, 0.6) 0%, rgba(248, 250, 252, 0.15) 24%, rgba(248, 250, 252, 0.25) 70%, #f8fafc 100%);
+      background:
+        radial-gradient(ellipse 46% 34% at 50% 47%, rgba(248, 250, 252, 0.82) 0%, rgba(248, 250, 252, 0.46) 62%, rgba(248, 250, 252, 0) 100%),
+        linear-gradient(180deg, rgba(248, 250, 252, 0.35) 0%, rgba(248, 250, 252, 0) 16%, rgba(248, 250, 252, 0) 76%, #f8fafc 100%);
     }
 
     html[data-theme="light"] h1.hero-title {
@@ -3045,9 +3047,15 @@
       background: radial-gradient(120% 100% at 50% 50%, rgba(91, 33, 182, 0.1) 0%, rgba(29, 78, 216, 0.06) 100%);
     }
 
-    html[data-theme="light"] .summary-card-cta {
+    html[data-theme="light"] .summary-card-cta:not(.btn-primary) {
       color: #0f172a;
       border-bottom-color: rgba(15, 23, 42, 0.28);
+    }
+
+    html[data-theme="light"] .summary-card-cta.btn-primary,
+    html[data-theme="light"] .summary-branch-card:hover .summary-card-cta.btn-primary {
+      color: #ffffff;
+      border-bottom: none;
     }
 
     html[data-theme="light"] .summary-branch-card:hover .summary-card-cta:not(.btn-primary) {
@@ -6023,6 +6031,10 @@
             window.__vvTrackEvent('theme_toggle', { theme: nextTheme });
           }
         }
+
+        try {
+          window.dispatchEvent(new CustomEvent('vv:theme-change', { detail: { theme: nextTheme } }));
+        } catch (err) {}
       }
 
       var initialTheme = document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark';

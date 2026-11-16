@@ -142,6 +142,7 @@ export function initHeroGlobe(): (() => void) | undefined {
     uniforms: {
       uRimColor: { value: new THREE.Color(0xa855f7) },
       uIntensity: { value: 1.55 },
+      uIsLight: { value: 0.0 },
     },
     vertexShader: `
       varying vec3 vNormalView;
@@ -156,23 +157,37 @@ export function initHeroGlobe(): (() => void) | undefined {
     fragmentShader: `
       uniform vec3 uRimColor;
       uniform float uIntensity;
+      uniform float uIsLight;
       varying vec3 vNormalView;
       varying vec3 vPosView;
       void main() {
         vec3 viewDir = normalize(-vPosView);
         float ndotv = max(0.0, dot(viewDir, vNormalView));
         float fresnel = pow(1.0 - ndotv, 3.2) * uIntensity;
-        // Deep obsidian globe core with subtle violet directional sheen + Fresnel edge glow
         float sheen = max(0.0, dot(vNormalView, normalize(vec3(0.55, 0.7, 0.6)))) * 0.08;
-        vec3 baseColor = vec3(0.02, 0.015, 0.055) + vec3(0.18, 0.10, 0.36) * sheen;
-        vec3 finalColor = baseColor + uRimColor * fresnel;
-        gl_FragColor = vec4(finalColor, 1.0);
+
+        // Dark mode: deep obsidian core + glowing violet Fresnel rim
+        vec3 darkBase = vec3(0.02, 0.015, 0.055) + vec3(0.18, 0.10, 0.36) * sheen;
+        vec3 darkColor = darkBase + uRimColor * fresnel;
+
+        // Light mode: crisp porcelain-ice globe with subtle studio depth & royal-violet rim
+        float studioLight = max(0.0, dot(vNormalView, normalize(vec3(-0.35, 0.65, 0.7))));
+        vec3 lightBody = mix(vec3(0.88, 0.90, 0.965), vec3(0.975, 0.98, 0.996), studioLight);
+        float lightRim = pow(1.0 - ndotv, 2.6) * (0.48 + (uIntensity - 1.3) * 0.25);
+        vec3 lightColor = mix(lightBody, vec3(0.42, 0.19, 0.82), clamp(lightRim, 0.0, 0.62));
+        float lightAlpha = mix(0.86, 0.96, pow(1.0 - ndotv, 1.6));
+
+        vec3 finalColor = mix(darkColor, lightColor, uIsLight);
+        float finalAlpha = mix(1.0, lightAlpha, uIsLight);
+        gl_FragColor = vec4(finalColor, finalAlpha);
       }
     `,
+    transparent: false,
   });
   materials.push(coreAtmosphereMat);
 
   const coreMesh = new THREE.Mesh(coreGeo, coreAtmosphereMat);
+  coreMesh.renderOrder = 2;
   globeGroup.add(coreMesh);
 
   // Subtle Outer Breathing Halo (1 lightweight BackSide sphere)
@@ -180,6 +195,9 @@ export function initHeroGlobe(): (() => void) | undefined {
   geometries.push(outerHaloGeo);
 
   const outerHaloMat = new THREE.ShaderMaterial({
+    uniforms: {
+      uIsLight: { value: 0.0 },
+    },
     vertexShader: `
       varying vec3 vNormalView;
       varying vec3 vPosView;
@@ -190,13 +208,16 @@ export function initHeroGlobe(): (() => void) | undefined {
       }
     `,
     fragmentShader: `
+      uniform float uIsLight;
       varying vec3 vNormalView;
       varying vec3 vPosView;
       void main() {
         vec3 viewDir = normalize(-vPosView);
         float fresnel = 1.0 - max(0.0, dot(viewDir, vNormalView));
         float factor = pow(fresnel, 5.2) * 0.85;
-        gl_FragColor = vec4(0.72, 0.45, 1.0, factor);
+        vec3 col = mix(vec3(0.72, 0.45, 1.0), vec3(0.43, 0.21, 0.85), uIsLight);
+        float alpha = mix(factor, factor * 0.26, uIsLight);
+        gl_FragColor = vec4(col, alpha);
       }
     `,
     transparent: true,
@@ -207,6 +228,7 @@ export function initHeroGlobe(): (() => void) | undefined {
   materials.push(outerHaloMat);
 
   const outerHaloMesh = new THREE.Mesh(outerHaloGeo, outerHaloMat);
+  outerHaloMesh.renderOrder = 1;
   globeGroup.add(outerHaloMesh);
 
   // 7. PART 2: Unified Landmass Dot-Matrix + Floating Surface Corona (1 Draw Call, Compact 256x128 Map)
@@ -365,6 +387,7 @@ export function initHeroGlobe(): (() => void) | undefined {
     uniforms: {
       uTexture: { value: particleTex },
       uTime: { value: 0.0 },
+      uIsLight: { value: 0.0 },
     },
     vertexShader: `
       attribute float aPhase;
@@ -388,14 +411,21 @@ export function initHeroGlobe(): (() => void) | undefined {
     `,
     fragmentShader: `
       uniform sampler2D uTexture;
+      uniform float uIsLight;
       varying vec3 vColor;
       varying float vAlpha;
 
       void main() {
         vec4 tex = texture2D(uTexture, gl_PointCoord);
         if (tex.a < 0.05) discard;
-        vec3 glowColor = vColor + vec3(0.24, 0.17, 0.36) * (vAlpha * 0.65);
-        gl_FragColor = vec4(glowColor, vAlpha * tex.a);
+        vec3 darkGlow = vColor + vec3(0.24, 0.17, 0.36) * (vAlpha * 0.65);
+
+        // Light mode: crisp high-contrast royal violet & cobalt blue continent dots
+        float blueBias = clamp((vColor.b - vColor.r) * 1.8, 0.0, 1.0);
+        vec3 lightDot = mix(vec3(0.32, 0.13, 0.68), vec3(0.04, 0.42, 0.85), blueBias);
+        vec3 finalCol = mix(darkGlow, lightDot, uIsLight);
+        float finalAlpha = mix(vAlpha * tex.a, (0.62 + 0.34 * vAlpha) * smoothstep(0.05, 0.52, tex.a), uIsLight);
+        gl_FragColor = vec4(finalCol, finalAlpha);
       }
     `,
     transparent: true,
@@ -407,9 +437,11 @@ export function initHeroGlobe(): (() => void) | undefined {
 
   const dotGeo = generateUnifiedGlobeDots();
   const dotPoints = new THREE.Points(dotGeo, shimmerDotMat);
+  dotPoints.renderOrder = 4;
   globeGroup.add(dotPoints);
 
   // 8. PART 3: Merged Geodesic Wireframe Lattice (17 separate Lines -> 1 Single LineSegments Draw Call)
+  let latticeMat!: THREE.LineBasicMaterial;
   function createMergedLattice(): THREE.LineSegments {
     const segPts: number[] = [];
     const latAngles = [-50, -25, 0, 25, 50];
@@ -456,7 +488,7 @@ export function initHeroGlobe(): (() => void) | undefined {
     latticeGeo.setAttribute('position', new THREE.Float32BufferAttribute(segPts, 3));
     geometries.push(latticeGeo);
 
-    const latticeMat = new THREE.LineBasicMaterial({
+    latticeMat = new THREE.LineBasicMaterial({
       color: 0x7c3aed,
       transparent: true,
       opacity: 0.22,
@@ -465,7 +497,9 @@ export function initHeroGlobe(): (() => void) | undefined {
     });
     materials.push(latticeMat);
 
-    return new THREE.LineSegments(latticeGeo, latticeMat);
+    const latticeSegs = new THREE.LineSegments(latticeGeo, latticeMat);
+    latticeSegs.renderOrder = 3;
+    return latticeSegs;
   }
   globeGroup.add(createMergedLattice());
 
@@ -488,6 +522,7 @@ export function initHeroGlobe(): (() => void) | undefined {
   materials.push(orbitMat);
 
   const orbitLine = new THREE.Line(orbitGeo, orbitMat);
+  orbitLine.renderOrder = 7;
   orbitLine.rotation.x = THREE.MathUtils.degToRad(35);
   orbitLine.rotation.y = THREE.MathUtils.degToRad(-15);
   masterGroup.add(orbitLine);
@@ -509,6 +544,7 @@ export function initHeroGlobe(): (() => void) | undefined {
   materials.push(packetMat);
 
   const packetPoints = new THREE.Points(packetGeo, packetMat);
+  packetPoints.renderOrder = 8;
   orbitLine.add(packetPoints);
 
   // 10. PART 5: Composite 4-Part Communications Satellite (Lightweight Lambert Shading)
@@ -556,6 +592,7 @@ export function initHeroGlobe(): (() => void) | undefined {
   materials.push(pulseRingMat);
 
   const pulseRing = new THREE.Mesh(pulseRingGeo, pulseRingMat);
+  pulseRing.renderOrder = 6;
   pulseRing.position.copy(jakartaPos).multiplyScalar(1.008);
   const _unitZ = new THREE.Vector3(0, 0, 1);
   const _jakartaDir = jakartaPos.clone().normalize();
@@ -634,6 +671,7 @@ export function initHeroGlobe(): (() => void) | undefined {
   materials.push(arcShaderMat);
 
   const networkArcs = new THREE.LineSegments(mergedArcGeo, arcShaderMat);
+  networkArcs.renderOrder = 5;
   globeGroup.add(networkArcs);
 
   // 12. PART 7: Ambient Deep-Space Starfield
@@ -679,12 +717,112 @@ export function initHeroGlobe(): (() => void) | undefined {
   materials.push(starMat);
 
   const stars = new THREE.Points(starGeo, starMat);
+  stars.renderOrder = 0;
   scene.add(stars);
 
   // Pre-warm shaders on hardware GPUs so first frame has zero hitch
   if (!isSoftwareGl) {
     renderer.compile(scene, camera);
   }
+
+  let isLightMode = false;
+  function applyGlobeTheme(isLight: boolean) {
+    isLightMode = isLight;
+    const targetBlending = isLight ? THREE.NormalBlending : THREE.AdditiveBlending;
+
+    coreAtmosphereMat.uniforms.uIsLight.value = isLight ? 1.0 : 0.0;
+    coreAtmosphereMat.uniforms.uRimColor.value.setHex(isLight ? 0x5b21b6 : 0xa855f7);
+    if (coreAtmosphereMat.transparent !== isLight) {
+      coreAtmosphereMat.transparent = isLight;
+      coreAtmosphereMat.needsUpdate = true;
+    }
+
+    outerHaloMat.uniforms.uIsLight.value = isLight ? 1.0 : 0.0;
+    if (outerHaloMat.blending !== targetBlending) {
+      outerHaloMat.blending = targetBlending;
+      outerHaloMat.needsUpdate = true;
+    }
+
+    shimmerDotMat.uniforms.uIsLight.value = isLight ? 1.0 : 0.0;
+    if (shimmerDotMat.blending !== targetBlending) {
+      shimmerDotMat.blending = targetBlending;
+      shimmerDotMat.needsUpdate = true;
+    }
+
+    latticeMat.color.setHex(isLight ? 0x6d28d9 : 0x7c3aed);
+    latticeMat.opacity = isLight ? 0.16 : 0.22;
+    if (latticeMat.blending !== targetBlending) {
+      latticeMat.blending = targetBlending;
+      latticeMat.needsUpdate = true;
+    }
+
+    orbitMat.color.setHex(isLight ? 0x5b21b6 : 0x9333ea);
+    orbitMat.opacity = isLight ? 0.28 : 0.35;
+    if (orbitMat.blending !== targetBlending) {
+      orbitMat.blending = targetBlending;
+      orbitMat.needsUpdate = true;
+    }
+
+    packetMat.color.setHex(isLight ? 0x1d4ed8 : 0x38bdf8);
+    if (packetMat.blending !== targetBlending) {
+      packetMat.blending = targetBlending;
+      packetMat.needsUpdate = true;
+    }
+
+    satBodyMat.color.setHex(isLight ? 0x334155 : 0xe2e8f0);
+    satPanelMat.color.setHex(isLight ? 0x1d4ed8 : 0x2563eb);
+    satBeaconMat.color.setHex(isLight ? 0x0284c7 : 0x38bdf8);
+
+    pulseRingMat.color.setHex(isLight ? 0x0284c7 : 0x38bdf8);
+    if (pulseRingMat.blending !== targetBlending) {
+      pulseRingMat.blending = targetBlending;
+      pulseRingMat.needsUpdate = true;
+    }
+
+    arcShaderMat.uniforms.uBaseColor.value.setHex(isLight ? 0x4f46e5 : 0x60a5fa);
+    arcShaderMat.uniforms.uPulseColor.value.setHex(isLight ? 0x0284c7 : 0x38bdf8);
+    if (arcShaderMat.blending !== targetBlending) {
+      arcShaderMat.blending = targetBlending;
+      arcShaderMat.needsUpdate = true;
+    }
+
+    starMat.opacity = isLight ? 0.16 : 0.7;
+    if (starMat.blending !== targetBlending) {
+      starMat.blending = targetBlending;
+      starMat.needsUpdate = true;
+    }
+    starMat.color.setHex(isLight ? 0x64748b : 0xffffff);
+
+    renderer.toneMappingExposure = isLight ? 1.0 : 1.15;
+
+    if (!isRunning || reducedMotion) {
+      renderFrame(performance.now(), 0);
+    }
+  }
+
+  function syncThemeFromDom() {
+    applyGlobeTheme(document.documentElement.getAttribute('data-theme') === 'light');
+  }
+  syncThemeFromDom();
+
+  const onThemeEvent = (e: Event) => {
+    const theme = (e as CustomEvent<{ theme?: string }>).detail?.theme;
+    if (theme === 'light' || theme === 'dark') {
+      applyGlobeTheme(theme === 'light');
+    } else {
+      syncThemeFromDom();
+    }
+  };
+  window.addEventListener('vv:theme-change', onThemeEvent);
+
+  const themeObserver =
+    typeof MutationObserver !== 'undefined'
+      ? new MutationObserver(() => syncThemeFromDom())
+      : null;
+  themeObserver?.observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ['data-theme'],
+  });
 
   // 13. Smooth Damped Mouse Parallax
   let targetTiltX = 0;
@@ -800,7 +938,9 @@ export function initHeroGlobe(): (() => void) | undefined {
 
     const pulseScale = 1 + Math.sin(now * 0.004) * 0.35;
     pulseRing.scale.set(pulseScale, pulseScale, 1);
-    pulseRingMat.opacity = 0.5 + Math.cos(now * 0.004) * 0.4;
+    pulseRingMat.opacity = isLightMode
+      ? 0.45 + Math.cos(now * 0.004) * 0.35
+      : 0.5 + Math.cos(now * 0.004) * 0.4;
 
     coreAtmosphereMat.uniforms.uIntensity.value = 1.48 + Math.sin(now * 0.002) * 0.22;
     shimmerDotMat.uniforms.uTime.value = now * 0.0018;
@@ -865,6 +1005,8 @@ export function initHeroGlobe(): (() => void) | undefined {
     clearTimeout(frameId);
     heroObserver?.disconnect();
     resizeObserver?.disconnect();
+    themeObserver?.disconnect();
+    window.removeEventListener('vv:theme-change', onThemeEvent);
     window.removeEventListener('resize', updateSize);
     window.removeEventListener('mousemove', onPointerMove);
     window.removeEventListener('touchmove', onPointerMove);
