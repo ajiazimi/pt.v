@@ -3231,7 +3231,7 @@
   <header>
     <div class="w nav-inner">
       <a href="#home" class="brand-logo" aria-label="PT. Vier Virya Ventures">
-        <img src="./assets/logo.png" alt="PT. Vier Virya Ventures Logo" class="brand-img" width="53" height="44" onerror="if(!this.dataset.tried){this.dataset.tried='1'; this.src='./assets/logo.webp';} else if(this.dataset.tried==='1'){this.dataset.tried='2'; this.src='./public/assets/logo.png';}">
+        <img src="./assets/logo.png" alt="PT. Vier Virya Ventures Logo" class="brand-img" width="53" height="44">
         <div class="brand-wordmark">
           <span class="brand-name-main">Vier Virya</span>
           <span class="brand-name-sub">VENTURES</span>
@@ -4561,7 +4561,7 @@
       <div class="footer-grid">
         <div class="footer-col">
           <a href="#home" class="brand-logo" style="margin-bottom: 14px;" aria-label="PT. Vier Virya Ventures">
-            <img src="./assets/logo.png" alt="PT. Vier Virya Ventures Logo" class="brand-img" style="height: 40px;" width="48" height="40" onerror="if(!this.dataset.tried){this.dataset.tried='1'; this.src='./assets/logo.webp';} else if(this.dataset.tried==='1'){this.dataset.tried='2'; this.src='./public/assets/logo.png';}">
+            <img src="./assets/logo.png" alt="PT. Vier Virya Ventures Logo" class="brand-img" style="height: 40px;" width="48" height="40">
             <div class="brand-wordmark">
               <span class="brand-name-main">Vier Virya</span>
               <span class="brand-name-sub">VENTURES</span>
@@ -4655,6 +4655,21 @@
 
   <!-- JAVASCRIPT LOGIC -->
   <script>
+    // 0. CSP-safe Brand Logo Fallback
+    (function() {
+      document.querySelectorAll('.brand-img').forEach(function(img) {
+        img.addEventListener('error', function() {
+          if (!img.dataset.tried) {
+            img.dataset.tried = '1';
+            img.src = './assets/logo.webp';
+          } else if (img.dataset.tried === '1') {
+            img.dataset.tried = '2';
+            img.src = './public/assets/logo.png';
+          }
+        });
+      });
+    })();
+
     // 1. Mobile Slide-In Navigation Drawer with Backdrop & Close Button
     (function() {
       var burger = document.getElementById('burgerBtn');
